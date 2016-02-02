@@ -13,7 +13,7 @@
 	<category label="General">
 		<setting id="enable_tvguide" type="bool" label="Enable TV Guide" default="true" />
 		<setting id="enable_channel_test" type="bool" label="Enable Channel Test" default="true" /> 
-		<setting id="enable_public_uploads" type="bool" label="Enable cCloud TV - Public Uploads" default="true" />        
+		<setting id="enable_public_uploads" type="bool" label="Enable cCloud TV - Public Uploads (Win/Mac PC)" default="true" />        
 	</category>    
 	<category label="Adult">
 		<setting id="enable_adult_section" type="bool" label="Enable Adult Section (by enabling, you confirm you are 18+)" default="false" />
