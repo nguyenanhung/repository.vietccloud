@@ -2,11 +2,11 @@
 
 import xbmc, xbmcaddon, os 
 
-mysettings = xbmcaddon.Addon(id = 'plugin.video.ccloudtv')
+mysettings = xbmcaddon.Addon(id = 'plugin.video.ccloud.tv')
 local_choice = mysettings.getSetting('local_choice')
 online_choice = mysettings.getSetting('online_choice')
 
-xmlfile = xbmc.translatePath("special://home/userdata/addon_data/plugin.video.ccloudtv/settings.xml")
+xmlfile = xbmc.translatePath("special://home/userdata/addon_data/plugin.video.ccloud.tv/settings.xml")
 
 def delete_local_path():
 	with open(xmlfile, 'r') as f:
