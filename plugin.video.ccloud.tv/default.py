@@ -109,10 +109,13 @@ def main():
 	if platform() == 'windows' or platform() == 'osx':
 		if enable_public_uploads == 'true':
 			addDir('[COLOR brown][B]cCloud TV - Public Uploads[/B][/COLOR]', 'ChromeLauncher', None, '%s/ChromeLauncher.png'% iconpath, fanart)
+	addDir('[COLOR brown][B]Kodi Viet[/B][/COLOR]', 'https://www.youtube.com/channel/UCcuszmClmU_j7vc9NbYA6Tw', None, '%s/kodiviet.png'% iconpath, fanart)
+	if viet_mode == 'group':           
+		addDir('[COLOR royalblue][B]Vietnam[/B][/COLOR]', 'vietnam_group', 30, '%s/vietnam.png'% iconpath, fanart)
 	if viet_mode == 'abc order':           
-		addDir('[COLOR royalblue][B]Vietnam[/B][/COLOR]', 'vietnam_abc_order', 48, '%s/vietnam.png'% iconpath, fanart)            
+		addDir('[COLOR royalblue][B]Vietnam[/B][/COLOR]', 'vietnam_abc_order', 48, '%s/vietnam.png'% iconpath, fanart)
 	if viet_mode == 'category': 
-		addDir('[COLOR royalblue][B]Vietnam[/B][/COLOR]', 'vietnam_category', 70, '%s/vietnam.png'% iconpath, fanart)      
+		addDir('[COLOR royalblue][B]Vietnam[/B][/COLOR]', 'vietnam_category', 70, '%s/vietnam.png'% iconpath, fanart)
 	addDir('[COLOR royalblue][B]Top 10[/B][/COLOR]', 'top10', 51, '%s/top10.png'% iconpath, fanart)
 	addDir('[COLOR royalblue][B]Sports[/B][/COLOR]', 'sports', 52, '%s/sports.png'% iconpath, fanart)
 	addDir('[COLOR royalblue][B]News[/B][/COLOR]', 'news', 53, '%s/news.png'% iconpath, fanart)
@@ -160,6 +163,37 @@ def vietnam_abc_order():
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
 						pass 
 					else:
+						m3u_playlist(name, url, thumb)
+		content = make_request(kodiviet)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				addLink(name, url, 1, thumb, thumb)
+			else:      
+				addLink(name, url, 1, icon, fanart)
+	except:
+		pass
+
+def vietnam_group():
+	addDir('Movies', 'vietnam_group', 77, '%s/group.png'% iconpath, fanart)
+	addDir('Music', 'vietnam_group', 75, '%s/group.png'% iconpath, fanart)
+	addDir('Radio', 'vietnam_group', 79, '%s/group.png'% iconpath, fanart)
+	addDir('Sports', 'vietnam_group', 82, '%s/group.png'% iconpath, fanart)
+	addDir('Tutorials', 'vietnam_group', 83, '%s/group.png'% iconpath, fanart)
+	addDir('TV', 'vietnam_group', 31, '%s/group.png'% iconpath, fanart)
+
+def viet_tv_group():
+	try:
+		searchText = '\(VN\)|(Vietnamese)'  
+		if len(List) > 0:
+			content = make_request(List)
+			match = re.compile(m3u_regex).findall(content)
+			for thumb, name, url in sorted(match, key = itemgetter(1)):           
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name) or ('OnDemandMovies' in name) or ('OnDemandShows' in name) or ('Music' in name) or ('Sports' in name):
+						pass 
+					else:                   
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
@@ -371,6 +405,14 @@ def viet_Tutorials():
 						pass 
 					if 'Tutorials' in name:                   
 						m3u_playlist(name, url, thumb)
+		content = make_request(kodiviet)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				addLink(name, url, 1, thumb, thumb)
+			else:      
+				addLink(name, url, 1, icon, fanart)
 	except:
 		pass
 
@@ -974,6 +1016,7 @@ def get_params():
 
 List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64') .decode('base64')
 #List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64') .decode('base64')
+kodiviet = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwydHZaR2wyYVdWMExtMHpkUT09'.decode('base64') .decode('base64')
 def addDir(name, url, mode, iconimage, fanart):
 	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
 	ok = True
@@ -1034,6 +1077,12 @@ elif mode == 2:
 
 elif mode == 3:
 	text_online()
+
+elif mode == 30:
+	vietnam_group()
+
+elif mode == 31:
+	viet_tv_group()
 
 elif mode == 40:
 	channel_test()
