@@ -191,7 +191,7 @@ def viet_tv_group():
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):           
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
-					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name) or ('OnDemandMovies' in name) or ('OnDemandShows' in name) or ('Music' in name) or ('Sports' in name):
+					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name) or ('OnDemandMovies' in name) or ('Music' in name) or ('Radio' in name) or ('Sports' in name) or ('Tutorials' in name):
 						pass 
 					else:                   
 						m3u_playlist(name, url, thumb)

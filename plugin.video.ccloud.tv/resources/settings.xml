@@ -11,7 +11,7 @@
 		<setting id="enable_online_test" type="bool" label="[B]Enable Online M3U Playlist Test[/B]" default="true" />    
 	</category>        
 	<category label="General">
-		<setting id="viet_mode" type="select" label="Select Vietnam Section Mode" values="abc order|category|group" default="abc order" />    
+		<setting id="viet_mode" type="select" label="Select Vietnam Section Mode" values="group|abc order|category" default="group" />    
 		<setting id="enable_tvguide" type="bool" label="Enable TV Guide" default="true" />
 		<setting id="enable_channel_test" type="bool" label="Enable Channel Test" default="true" /> 
 		<setting id="enable_public_uploads" type="bool" label="Enable cCloud TV - Public Uploads (Win/Mac PC)" default="true" />        
