@@ -1,0 +1,49 @@
+#EXTM3U
+
+#EXTINF:0 tvg-name="Kodi Viet - YouTube" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Kodi Viet - YouTube" tvg-logo="https://yt3.ggpht.com/-Y4hzMs0ItTw/AAAAAAAAAAI/AAAAAAAAAAA/OquSyoI-Y2s/s100-c-k-no/photo.jpg" group-title="Tutorials",[COLOR red][B]Kodi Viet - YouTube[/B][/COLOR] 
+http://www.youtube.com
+#EXTINF:0 tvg-name="Add file source to install kodi add-ons easier" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Add file source to install kodi add-ons easier" tvg-logo="https://i.ytimg.com/vi/AJz3AbTZ8Ck/maxresdefault.jpg" group-title="Tutorials",Add file source to install kodi add-ons easier
+plugin://plugin.video.youtube/play/?video_id=AJz3AbTZ8Ck
+#EXTINF:0 tvg-name="Vietmedia Play addons" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Vietmedia Play addons" tvg-logo="https://i.ytimg.com/vi/dYM22nGsZCs/hqdefault.jpg" group-title="Tutorials",Vietmedia Play addons
+plugin://plugin.video.youtube/play/?video_id=dYM22nGsZCs
+#EXTINF:0 tvg-name="kodi how to install addon cCloud for kodi for live iptv" tvg-language="Vietnamese" tvg-country="VN" tvg-id="kodi how to install addon cCloud for kodi for live iptv" tvg-logo="https://i.ytimg.com/vi/1-rkLgg3VUY/maxresdefault.jpg" group-title="Tutorials",kodi how to install addon cCloud for kodi for live iptv
+plugin://plugin.video.youtube/play/?video_id=1-rkLgg3VUY
+#EXTINF:0 tvg-name="Hướng dẫn upload kênh tv lên cCloud" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Hướng dẫn upload kênh tv lên cCloud" tvg-logo="https://i.ytimg.com/vi/-Z0Kq5NDNUo/maxresdefault.jpg" group-title="Tutorials",Hướng dẫn upload kênh tv lên cCloud
+plugin://plugin.video.youtube/play/?video_id=-Z0Kq5NDNUo
+#EXTINF:0 tvg-name="Hướng dẫn cài đặt Live IPTV trên KODI" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Hướng dẫn cài đặt Live IPTV trên KODI" tvg-logo="https://i.ytimg.com/vi/BAftURCKz7A/maxresdefault.jpg" group-title="Tutorials",Hướng dẫn cài đặt Live IPTV trên KODI
+plugin://plugin.video.youtube/play/?video_id=BAftURCKz7A&list=PLCFeyxaD_7E3LLqjhIwkboAePgDT--8YF
+#EXTINF:0 tvg-name="Hướng dẫn cách thiết lập giao diện NETFLIX trong KODI" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Hướng dẫn cách thiết lập giao diện NETFLIX trong KODI" tvg-logo="https://i.ytimg.com/vi/GkdaLXwbGyg/maxresdefault.jpg" group-title="Tutorials",Hướng dẫn cách thiết lập giao diện NETFLIX trong KODI
+plugin://plugin.video.youtube/play/?video_id=GkdaLXwbGyg
+#EXTINF:0 tvg-name="Giao diện Netflix trên KODI" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Giao diện Netflix trên KODI" tvg-logo="https://i.ytimg.com/vi/zUmmBj6VDGs/maxresdefault.jpg" group-title="Tutorials",Giao diện Netflix trên KODI
+plugin://plugin.video.youtube/play/?video_id=zUmmBj6VDGs
+#EXTINF:0 tvg-name="Hướng dẫn cài đặt và sử dụng Add-ons Super Favourite cho KODI" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Hướng dẫn cài đặt và sử dụng Add-ons Super Favourite cho KODI" tvg-logo="https://i.ytimg.com/vi/3HaWdCtPbn4/maxresdefault.jpg" group-title="Tutorials",Hướng dẫn cài đặt và sử dụng Add-ons Super Favourite cho KODI
+plugin://plugin.video.youtube/play/?video_id=3HaWdCtPbn4
+#EXTINF:0 tvg-name="Tutorial How to backup and restore KODI's data" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Tutorial How to backup and restore KODI's data" tvg-logo="https://i.ytimg.com/vi/byW27GymLxQ/hqdefault.jpg" group-title="Tutorials",Tutorial How to backup and restore KODI's data
+plugin://plugin.video.youtube/play/?video_id=byW27GymLxQ
+#EXTINF:0 tvg-name="Hướng dẫn KODI tự động chuyển bài tiếp theo" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Hướng dẫn KODI tự động chuyển bài tiếp theo" tvg-logo="https://i.ytimg.com/vi/B5sMdNdBVNg/hqdefault.jpg" group-title="Tutorials",Hướng dẫn KODI tự động chuyển bài tiếp theo
+plugin://plugin.video.youtube/play/?video_id=B5sMdNdBVNg
+#EXTINF:0 tvg-name="HOW TO INSTALL THE PCLOUD VIDEO STREAMING ADDON FOR KODI" tvg-language="Vietnamese" tvg-country="VN" tvg-id="HOW TO INSTALL THE PCLOUD VIDEO STREAMING ADDON FOR KODI" tvg-logo="https://i.ytimg.com/vi/tOmTRR88EiQ/maxresdefault.jpg" group-title="Tutorials",HOW TO INSTALL THE PCLOUD VIDEO STREAMING ADDON FOR KODI
+plugin://plugin.video.youtube/play/?video_id=tOmTRR88EiQ
+#EXTINF:0 tvg-name="Tutorial how to install rss feed for kodi" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Tutorial how to install rss feed for kodi" tvg-logo="https://i.ytimg.com/vi/wq2t_DVTxyc/hqdefault.jpg" group-title="Tutorials"Tutorial how to install rss feed for kodi,
+plugin://plugin.video.youtube/play/?video_id=wq2t_DVTxyc
+#EXTINF:0 tvg-name="Tutorial how to install kodi on PC desktop" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Tutorial how to install kodi on PC desktop" tvg-logo="https://i.ytimg.com/vi/XBrYxF1h7ws/hqdefault.jpg" group-title="Tutorials",Tutorial how to install kodi on PC desktop
+plugin://plugin.video.youtube/play/?video_id=XBrYxF1h7ws
+#EXTINF:0 tvg-name="How to install addon Castaway for kodi" tvg-language="Vietnamese" tvg-country="VN" tvg-id="How to install addon Castaway for kodi" tvg-logo="https://i.ytimg.com/vi/sYuGFh1TeRw/maxresdefault.jpg" group-title="Tutorials",How to install addon Castaway for kodi to watch live stream sport, tv, film on demand
+plugin://plugin.video.youtube/play/?video_id=sYuGFh1TeRw
+#EXTINF:0 tvg-name="KODI - Audio and Subtitle Lists Feature of Kodi" tvg-language="Vietnamese" tvg-country="VN" tvg-id="KODI - Audio and Subtitle Lists Feature of Kodi" tvg-logo="https://i.ytimg.com/vi/8FGidAj017g/hqdefault.jpg" group-title="Tutorials",KODI - Audio and Subtitle Lists Feature of Kodi
+plugin://plugin.video.youtube/play/?video_id=8FGidAj017g
+#EXTINF:0 tvg-name="Kích hoạt giao diện điều khiển web/ Active KODI Web interface" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Kích hoạt giao diện điều khiển web/ Active KODI Web interface" tvg-logo="https://i.ytimg.com/vi/nNPhePGp4p0/maxresdefault.jpg" group-title="Tutorials",Kích hoạt giao diện điều khiển web/ Active KODI Web interface
+plugin://plugin.video.youtube/play/?video_id=nNPhePGp4p0
+#EXTINF:0 tvg-name="Cài đặt KODI trên hệ thống iOS/ How to install kodi on ios" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Cài đặt KODI trên hệ thống iOS/ How to install kodi on ios" tvg-logo="https://i.ytimg.com/vi/HvsLQvrR5dc/maxresdefault.jpg" group-title="Tutorials",Cài đặt KODI trên hệ thống iOS/ How to install kodi on ios
+plugin://plugin.video.youtube/play/?video_id=HvsLQvrR5dc
+#EXTINF:0 tvg-name="Hướng dẫn sử dụng Airplay trong KODI/ How to active Airplay in KODI" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Hướng dẫn sử dụng Airplay trong KODI/ How to active Airplay in KODI" tvg-logo="https://i.ytimg.com/vi/MpmcNXqG-A4/maxresdefault.jpg" group-title="Tutorials",Hướng dẫn sử dụng Airplay trong KODI/ How to active Airplay in KODI
+plugin://plugin.video.youtube/play/?video_id=MpmcNXqG-A4
+#EXTINF:0 tvg-name="Hướng dẫn cài đặt Live IPTV trên KODI" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Hướng dẫn cài đặt Live IPTV trên KODI" tvg-logo="https://i.ytimg.com/vi/BAftURCKz7A/maxresdefault.jpg" group-title="Tutorials",Hướng dẫn cài đặt Live IPTV trên KODI
+plugin://plugin.video.youtube/play/?video_id=BAftURCKz7A
+#EXTINF:0 tvg-name="Hướng dẫn cài đặt Addon VIETMEDIA PLAY/ How to install Kodi Addon Vietmedia Play" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Hướng dẫn cài đặt Addon VIETMEDIA PLAY/ How to install Kodi Addon Vietmedia Play" tvg-logo="https://i.ytimg.com/vi/mvazmQNeeCQ/maxresdefault.jpg" group-title="Tutorials",Hướng dẫn cài đặt Addon VIETMEDIA PLAY/ How to install Kodi Addon Vietmedia Play
+plugin://plugin.video.youtube/play/?video_id=mvazmQNeeCQ
+#EXTINF:0 tvg-name="Eminence Skin for KODI/ Giao diện Eminence cho KODI" tvg-language="Vietnamese" tvg-country="VN" tvg-id="Eminence Skin for KODI/ Giao diện Eminence cho KODI" tvg-logo="https://i.ytimg.com/vi/kcrUvKsbAig/hqdefault.jpg" group-title="Tutorials",Eminence Skin for KODI/ Giao diện Eminence cho KODI
+plugin://plugin.video.youtube/play/?video_id=kcrUvKsbAig
+
+
+
