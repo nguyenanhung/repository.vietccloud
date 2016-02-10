@@ -1,5 +1,7 @@
 ﻿<START>
-[COLOR magenta]Đây là bản đã được sửa đổi và thêm vào các mục để người Việt dùng tiện hơn. Tất cả công trạng đều thuộc về tác giả đã tạo ra bản gốc.[/COLOR]
+[COLOR magenta]Đây là bản đã được sửa đổi và thêm vào các mục để người Việt dùng tiện hơn.[/COLOR]
+[COLOR red]Tất cả công trạng đều thuộc về tác giả đã tạo ra bản gốc.[/COLOR]
+
 - Muốn dùng cCloud TV Guide, cần phải gài Renegades TV Guide
 [COLOR blue]https://www.dropbox.com/s/8nkz5cu7gagyy7c/script.renegadestv-1.0.5.zip?dl=1&h=bAQG_XWfH[/COLOR]
 Hướng dẫn Regenades TV Guide
@@ -9,5 +11,6 @@ https://www.youtube.com/watch?v=IWiWJSb_VxE&h=zAQGH_gdr[/COLOR]
 - Muốn xem mục Kodi Viet - YouTube và các hướng dẫn, cần gài YouTube add-on
 - Kodi Viet - Youtube Playlist được tự động update, nhưng bị giới hạn bởi daily limit nên mỗi ngày chỉ xem được trong 1 thời gian ấn định.
 - Kodi Viet - M3U Playlist xem được 24/7.
+
 Chúc quí vị xem vui vẻ.
 <END>
