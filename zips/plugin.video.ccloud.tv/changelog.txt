@@ -1,3 +1,6 @@
+[b]1.4.5[/b]
+- Added Kodi Viet - M3U Playlist section
+- Added Thong Bao Moi
 [b]1.4.4[/b]
 - Added Kodi Viet - Youtube section
 - Added Group and Kodi Viet's Tutorials to Vietnam section

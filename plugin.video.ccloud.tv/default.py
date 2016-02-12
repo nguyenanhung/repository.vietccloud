@@ -36,6 +36,7 @@ enable_online_test = mysettings.getSetting('enable_online_test')
 online_path = mysettings.getSetting('online_path')
 viet_mode = mysettings.getSetting('viet_mode')
 
+local_thongbaomoi = xbmc.translatePath(os.path.join(home, 'thongbaomoi.txt'))
 fanart = xbmc.translatePath(os.path.join(home, 'fanart.jpg'))
 iconpath = xbmc.translatePath(os.path.join(home, 'resources/icons'))
 icon = xbmc.translatePath(os.path.join(home, 'icon.png'))
@@ -50,6 +51,7 @@ ondemand_regex = '[ON\'](.*?)[\'nd]'
 yt = 'http://www.youtube.com'
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
 text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
+
 
 def read_file(file):
 	try:
@@ -92,6 +94,7 @@ def platform():
 
 def main():
 	addDir('[COLOR royalblue][B]***Latest Announcements***[/B][/COLOR]', yt, 3, '%s/announcements.png'% iconpath, fanart)
+	addDir('[COLOR royalblue][B]***Thông Báo Mới***[/B][/COLOR]', yt, 4, '%s/thongbaomoi.png'% iconpath, fanart)
 	addDir('[COLOR red][B]Search[/B][/COLOR]', 'searchlink', 99, '%s/search.png'% iconpath, fanart)
 	if len(List) > 0:
 		addDir('[COLOR yellow][B]All Channels[/B][/COLOR]', yt, 2, '%s/allchannels.png'% iconpath, fanart)
@@ -109,7 +112,8 @@ def main():
 	if platform() == 'windows' or platform() == 'osx':
 		if enable_public_uploads == 'true':
 			addDir('[COLOR brown][B]cCloud TV - Public Uploads[/B][/COLOR]', 'ChromeLauncher', None, '%s/ChromeLauncher.png'% iconpath, fanart)
-	addDir('[COLOR brown][B]Kodi Viet[/B][/COLOR]', 'https://www.youtube.com/channel/UCcuszmClmU_j7vc9NbYA6Tw', None, '%s/kodiviet.png'% iconpath, fanart)
+	addDir('[COLOR orange][B]Kodi Viet - YouTube - Daily Limit[/B][/COLOR]', 'https://www.youtube.com/channel/UCcuszmClmU_j7vc9NbYA6Tw', None, '%s/kodiviet.png'% iconpath, fanart)
+	addDir('[COLOR orange][B]Kodi Viet - M3U Playlist - 24/7[/B][/COLOR]', kodivietlist, 20, '%s/kodivietlist.png'% iconpath, fanart)
 	if viet_mode == 'group':           
 		addDir('[COLOR royalblue][B]Vietnam[/B][/COLOR]', 'vietnam_group', 30, '%s/vietnam.png'% iconpath, fanart)
 	if viet_mode == 'abc order':           
@@ -151,6 +155,16 @@ def search():
 					m3u_playlist(name, url, thumb)
 	except:
 		pass
+
+def kodiviet_list(url):
+	content = make_request(url)
+	match = re.compile(m3u_regex).findall(content)
+	for thumb, name, url in match:
+		if 'tvg-logo' in thumb:
+			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+			addLink(name, url, 1, thumb, thumb)
+		else:      
+			addLink(name, url, 1, icon, fanart)
 
 def vietnam_abc_order(): 
 	try:
@@ -841,6 +855,25 @@ def international():
 		except:
 			pass
 
+def thongbao():
+	try:
+		text = '[COLOR royalblue][B]***Thông Báo Mới***[/B][/COLOR]'
+		if urllib.urlopen(thongbaomoi).getcode() == 200:
+			link = make_request(thongbaomoi)
+		else:
+			link = read_file(local_thongbaomoi)
+		match=re.compile("<START>(.+?)<END>",re.DOTALL).findall(link)
+		for status in match:
+			try:
+					status = status.decode('ascii')
+			except:
+					status = status.decode('utf-8')
+			status = status.replace('&amp;','')
+			text = status
+		showText('[COLOR royalblue][B]***Thông Báo Mới***[/B][/COLOR]', text)
+	except:
+		pass
+
 def text_online():
 	text = '[COLOR royalblue][B]***Latest Announcements***[/B][/COLOR]'
 	newstext = 'http://pastebin.com/raw.php?i=7K3zDiZ2'
@@ -931,7 +964,7 @@ def m3u_online():
 	match = re.compile(m3u_regex).findall(content)
 	for thumb, name, url in match[0:1]:                    
 		try:
-			m3u_playlist(name, url, thumb)
+			m3u_playlist('[COLOR yellow][B]' + name + '[/B][/COLOR]', url, thumb)
 		except:
 			pass     
 	for thumb, name, url in sorted(match, key = itemgetter(1)):                    
@@ -1014,9 +1047,10 @@ def get_params():
 				param[splitparams[0]] = splitparams[1]
 	return param
 
-List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64') .decode('base64')
-#List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64') .decode('base64')
-kodiviet = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwydHZaR2wyYVdWMExtMHpkUT09'.decode('base64') .decode('base64')
+List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
+kodiviet = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwydHZaR2wyYVdWMExtMHpkUT09'.decode('base64').decode('base64')
+kodivietlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwydHZaR2wyYVdWMGJHbHpkQzV0TTNVPQ=='.decode('base64').decode('base64')
+thongbaomoi = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzUm9iMjVuWW1GdmJXOXBMblI0ZEE9PQ=='.decode('base64').decode('base64')
 def addDir(name, url, mode, iconimage, fanart):
 	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
 	ok = True
@@ -1077,6 +1111,12 @@ elif mode == 2:
 
 elif mode == 3:
 	text_online()
+
+elif mode == 4:
+	thongbao()
+    
+elif mode == 20:
+	kodiviet_list(url)
 
 elif mode == 30:
 	vietnam_group()
