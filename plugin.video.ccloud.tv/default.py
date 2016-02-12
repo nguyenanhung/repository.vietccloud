@@ -28,6 +28,9 @@ home = mysettings.getAddonInfo('path')
 getSetting = xbmcaddon.Addon().getSetting
 enable_adult_section = mysettings.getSetting('enable_adult_section')
 enable_tvguide = mysettings.getSetting('enable_tvguide')
+enable_thongbao = mysettings.getSetting('enable_thongbao')
+enable_kodiviet = mysettings.getSetting('enable_kodiviet')
+enable_kodivietlist = mysettings.getSetting('enable_kodivietlist')
 enable_channel_test = mysettings.getSetting('enable_channel_test')
 enable_local_test = mysettings.getSetting('enable_local_test')
 enable_public_uploads = mysettings.getSetting('enable_public_uploads')
@@ -94,7 +97,8 @@ def platform():
 
 def main():
 	addDir('[COLOR royalblue][B]***Latest Announcements***[/B][/COLOR]', yt, 3, '%s/announcements.png'% iconpath, fanart)
-	addDir('[COLOR royalblue][B]***Thông Báo Mới***[/B][/COLOR]', yt, 4, '%s/thongbaomoi.png'% iconpath, fanart)
+	if enable_thongbao == 'true':
+		addDir('[COLOR royalblue][B]***Thông Báo Mới***[/B][/COLOR]', yt, 4, '%s/thongbaomoi.png'% iconpath, fanart)
 	addDir('[COLOR red][B]Search[/B][/COLOR]', 'searchlink', 99, '%s/search.png'% iconpath, fanart)
 	if len(List) > 0:
 		addDir('[COLOR yellow][B]All Channels[/B][/COLOR]', yt, 2, '%s/allchannels.png'% iconpath, fanart)
@@ -109,11 +113,13 @@ def main():
 		addDir('[COLOR lime][B]Local M3U Playlist Test[/B][/COLOR]', 'localtest', 41, '%s/localtest.png'% iconpath, fanart)
 	if enable_online_test == 'true':     
 		addDir('[COLOR lime][B]Online M3U Playlist Test[/B][/COLOR]', 'onlinetest', 42, '%s/onlinetest.png'% iconpath, fanart)
+	if enable_kodiviet == 'true':
+		addDir('[COLOR orange][B]Kodi Viet - YouTube - Daily Limit[/B][/COLOR]', 'https://www.youtube.com/channel/UCcuszmClmU_j7vc9NbYA6Tw', None, '%s/kodiviet.png'% iconpath, fanart)
+	if enable_kodivietlist == 'true':
+		addDir('[COLOR orange][B]Kodi Viet - M3U Playlist - 24/7[/B][/COLOR]', kodivietlist, 20, '%s/kodivietlist.png'% iconpath, fanart)
 	if platform() == 'windows' or platform() == 'osx':
 		if enable_public_uploads == 'true':
 			addDir('[COLOR brown][B]cCloud TV - Public Uploads[/B][/COLOR]', 'ChromeLauncher', None, '%s/ChromeLauncher.png'% iconpath, fanart)
-	addDir('[COLOR orange][B]Kodi Viet - YouTube - Daily Limit[/B][/COLOR]', 'https://www.youtube.com/channel/UCcuszmClmU_j7vc9NbYA6Tw', None, '%s/kodiviet.png'% iconpath, fanart)
-	addDir('[COLOR orange][B]Kodi Viet - M3U Playlist - 24/7[/B][/COLOR]', kodivietlist, 20, '%s/kodivietlist.png'% iconpath, fanart)
 	if viet_mode == 'group':           
 		addDir('[COLOR royalblue][B]Vietnam[/B][/COLOR]', 'vietnam_group', 30, '%s/vietnam.png'% iconpath, fanart)
 	if viet_mode == 'abc order':           

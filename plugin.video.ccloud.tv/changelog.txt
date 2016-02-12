@@ -1,3 +1,6 @@
+[b]1.4.6[/b]
+- Rearranged home menu.
+- Added enable/disable options in settings for Thong Bao Moi and Kodi Viet sections.
 [b]1.4.5[/b]
 - Added Kodi Viet - M3U Playlist section
 - Added Thong Bao Moi
