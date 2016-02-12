@@ -184,6 +184,14 @@ def vietnam_abc_order():
 						pass 
 					else:
 						m3u_playlist(name, url, thumb)
+		content = make_request(vietradio)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				addLink(name, url, 1, thumb, thumb)
+			else:      
+				addLink(name, url, 1, icon, fanart)
 		content = make_request(kodiviet)
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
@@ -365,6 +373,14 @@ def viet_Radio():
 						pass 
 					if 'Radio' in name:                   
 						m3u_playlist(name, url, thumb)
+		content = make_request(vietradio)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match[1:]:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				addLink(name, url, 1, thumb, thumb)
+			else:      
+				addLink(name, url, 1, icon, fanart)
 	except:
 		pass
 
@@ -1057,6 +1073,7 @@ List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base6
 kodiviet = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwydHZaR2wyYVdWMExtMHpkUT09'.decode('base64').decode('base64')
 kodivietlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwydHZaR2wyYVdWMGJHbHpkQzV0TTNVPQ=='.decode('base64').decode('base64')
 thongbaomoi = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzUm9iMjVuWW1GdmJXOXBMblI0ZEE9PQ=='.decode('base64').decode('base64')
+vietradio = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzWnBaWFJ5WVdScGJ5NXRNM1U9'.decode('base64').decode('base64')
 def addDir(name, url, mode, iconimage, fanart):
 	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
 	ok = True

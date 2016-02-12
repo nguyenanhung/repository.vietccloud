@@ -1,3 +1,5 @@
+[b]1.4.7[/b]
+- Added Vietnam Radio Stations
 [b]1.4.6[/b]
 - Rearranged home menu.
 - Added enable/disable options in settings for Thong Bao Moi and Kodi Viet sections.
