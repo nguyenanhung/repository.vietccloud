@@ -1,13 +1,13 @@
 #EXTM3U
 
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/egqvTXruDjI/mqdefault.jpg",[COLOR magenta][B]Funny music[/B][/COLOR]
-http://www.youtube.com
+Require_at_least_one_character_on_this_line_to_show_the_label_on_previous_line
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/egqvTXruDjI/default.jpg",Em o nha que moi len phien ban Tom Talking the best (2:17)
 plugin://plugin.video.youtube/play/?video_id=egqvTXruDjI
 
 
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/Wltn28xeyeY/mqdefault.jpg",[COLOR magenta][B]Hài[/B][/COLOR]
-http://www.youtube.com
+Require_at_least_one_character_on_this_line_to_show_the_label_on_previous_line
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/Wltn28xeyeY/default.jpg",Hài Tết 2005 : THẦY RỞM - Tập 1 - Đạo diễn : Phạm Đông Hồng (36:11)
 plugin://plugin.video.youtube/play/?video_id=Wltn28xeyeY
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/TNLzL9qA-Jw/default.jpg",Hài Tết 2005: KẺ CẮP GẶP BÀ GIÀ - Đạo diễn : Phạm Đông Hồng (30:45)
@@ -71,7 +71,7 @@ plugin://plugin.video.youtube/play/?video_id=dpy9SzAqZPY
 
 
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/TXWmWRrH-ko/mqdefault.jpg",[COLOR magenta][B]Hài Tết 2016[/B][/COLOR]
-http://www.youtube.com
+Require_at_least_one_character_on_this_line_to_show_the_label_on_previous_line
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/TXWmWRrH-ko/default.jpg",Hài Tết 2016 - CHÔN NHỜI 3 Full HD | Phim Hài Tết Mới Đạo diễn Phạm Đông Hồng (2:21:12)
 plugin://plugin.video.youtube/play/?video_id=TXWmWRrH-ko
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/FLz1FH3YHhU/default.jpg",Hài Tết 2016 - TRỞ LẠI Full HD | Phim Hài Tết Mới Đạo Diễn Phạm Đông Hồng (2:06:26)
@@ -117,7 +117,7 @@ plugin://plugin.video.youtube/play/?video_id=0qU_G8-zeWU
 
 
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/8FGidAj017g/mqdefault.jpg",[COLOR magenta][B]Kodi[/B][/COLOR]
-http://www.youtube.com
+Require_at_least_one_character_on_this_line_to_show_the_label_on_previous_line
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/8FGidAj017g/default.jpg",KODI - Audio and Subtitle Lists Feature of Kodi (0:48)
 plugin://plugin.video.youtube/play/?video_id=8FGidAj017g
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/DMxuZnMwG5A/default.jpg",KODI - SportsDevil addon for KODI - Xem thể thao trên KODI (6:07)
@@ -145,19 +145,19 @@ plugin://plugin.video.youtube/play/?video_id=GkdaLXwbGyg
 
 
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/iqPZNg9pHEc/mqdefault.jpg",[COLOR magenta][B]Music[/B][/COLOR]
-http://www.youtube.com
+Require_at_least_one_character_on_this_line_to_show_the_label_on_previous_line
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/iqPZNg9pHEc/default.jpg",New style Trinh music (4:54)
 plugin://plugin.video.youtube/play/?video_id=iqPZNg9pHEc
 
 
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/_qcyJ4RWAuY/mqdefault.jpg",[COLOR magenta][B]Others[/B][/COLOR]
-http://www.youtube.com
+Require_at_least_one_character_on_this_line_to_show_the_label_on_previous_line
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/_qcyJ4RWAuY/default.jpg",KODI.VN - Cẩn thận đi thay thế phụ tùng ô-tô (3:57)
 plugin://plugin.video.youtube/play/?video_id=_qcyJ4RWAuY
 
 
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/jLyWsxeuUsk/mqdefault.jpg",[COLOR magenta][B]Phim ngắn[/B][/COLOR]
-http://www.youtube.com
+Require_at_least_one_character_on_this_line_to_show_the_label_on_previous_line
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/jLyWsxeuUsk/default.jpg",[Phim Ngắn] Khoảnh Khắc - Fu Production (9:46)
 plugin://plugin.video.youtube/play/?video_id=jLyWsxeuUsk
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/ikP7BuAFHMk/default.jpg",(HD 1080p) Cho Em - Tony TK x Lâm Nguyễn (2:38)
@@ -239,13 +239,13 @@ plugin://plugin.video.youtube/play/?video_id=hIIYU0MvSu0
 
 
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/Z1qE110C224/mqdefault.jpg",[COLOR magenta][B]Phim tuyển chọn 1[/B][/COLOR]
-http://www.youtube.com
+Require_at_least_one_character_on_this_line_to_show_the_label_on_previous_line
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/Z1qE110C224/default.jpg",Trò Chơi Ma Quỷ - Full HD (1:25:31)
 plugin://plugin.video.youtube/play/?video_id=Z1qE110C224
 
 
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/BAftURCKz7A/mqdefault.jpg",[COLOR magenta][B]Thủ thuật KODI[/B][/COLOR]
-http://www.youtube.com
+Require_at_least_one_character_on_this_line_to_show_the_label_on_previous_line
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/BAftURCKz7A/default.jpg",Hướng dẫn cài đặt Live IPTV trên KODI (3:29)
 plugin://plugin.video.youtube/play/?video_id=BAftURCKz7A
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/mvazmQNeeCQ/default.jpg",Hướng dẫn cài đặt Addon VIETMEDIA PLAY / How to install Kodi Addon Vietmedia Play (4:59)
@@ -263,7 +263,7 @@ plugin://plugin.video.youtube/play/?video_id=nNPhePGp4p0
 
 
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/IIVTDlDmDQo/mqdefault.jpg",[COLOR magenta][B]Trailers[/B][/COLOR]
-http://www.youtube.com
+Require_at_least_one_character_on_this_line_to_show_the_label_on_previous_line
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/IIVTDlDmDQo/default.jpg",Kodi.vn - Quái vật dưới hang sâu (Hang Quỷ) - The Descent (2005) (1:58)
 plugin://plugin.video.youtube/play/?video_id=IIVTDlDmDQo
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/_MX5zC69Tf4/default.jpg",Kodi Trailer Ca nhac Tet DVD Tết Việt (0:47)
