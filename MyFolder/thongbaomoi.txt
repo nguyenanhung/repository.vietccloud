@@ -1,6 +1,6 @@
 ﻿<START>
 [COLOR magenta]Đây là bản đã được sửa đổi và thêm vào một số mục để người Việt dùng tiện hơn.[/COLOR]
-[COLOR chocolate][B]Tất cả công trạng đều thuộc về tác giả đã tạo ra bản cCloud TV gốc.[/B][/COLOR]
+[COLOR chocolate][B]Cám ơn tác giả và tất cả những người đã tạo và giữ cho add-on này ngày càng phong phú và được tiếp tục tồn tại mãi.[/B][/COLOR]
 
 - Muốn dùng cCloud TV Guide, cần phải gài Renegades TV Guide
 [COLOR blue]http://repo.kodi.vn/Script/script.renegadestv-1.0.5.zip[/COLOR]
