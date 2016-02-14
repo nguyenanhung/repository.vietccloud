@@ -27,7 +27,7 @@ http://himediatech.vn/chuyen-muc-xbmc/huong-dan-cai-dat-addon-tren-kodi-hay-xbmc
 http://hoanganhstore.com/huong-dan-su-dung-xbmc-trung-tam-giai-tri-tren-android-tv-box-bid137.html
 
 
-#EXTINF:0 tvg-logo="",[COLOR red][B]Xem Hướng Dẫn Trên YouTube[/B][/COLOR]
+#EXTINF:0 tvg-logo="",[COLOR red][B]Xem Hướng Dẫn Trên uTube[/B][/COLOR]
 NoLinkRequired
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/wttBzqdIJ7I/hqdefault.jpg",Hướng Dẫn Cài Đặt Phần Mềm Kodi (XBMC)
 plugin://plugin.video.youtube/play/?video_id=wttBzqdIJ7I
