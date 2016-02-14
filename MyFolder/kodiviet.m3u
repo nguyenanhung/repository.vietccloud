@@ -1,6 +1,6 @@
 #EXTM3U
 
-#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-Y4hzMs0ItTw/AAAAAAAAAAI/AAAAAAAAAAA/OquSyoI-Y2s/s100-c-k-no/photo.jpg",[COLOR red][B]Kodi Viet - YouTube - Hướng Dẫn[/B][/COLOR] 
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-Y4hzMs0ItTw/AAAAAAAAAAI/AAAAAAAAAAA/OquSyoI-Y2s/s100-c-k-no/photo.jpg",[COLOR orange][B]MediaViet - YouTube - Hướng Dẫn[/B][/COLOR] 
 NoLinkRequired
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/AJz3AbTZ8Ck/maxresdefault.jpg",Add file source to install kodi add-ons easier
 plugin://plugin.video.youtube/play/?video_id=AJz3AbTZ8Ck

@@ -164,25 +164,35 @@ def search():
 		pass
 
 def vietmedia_list():
-	link = make_request(vietmediaurl)
-	newlink = ''.join(link.splitlines()).replace('\t','')  
-	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?href="/playlist(.+?)">(.+?)<').findall(newlink)
-	for thumb, url, name in match:
-		thumb = 'https://i.ytimg.com/vi/' + thumb
-		addLink('[COLOR orange][B]' + name + '[/B][/COLOR]', 'NoLinkRequired', 1, thumb, thumb)
-		content = make_request('https://www.youtube.com/playlist' + url)
-		newcontent = ''.join(content.splitlines()).replace('\t','')
-		newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(newcontent)
-		for name, url, thumb, duration in newmatch:
-			thumb = 'https:' + thumb
-			if '[Deleted Video]' in name:
-				pass
-			else:
-				addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+	#try:
+		#content = make_request(vietmedialist)
+		#match = re.compile(m3u_regex).findall(content)
+		#for thumb, name, url in match:
+			#if 'tvg-logo' in thumb:
+				#thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				#addLink(name, url, 1, thumb, thumb)
+			#else:      
+				#addLink(name, url, 1, icon, fanart)
+	#except:
+		link = make_request(vietmediaurl)
+		newlink = ''.join(link.splitlines()).replace('\t','')  
+		match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?href="/playlist(.+?)">(.+?)<').findall(newlink)
+		for thumb, url, name in match:
+			thumb = 'https://i.ytimg.com/vi/' + thumb
+			addLink('[COLOR orange][B]' + name + '[/B][/COLOR]', 'NoLinkRequired', 1, thumb, thumb)
+			content = make_request('https://www.youtube.com/playlist' + url)
+			newcontent = ''.join(content.splitlines()).replace('\t','')
+			newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(newcontent)
+			for name, url, thumb, duration in newmatch:
+				thumb = 'https:' + thumb
+				if '[Deleted Video]' in name:
+					pass
+				else:
+					addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
                     
 def vietmedia_tutorials():
 	thumb = 'https://yt3.ggpht.com/-Y4hzMs0ItTw/AAAAAAAAAAI/AAAAAAAAAAA/OquSyoI-Y2s/s100-c-k-no/photo.jpg'
-	addLink('[COLOR orange][B]VietMedia - YouTube - Hướng Dẫn[/B][/COLOR]', 'NoLinkRequired', 1, thumb, thumb)
+	addLink('[COLOR red][B]VietMedia - YouTube - Hướng Dẫn[/B][/COLOR]', 'NoLinkRequired', 1, thumb, thumb)
 	content = make_request(koditutorials)
 	newcontent = ''.join(content.splitlines()).replace('\t','')
 	newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(newcontent)
@@ -215,6 +225,7 @@ def vietnam_abc_order():
 						pass 
 					else:
 						m3u_playlist(name, url, thumb)
+		#content = make_request(vietradio)
 		content = read_file(local_vietradio)
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
@@ -224,6 +235,14 @@ def vietnam_abc_order():
 			else:      
 				addLink(name, url, 1, icon, fanart)
 		vietmedia_tutorials()
+		"""content = make_request(vietmedia)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				addLink(name, url, 1, thumb, thumb)
+			else:      
+				addLink(name, url, 1, icon, fanart)"""
 	except:
 		pass
 
@@ -397,6 +416,7 @@ def viet_Radio():
 						pass 
 					if 'Radio' in name:                   
 						m3u_playlist(name, url, thumb)
+		#content = make_request(vietradio)
 		content = read_file(local_vietradio)
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match[1:]:
@@ -466,6 +486,14 @@ def viet_Tutorials():
 					if 'Tutorials' in name:                   
 						m3u_playlist(name, url, thumb)
 		vietmedia_tutorials()
+		"""content = make_request(vietmedia)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				addLink(name, url, 1, thumb, thumb)
+			else:      
+				addLink(name, url, 1, icon, fanart)"""
 	except:
 		pass
 
@@ -897,6 +925,9 @@ def international():
 def thongbao():
 	try:
 		text = '[COLOR royalblue][B]***Thông Báo Mới***[/B][/COLOR]'
+		#if urllib.urlopen(thongbaomoi).getcode() == 200:
+			#link = make_request(thongbaomoi)
+		#else:
 		link = read_file(local_thongbaomoi)
 		match=re.compile("<START>(.+?)<END>",re.DOTALL).findall(link)
 		for status in match:
@@ -1084,7 +1115,11 @@ def get_params():
 	return param
 
 List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
+vietmedia = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwydHZaR2wyYVdWMExtMHpkUT09'.decode('base64').decode('base64')
+vietmedialist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwydHZaR2wyYVdWMGJHbHpkQzV0TTNVPQ=='.decode('base64').decode('base64')
 vietmediaurl = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZZMmhoYm01bGJDOVZRMk4xYzNwdFEyeHRWVjlxTjNaak9VNWlXVUUyVkhjdmNHeGhlV3hwYzNSeg=='.decode('base64').decode('base64')
+thongbaomoi = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzUm9iMjVuWW1GdmJXOXBMblI0ZEE9PQ=='.decode('base64').decode('base64')
+vietradio = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzWnBaWFJ5WVdScGJ5NXRNM1U9'.decode('base64').decode('base64')
 koditutorials = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZjR3hoZVd4cGMzUS9iR2x6ZEQxUVRFTkdaWGw0WVVSZk4wVXpNRWxpYW1odE9FUTFjVzQzUzFWV1JFVTNiM015'.decode('base64').decode('base64')
 thuthuatkodi = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZjR3hoZVd4cGMzUS9iR2x6ZEQxUVRFTkdaWGw0WVVSZk4wVXpURXh4YW1oSmQydGliMEZsVUdkRVZDMHRPRmxH'.decode('base64').decode('base64')
 def addDir(name, url, mode, iconimage, fanart):

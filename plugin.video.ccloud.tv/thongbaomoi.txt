@@ -1,18 +1,21 @@
 ﻿<START>
-[COLOR magenta]Đây là bản đã được sửa đổi và thêm vào các mục để người Việt dùng tiện hơn.[/COLOR]
-[COLOR red]Tất cả công trạng đều thuộc về tác giả đã tạo ra bản gốc.[/COLOR]
+[COLOR magenta]Đây là bản đã được sửa đổi và thêm vào một số mục để người Việt dùng tiện hơn.[/COLOR]
+[COLOR chocolate][B]Tất cả công trạng đều thuộc về tác giả đã tạo ra bản gốc.[/B][/COLOR]
 
 - Muốn dùng cCloud TV Guide, cần phải gài Renegades TV Guide
-[COLOR blue]https://www.dropbox.com/s/8nkz5cu7gagyy7c/script.renegadestv-1.0.5.zip?dl=1&h=bAQG_XWfH[/COLOR]
-[COLOR blue]https://github.com/vietccloudtv/repository.vietccloud/blob/master/zips/script.renegadestv/script.renegadestv-1.0.5.zip?raw=true[/COLOR]
+[COLOR blue]http://repo.kodi.vn/Script/script.renegadestv-1.0.5.zip[/COLOR]
 
 - Hướng dẫn về Regenades TV Guide
-[COLOR blue]https://seo-michael.co.uk/tutorial-how-to-install-setup-renegades-sky-epg/&h=8AQFIf0sa[/COLOR]
 [COLOR blue]https://www.youtube.com/watch?v=IWiWJSb_VxE&h=zAQGH_gdr[/COLOR]
+[COLOR blue]https://seo-michael.co.uk/tutorial-how-to-install-setup-renegades-sky-epg/&h=8AQFIf0sa[/COLOR]
 
-- Muốn xem mục Kodi Viet - YouTube - m3u playlist và các hướng dẫn, cần gài YouTube add-on.
+- Muốn xem mục VietMedia và các hướng dẫn về Kodi, cần phải gài YouTube add-on.
 
-- Muốn giữ các đường dẫn đến các playlist tests, vào Add-on settings >> Playlist Test >> Keep Local/Online M3U Source Path >> chọn chế độ mở.
+- Mục Public Uploads chỉ hiện lên khi dùng Kodi trong Windows hay Mac. Dùng nó để upload các kênh lên cCloud TV server. Muốn dùng mục này, cần phải gài Google Chrome browser trong Win/Mac PC và Chrome Launcher add-on trong Kodi.
+
+- [COLOR red][B]Khi upload lên cCloud server, dùng tiếng Việt không có dấu để đặt tên kênh hoặc phim.[/B][/COLOR]
+
+- Muốn giữ các đường dẫn đến các playlist tests để add-on này có thể dùng được tới 3 m3u playlists (cCloud, local và online playlists), vào Add-on settings >> Playlist Test >> Keep Local/Online M3U Source Path? >> chọn chế độ mở.
 
 [COLOR green][B]Chúc quí vị xem vui vẻ.[/B][/COLOR]
 <END>

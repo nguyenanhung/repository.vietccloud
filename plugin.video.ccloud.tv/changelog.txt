@@ -1,3 +1,7 @@
+[b]1.4.8[/b]
+- Added autostart cCloud.tv
+- Changed Kodi Viet to VietMedia
+- No longer use playlists on Github
 [b]1.4.7[/b]
 - Added Vietnam Radio Stations
 [b]1.4.6[/b]

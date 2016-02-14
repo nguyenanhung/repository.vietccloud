@@ -5,6 +5,7 @@ import xbmc, xbmcaddon, os
 mysettings = xbmcaddon.Addon(id = 'plugin.video.ccloud.tv')
 local_choice = mysettings.getSetting('local_choice')
 online_choice = mysettings.getSetting('online_choice')
+auto_run = mysettings.getSetting('enable_autorun')
 
 xmlfile = xbmc.translatePath("special://home/userdata/addon_data/plugin.video.ccloud.tv/settings.xml")
 
@@ -32,3 +33,6 @@ try:
 			delete_online_path()
 except:
 	pass        
+
+if auto_run == 'true':
+    xbmc.executebuiltin("RunAddon(plugin.video.ccloud.tv)")
