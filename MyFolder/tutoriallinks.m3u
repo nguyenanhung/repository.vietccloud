@@ -1,15 +1,12 @@
 #EXTM3U
 
 
-#EXTINF:0 tvg-logo="",[COLOR green][B]Danh sách đường dẫn tới các hướng dẫn[/B][/COLOR]
+#EXTINF:0 tvg-logo="",[COLOR magenta][B]Danh sách đường dẫn tới các hướng dẫn[/B][/COLOR]
 NoLinkRequired
-#EXTINF:0 tvg-logo="",[COLOR yellow][B]Muốn dùng được mục này cần có[/B][/COLOR]
-NoLinkRequired
-#EXTINF:0 tvg-logo="",[COLOR yellow][B]Google Chrome browser trong Win/Mac PC và Chrome Launcher add-on trong Kodi[/B][/COLOR]
+#EXTINF:0 tvg-logo="",[COLOR yellow][B]Win/Mac PC cần có Google Chrome browser[/B][/COLOR]
 NoLinkRequired
 
-
-#EXTINF:0 tvg-logo="http://kodi.vn/wp-content/uploads/2015/07/vietmedia_logo_transparent.png",Thủ thuật hướng dẫn, sử dụng, chia sẻ của kodi.vn.
+#EXTINF:0 tvg-logo="http://kodi.vn/wp-content/uploads/2015/07/vietmedia_logo_transparent.png",Thủ thuật hướng dẫn, sử dụng, chia sẻ của kodi.vn.
 http://kodi.vn/
 #EXTINF:0 tvg-logo="http://www.hieuhien.vn/Uploads/images/hieu-hien/logo/hieu-hien-vn-logo.png",Hieuhien hướng dẫn và cài đặt Kodi
 http://www.hieuhien.vn/kodi-xbmc
