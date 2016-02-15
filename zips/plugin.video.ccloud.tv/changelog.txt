@@ -1,3 +1,7 @@
+[b]1.4.9[/b]
+- Added Links to Tutorials for Vietnamese newbies to Kodi
+- Speed up VietMedia 24/7 section
+- Moved playlist and thongbaomoi to online location
 [b]1.4.8[/b]
 - Added autostart cCloud.tv
 - Changed Kodi Viet to VietMedia

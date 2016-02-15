@@ -18,6 +18,7 @@
 		<setting id="enable_vietmedia" type="bool" label="Enable VietMedia" default="true" />
 		<setting id="enable_vietmedialist" type="bool" label="Enable VietMedia 24/7" default="true" />
 		<setting id="enable_public_uploads" type="bool" label="Enable Public Uploads (Win/Mac PC)" default="true" />
+		<setting id="enable_links_to_tutorials" type="bool" label="Enable Links to Tutorials (Win/Mac PC)" default="true" />
 		<setting id="enable_autorun" type="bool" label="Enable Autostart cCloud.tv" default="false" />
 	</category>
 	<category label="Adult">
