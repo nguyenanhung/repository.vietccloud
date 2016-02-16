@@ -850,7 +850,7 @@ class XMLTVSource(Source):
             os.makedirs(XMLTVSource.PLUGIN_DATA)
 
         if (self.logoSource == XMLTVSource.LOGO_SOURCE_FTV):
-            self.logoFolder = 'http://maybe.sharktech.co.uk/Logos/'
+            self.logoFolder = 'http://renegadestv.uk/Logos/'
         else:
             self.logoFolder = str(addon.getSetting('logos.folder'))
 
