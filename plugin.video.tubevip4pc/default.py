@@ -50,7 +50,8 @@ def main():
 			thumb = ('%s/%s') % (iconpath, thumb)
 			addDir(name, url, 1, thumb, thumb)
 	else:
-		xbmcgui.Dialog().ok('PC Tube VIP', 'Chỉ dùng được Kodi add-on này trong máy Windows, Macintosh, Linux PC.')
+		xbmcgui.Dialog().ok('Tube VIP for PC', 'Chỉ dùng được [B]Tube VIP for PC[/B] add-on trong máy Windows, Macintosh, Linux PC.')
+		sys.exit()       
 
 def index(url):
 	content = read_file(DataFile + url)
