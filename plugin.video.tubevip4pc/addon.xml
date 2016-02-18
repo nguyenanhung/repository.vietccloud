@@ -6,8 +6,12 @@
     <provides>video</provides>
   </extension>  
   <extension point="xbmc.addon.metadata">
-    <summary>YouTube VIP cho Windows, Macintosh, Linux PC</summary>
-    <description>Máy Windows, Macintosh, Linux PC cần gài Kodi Chrome Launcher và Google Chrome Browser để xem được các kênh Youtube.</description>
+    <summary>YouTube and more for Win/Mac/Linux PC</summary>
+    <description>
+- This Kodi add-on can only be used on Windows, Macintosh, or Linux PC which must have Kodi Chrome Launcher and Google Chrome Browser installed.
+
+[B]- Kodi add-on này chỉ dùng được trong máy Windows, Macintosh, hoặc Linux PC đã có Kodi Chrome Launcher và Google Chrome Browser.[/B]
+    </description>
     <platform>all</platform>
   </extension>
 </addon>
