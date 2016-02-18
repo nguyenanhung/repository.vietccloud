@@ -1,0 +1,43 @@
+#EXTM3U
+
+#EXTINF:0 tvg-logo="tongiao.png",Tôn Giáo
+tongiao.m3u
+#EXTINF:0 tvg-logo="tintuctv.png",Tin Tức & TV
+tintuctv.m3u
+#EXTINF:0 tvg-logo="kodi.png",Hướng dẫn về Kodi
+kodi.m3u
+#EXTINF:0 tvg-logo="thieunhi.png",Thiếu Nhi
+thieunhi.m3u
+#EXTINF:0 tvg-logo="canhac.png",Ca Nhạc
+canhac.m3u
+#EXTINF:0 tvg-logo="karaoke.png",Hát Karaoke
+karaoke.m3u
+#EXTINF:0 tvg-logo="cailuong.png",Cải Lương
+cailuong.m3u
+#EXTINF:0 tvg-logo="haikich.png",Hài Kịch & Talk Shows
+haikich.m3u
+#EXTINF:0 tvg-logo="tvshows.png",TV Shows
+tvshows.m3u
+#EXTINF:0 tvg-logo="thethao.png",Thể Thao & Thể Dục
+thethao.m3u
+#EXTINF:0 tvg-logo="dulich.png",Du Lịch & Cuộc Sống
+dulich.m3u
+#EXTINF:0 tvg-logo="ykhoa.png",Y Khoa & Sức Khoẻ
+ykhoa.m3u
+#EXTINF:0 tvg-logo="amthuctinhyeu.png",Ẩm Thực Tình Yêu
+amthuctinhyeu.m3u
+#EXTINF:0 tvg-logo="trangdiem.png",Trang Điểm
+trangdiem.m3u
+#EXTINF:0 tvg-logo="doctruyen.png",Đọc Truyện
+doctruyen.m3u
+#EXTINF:0 tvg-logo="ditru.png",Di trú và Nhập Tịch Hoa Kỳ
+ditru.m3u
+#EXTINF:0 tvg-logo="AFV.png",America's Funniest Videos
+afv.m3u
+#EXTINF:0 tvg-logo="DCAP.png",Dicovery Channels & Animal Planet
+dcap.m3u
+#EXTINF:0 tvg-logo="muckhac.png",Những Mục Khác
+muckhac.m3u
+
+
+

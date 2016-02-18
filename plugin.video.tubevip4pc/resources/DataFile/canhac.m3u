@@ -1,0 +1,45 @@
+#EXTM3U
+
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-5RpDqAG3zlI/AAAAAAAAAAI/AAAAAAAAAAA/gdGz4yjPN2o/s900-c-k-no/photo.jpg",Thuy Nga Paris By Night Video Channel
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FTNPBN
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-Kyi1-RpibLM/AAAAAAAAAAI/AAAAAAAAAAA/xfBnfdeHdQA/s900-c-k-no/photo.jpg",Asia Entertainment Official
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FTrungTamAsiaChannel
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-P-7c5VORh8g/AAAAAAAAAAI/AAAAAAAAAAA/0kvtHKMJIhY/s900-c-k-no/photo.jpg",Van Son
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FVanSonOnline
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-WZR8BBzJh7A/AAAAAAAAAAI/AAAAAAAAAAA/Oj9OH_Wo5D4/s900-c-k-no/photo.jpg",Bước Chân Hai Thế Hệ
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fbuocchanhaithehe
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-P51VIiEjmcI/AAAAAAAAAAI/AAAAAAAAAAA/63ft2_5--dw/s900-c-k-no/photo.jpg",POPS MUSIC
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FPOPSVIETNAM
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-jaQb4jgaf64/AAAAAAAAAAI/AAAAAAAAAAA/v2y8pO3nHOI/s900-c-k-no/photo.jpg",Blueoceanmusic Channel
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fblueoceanmusicusa
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-B7mX-OXtHG0/AAAAAAAAAAI/AAAAAAAAAAA/D72sa-aHAlc/s900-c-k-no/photo.jpg",Nhạc Vàng Hải Ngoại
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FNhacvietVEVO
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-f9Sk3pG2tLY/AAAAAAAAAAI/AAAAAAAAAAA/pD2v0uevycQ/s900-c-k-no/photo.jpg",ZingMp3 Official
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FZingMp3Official
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-1dN0u81ik5Q/AAAAAAAAAAI/AAAAAAAAAAA/nUTTUDLztYo/s900-c-k-no/photo.jpg",Nhạc Số Official Channel
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FNhacsoOfficial
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-fX9CU8rebJw/AAAAAAAAAAI/AAAAAAAAAAA/hWL8qTz5OWI/s900-c-k-no/photo.jpg",NhacCuaTui Official
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FNhacCuaTuiOfficial
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-5TD-pJoIQRY/AAAAAAAAAAI/AAAAAAAAAAA/oBUSns1u68U/s900-c-k-no/photo.jpg",DONG GIAO Official
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FDongGiaoOfficial
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-frd5Yq1uW2o/AAAAAAAAAAI/AAAAAAAAAAA/6K-kArRuyx8/s900-c-k-no/photo.jpg",Gala Nhạc Việt
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fgalanhacviet
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-hstoHQkobg4/AAAAAAAAAAI/AAAAAAAAAAA/TSjKp0LL3ow/s900-c-k-no/photo.jpg",Nhạc Vàng NTPlus
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FNhacvangNTPlus
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-wXHCssmsbFc/AAAAAAAAAAI/AAAAAAAAAAA/8SysyZ_jTZo/s900-c-k-no/photo.jpg",SACVIET
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FSACVIET
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-abAzr4hJT_k/AAAAAAAAAAI/AAAAAAAAAAA/VugyNDyHJTQ/s900-c-k-no/photo.jpg",YEAH1 MUSIC
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCI2OiZs5aVcyBUBVsgovzng
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-KrOpMH15Qd8/AAAAAAAAAAI/AAAAAAAAAAA/2t48bkAnAgw/s900-c-k-no/photo.jpg",nhuquynhtube
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fnhuquynhtube
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-TML4bPZEg74/AAAAAAAAAAI/AAAAAAAAAAA/1NX_7_4BIMQ/s900-c-k-no/photo.jpg",Lam Truong's Official Channel
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FLamTruongOfficial
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-23H_UmmE7w0/AAAAAAAAAAI/AAAAAAAAAAA/bAKItI6ig7g/s900-c-k-no/photo.jpg",My Tam
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FMyTamOfficial
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/--DH0NDvG9PI/AAAAAAAAAAI/AAAAAAAAAAA/mtYd88XVNto/s900-c-k-no/photo.jpg",Đàm Vĩnh Hưng
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FDamVinhHungPOPS
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-EmARPzAPaw0/AAAAAAAAAAI/AAAAAAAAAAA/6sF8z6M2npQ/s900-c-k-no/photo.jpg",Đan Trường
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FDanTruongPOPS
+
+
+

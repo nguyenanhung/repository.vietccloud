@@ -1,0 +1,19 @@
+#EXTM3U
+
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-pB_FSk_eKVg/AAAAAAAAAAI/AAAAAAAAAAA/NnFyQS5gPi8/s900-c-k-no/photo.jpg",Animal Planet
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FAnimlPlanet
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-FEsYkupUb-A/AAAAAAAAAAI/AAAAAAAAAAA/6SiqnVvRZJY/s900-c-k-no/photo.jpg",Animal Planet
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FAnimalPlanetTV
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-RiiOENMysFg/AAAAAAAAAAI/AAAAAAAAAAA/ydJAbihXi-Q/s900-c-k-no/photo.jpg",Animalist
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FAnimalistNetwork
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-xAZHRrsBjd4/AAAAAAAAAAI/AAAAAAAAAAA/NrfKuS2oisA/s900-c-k-no/photo.jpg",Science Channel
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FScienceChannel
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-gVuW1PB5eQU/AAAAAAAAAAI/AAAAAAAAAAA/TFf3A48Pyuk/s900-c-k-no/photo.jpg",National Geographic
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FNationalGeographic
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-2tol5SGixqs/AAAAAAAAAAI/AAAAAAAAAAA/gI_3L64uED0/s900-c-k-no/photo.jpg",NatGeoWild
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FNatGeoWild
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-tIQN2Z8Fv0k/AAAAAAAAAAI/AAAAAAAAAAA/MubIOjgS83Q/s900-c-k-no/photo.jpg",HISTORY
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fhistorychannel
+
+
+

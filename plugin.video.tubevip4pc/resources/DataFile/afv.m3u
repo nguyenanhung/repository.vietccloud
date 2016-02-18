@@ -1,0 +1,13 @@
+#EXTM3U
+
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-F1ARRPUL8nY/AAAAAAAAAAI/AAAAAAAAAAA/JrqzTRUtOmc/s900-c-k-no/photo.jpg",America's Funniest Home Videos
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FAFVofficial
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-YjfN38Y9sxk/AAAAAAAAAAI/AAAAAAAAAAA/eZGIhLZZN6U/s900-c-k-no/photo.jpg",AFV Kids
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FToddleTale
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-8vGxJQM8rPA/AAAAAAAAAAI/AAAAAAAAAAA/YP18bFBwD00/s900-c-k-no/photo.jpg",AFV Animals
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FPETSAMI
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-6K7y31He6sM/AAAAAAAAAAI/AAAAAAAAAAA/pgWEXYfbfm8/s900-c-k-no/photo.jpg",AFVMobile
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FAFVMobile
+
+
+

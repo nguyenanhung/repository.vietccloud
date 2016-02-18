@@ -1,0 +1,75 @@
+#EXTM3U
+
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-xz0my_aCvFc/AAAAAAAAAAI/AAAAAAAAAAA/Jr5FrDLV6PQ/s100-c-k-no/photo.jpg",Viet Catholic TV
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCqaIVMSMnwkYzRjmJlT-KHw
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-c65Ab-3X6dk/AAAAAAAAAAI/AAAAAAAAAAA/PT8rdJRT_Is/s100-c-k-no/photo.jpg",Viet Catholic News
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FVietCatholicNews
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-XAIt6lUumS8/AAAAAAAAAAI/AAAAAAAAAAA/DqpwQeTQVuw/s900-c-k-no/photo.jpg",Tổng Giáo phận Sài Gòn
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Ftonggiaophansaigon
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-YLNL4eAJFOE/AAAAAAAAAAI/AAAAAAAAAAA/nX0qUtNj7Mo/s900-c-k-no/photo.jpg",Giáo phận Mỹ Tho
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fgiaophanmytho1
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-sykmJMgYf_4/AAAAAAAAAAI/AAAAAAAAAAA/7uD0uONF_uQ/s900-c-k-no/photo.jpg",Đa Minh Việt Nam
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCVxSILQUfiUt3s2rFbUmikw/
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-9z3zkgQa0EA/AAAAAAAAAAI/AAAAAAAAAAA/lfLslolbTSo/s900-c-k-no/photo.jpg",Mục Vụ Truyền Thông Giáo Xứ Phú Hoà
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FMVTTGxPhuHoa
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-Vq0SMi35N9s/AAAAAAAAAAI/AAAAAAAAAAA/3oNv4ykY1_4/s100-c-k-no/photo.jpg",Truyền Thông Dòng Tên
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUC5EI7PMVfyeBE5uCr2rFPBA
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-6N7S4lAtlcY/AAAAAAAAAAI/AAAAAAAAAAA/zfbxeyqB-BA/s100-c-k-no/photo.jpg",TV Ánh Sáng Tin Mừng
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Ftvastm
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-PHyh2owsvVI/AAAAAAAAAAI/AAAAAAAAAAA/CSCG08ugYs8/s100-c-k-no/photo.jpg",Đức Mẹ TV
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fchuacuuthe
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-zXFQ5GJMOcU/AAAAAAAAAAI/AAAAAAAAAAA/sUDsrfgaAtY/s100-c-k-no/photo.jpg",Amen TV
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCPAiAaxutF-or1aFjSmQytw
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-zVjtwLFiLFc/AAAAAAAAAAI/AAAAAAAAAAA/ivaJVXBQci4/s100-c-k-no/photo.jpg",Đức Mẹ Măng Đen
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FDucMeMangDen
+#EXTINF:0 tvg-logo="https://i.ytimg.com/i/IKlVgaDjb2KfSObJXz3QPw/mq1.jpg?v=535af988",KINH MÂN CÔI online
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fkinhmancoionline
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-59U49gjKfOM/AAAAAAAAAAI/AAAAAAAAAAA/34uZD3a1hGw/s100-c-k-no/photo.jpg",Phim Công Giáo
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FPhimCongGiaoVN
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-4UWkmlzv7fc/AAAAAAAAAAI/AAAAAAAAAAA/dh_vaADcv0c/s100-c-k-no/photo.jpg",Phim Công Giáo 2
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FPhimCongGiao2
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-x-cwQlGRyXk/AAAAAAAAAAI/AAAAAAAAAAA/Q6vPxbClP_8/s100-c-k-no/photo.jpg",Thánh Ca
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FThanhCaHD
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-4eLIK5ngdW0/AAAAAAAAAAI/AAAAAAAAAAA/rHwIr6BSyWM/s100-c-k-no/photo.jpg",Thánh Ca Không Lời
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FThanhcakhongloi
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-4eLIK5ngdW0/AAAAAAAAAAI/AAAAAAAAAAA/rHwIr6BSyWM/s100-c-k-no/photo.jpg",Tin Lành TiVi
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Ftinlanhtv
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-2ECGKlyOcXs/AAAAAAAAAAI/AAAAAAAAAAA/_B6GFtS_r_s/s88-c-k-no/photo.jpg",Tin Lành Orange
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCd8tHv1A1VsTL7WS9yQ3eGg
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-9nRdIeow7aw/AAAAAAAAAAI/AAAAAAAAAAA/aMxu78kGd_E/s100-c-k-no/photo.jpg",Giảng Luận Cơ Đốc
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fupnhacnee
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-DcrMxsBhbko/AAAAAAAAAAI/AAAAAAAAAAA/5JCZIV3gpY4/s100-c-k-no/photo.jpg",Thư viện Cơ Đốc
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fcdnvn
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-aDi_OCOrMf8/AAAAAAAAAAI/AAAAAAAAAAA/tIrMBeN-tlk/s100-c-k-no/photo.jpg",Thánh Nhạc
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FCDNVN00
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-SLo_z3GoP2E/AAAAAAAAAAI/AAAAAAAAAAA/GG1TE8Zq1is/s100-c-k-no/photo.jpg",Thư Viện Phật Giáo
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fthuvienphatgiao
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-Oe6syKnrqxo/AAAAAAAAAAI/AAAAAAAAAAA/uaaoNivhY-o/s100-c-k-no/photo.jpg",Niệm Phật Thành Phật
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FNiemPhatThanhPhat
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-KY58UjBUzaY/AAAAAAAAAAI/AAAAAAAAAAA/fyANa-_q8Ko/s100-c-k-no/photo.jpg",Phật Âm Video
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fphatamvideo
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-ynp0efOAlJE/AAAAAAAAAAI/AAAAAAAAAAA/ZtxAL8H82I4/s100-c-k-no/photo.jpg",Quy Y Tam Bảo
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FTANGTRUNGTHANG
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-i5WlZ8TnDBg/AAAAAAAAAAI/AAAAAAAAAAA/zAQrEvJoyko/s100-c-k-no/photo.jpg",Phật Pháp Tăng
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCNE3UFyedJ_3_ZEiuZkioYw
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-w8sj9zwWdMA/AAAAAAAAAAI/AAAAAAAAAAA/sUkb1Xo46c4/s100-c-k-no/photo.jpg",NAM MÔ A DI ĐÀ PHẬT
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fnammoadidaphatnew
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/--C442Y2Ghhs/AAAAAAAAAAI/AAAAAAAAAAA/aztGD0jT3Lg/s100-c-k-no/photo.jpg",Phật Pháp Nhiệm Màu
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCP9jSXwNXTEoql3cZSoI4Yw
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-7WJnWWi8owk/AAAAAAAAAAI/AAAAAAAAAAA/YzO2d_DSPb0/s100-c-k-no/photo.jpg",Linh Minh Trạm Tịch
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fnguynlinhtam
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-3A0_rJhNi7c/AAAAAAAAAAI/AAAAAAAAAAA/Otscraje4Wc/s100-c-k-no/photo.jpg",Phật Giáo Hòa Hảo
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fnhatsonvan1981
+#EXTINF:0 tvg-logo="https://i.ytimg.com/i/lDgvlwsatUJX35e4L231ig/mq1.jpg?v=52082cba",PHẬT GIÁO HÒA HẢO (PGHH)
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fhoahao185
+#EXTINF:0 tvg-logo="https://i.ytimg.com/i/n2BiM8qvbIdlWkJeA7R4pw/mq1.jpg?v=52082e76",PHẬT GIÁO HÒA HẢO - PGHH
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fnguoihoahao
+#EXTINF:0 tvg-logo="https://i.ytimg.com/i/TKSGwGxflSpi6_oIWY23lA/mq1.jpg?v=52082e09",PHẬT GIÁO HÒA HẢO (PGHH)
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fgiaolypghh
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-1gVhVh0GbFs/AAAAAAAAAAI/AAAAAAAAAAA/tFXC4AbiYDI/s100-c-k-no/photo.jpg",TỦ SÁCH NÓI CAO ĐÀI
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCtHYWzR7fBcqFMhgHw1nsNg
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-_v8eM_rmES0/AAAAAAAAAAI/AAAAAAAAAAA/eea3dRrhjjs/s100-c-k-no/photo.jpg",Cao Đài Ban Chỉnh Đạo
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fcaodaibanchinhdaoorg
+
+
+

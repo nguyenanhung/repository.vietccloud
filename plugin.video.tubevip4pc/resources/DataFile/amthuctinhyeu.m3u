@@ -1,0 +1,19 @@
+#EXTM3U
+
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-jVToijkQkFo/AAAAAAAAAAI/AAAAAAAAAAA/7RHWK6zilmY/s900-c-k-no/photo.jpg",Uyen Thy's Cooking
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FUyenThyCooking2013
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-9b5VJhkXoKM/AAAAAAAAAAI/AAAAAAAAAAA/H6LSq-Ay4x8/s900-c-k-no/photo.jpg",Asiancookingmadeeasy
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FAsianCookingmadeEasy
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-_sOPLL2b1bc/AAAAAAAAAAI/AAAAAAAAAAA/Bu_IZ1AWOnk/s900-c-k-no/photo.jpg",Day nau an
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Famthuctinhyeu123
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-lXWCk1JjtDQ/AAAAAAAAAAI/AAAAAAAAAAA/WimPbqGFPHw/s900-c-k-no/photo.jpg",Helen's Recipes (Vietnamese Food)
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FHelenRecipes
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-quVBBe2uDlM/AAAAAAAAAAI/AAAAAAAAAAA/tuzFj9aYh4s/s900-c-k-no/photo.jpg",tdmaison
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Ftdmaison
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-zc7s69r_eQs/AAAAAAAAAAI/AAAAAAAAAAA/djxJyZTsJMY/s900-c-k-no/photo.jpg",Cathy Ha
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FVietFoodie
+#EXTINF:0 tvg-logo="https://i.ytimg.com/i/uFdWTQgdgVkKX8CrVMOsVg/mq1.jpg?v=4fc532bd",Nhà đẹp & món ngon
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2Fkhoainv
+
+
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.tubevip4pc" name="Tube VIP for PC" version="1.0.0" provider-name="vietccloud">
+  <requires>   
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>  
+  <extension point="xbmc.addon.metadata">
+    <summary>YouTube VIP cho Windows, Macintosh, Linux PC</summary>
+    <description>Máy Windows, Macintosh, Linux PC cần gài Kodi Chrome Launcher và Google Chrome Browser để xem được các kênh Youtube.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
