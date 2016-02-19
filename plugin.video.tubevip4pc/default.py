@@ -41,7 +41,7 @@ def platform():
 def main():
 	if platform() == 'windows' or platform() == 'osx' or platform() == 'linux':
 		addDir('[COLOR yellow][B]For Windows, Macintosh, or Linux PC only.[/B][/COLOR][COLOR lime][B] PC must have[/B][/COLOR]', 'info', None, icon, fanart)
-		addDir('[COLOR yellow][B]Kodi Chrome Launcher [/B][/COLOR][COLOR lime][B]and [/B][/COLOR][COLOR yellow][B]Google Chrome installed.[/B][/COLOR]', 'info', None, icon, fanart)
+		addDir('[COLOR yellow][B]Kodi Chrome Launcher [/B][/COLOR][COLOR lime][B]and [/B][/COLOR][COLOR yellow][B]Google Chrome [/B][/COLOR][COLOR lime][B]installed.[/B][/COLOR]', 'info', None, icon, fanart)
 		content = read_file(DataFile + 'mainlist.m3u')
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
