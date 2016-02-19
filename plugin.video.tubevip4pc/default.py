@@ -50,7 +50,7 @@ def main():
 			thumb = ('%s/%s') % (iconpath, thumb)
 			addDir(name, url, 1, thumb, thumb)
 	else:
-		xbmcgui.Dialog().ok('Tube VIP for PC', 'Chỉ dùng được [B]Tube VIP for PC[/B] add-on trong máy Windows, Macintosh, Linux PC.')
+		xbmcgui.Dialog().ok('Tube VIP for PC', '[COLOR magenta]This [B]Tube VIP for PC[/B] add-on can only be used on Windows, Macintosh, or Linux PC.[/COLOR]', '', 'Chỉ dùng được [B]Tube VIP for PC[/B] add-on trong máy Windows, Macintosh, Linux PC.')
 		sys.exit()       
 
 def index(url):
