@@ -54,7 +54,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.tubevip4pc" name="Tube VIP for PC" version="1.0.0" provider-name="vietccloud">
+<addon id="plugin.video.tubevip4pc" name="Tube VIP for PC" version="1.0.1" provider-name="vietccloud">
   <requires>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
@@ -65,7 +65,7 @@
     <description>
 - This Kodi add-on can only be used on Windows, Macintosh, or Linux PC which must have Kodi Chrome Launcher and Google Chrome Browser installed.
 
-[B]- Kodi add-on này chỉ dùng được trong máy Windows, Macintosh, hoặc Linux PC đã có Kodi Chrome Launcher và Google Chrome Browser.[/B]
+[B]- Kodi add-on này chỉ dùng được trong máy Windows, Macintosh, hoặc Linux PC đã cài Kodi Chrome Launcher và Google Chrome Browser.[/B]
     </description>
     <platform>all</platform>
   </extension>
