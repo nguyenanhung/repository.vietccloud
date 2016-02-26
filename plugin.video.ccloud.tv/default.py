@@ -55,9 +55,9 @@ adult_regex2 = '#(.+?)group-title="Public-Adult",(.+)\s*(.+)\s*'
 ondemand_regex = '[ON\'](.*?)[\'nd]'
 yt = 'http://www.youtube.com'
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
+dict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
 public_uploads = 'plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3a%2f%2fscript.google.com%2fmacros%2fs%2fAKfycbxwkVU0o3lckrB5oCQBnQlZ-n8CMx5CZ_ajq6Y3o7YHSTFbcODk%2fexec'
 text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
-
 
 def read_file(file):
 	try:
@@ -65,6 +65,14 @@ def read_file(file):
 		content = f.read()
 		f.close()
 		return content
+	except:
+		pass
+
+def replace_all(text, dict):
+	try:
+		for a, b in dict.iteritems():
+			text = text.replace(a, b)
+		return text
 	except:
 		pass
 
@@ -116,10 +124,8 @@ def main():
 		addDir('[COLOR lime][B]Local M3U Playlist Test[/B][/COLOR]', 'localtest', 41, '%s/localtest.png'% iconpath, fanart)
 	if enable_online_test == 'true':     
 		addDir('[COLOR lime][B]Online M3U Playlist Test[/B][/COLOR]', 'onlinetest', 42, '%s/onlinetest.png'% iconpath, fanart)
-	if enable_vietmedia == 'true':
-		addDir('[COLOR orange][B]VietMedia[/B][/COLOR]', 'https://www.youtube.com/channel/UCcuszmClmU_j7vc9NbYA6Tw', None, '%s/vietmedia.png'% iconpath, fanart)
 	if enable_vietmedialist == 'true':
-		addDir('[COLOR orange][B]VietMedia 24/7[/B][/COLOR]', 'vietmediaplaylist', 20, '%s/vietmedialist.png'% iconpath, fanart)
+		addDir('[COLOR orange][B]VietMedia - YouTube[/B][/COLOR]', 'NoLinkRequired', 20, '%s/vietmedialist.png'% iconpath, fanart)
 	if platform() == 'windows' or platform() == 'osx':
 		if enable_public_uploads == 'true':
 			addDir('[COLOR brown][B]Public Uploads[/B][/COLOR]', public_uploads, None, '%s/ChromeLauncher.png'% iconpath, fanart)
@@ -190,25 +196,61 @@ def tutorial_links():
 			else:      
 				addLink(name, url, 1, icon, fanart)
 
-def vietmedia_list():
-	link = make_request(vietmediaurl)
-	newlink = ''.join(link.splitlines()).replace('\t','')  
-	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?href="/playlist(.+?)">(.+?)<').findall(newlink)
-	for thumb, url, name in match:
+def vietmedia_list():       
+	addDir('[B]Playlists[/B]', (vietmediaurl + '/playlists'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
+	link = make_request(vietmediaurl + '/videos')
+	link = ''.join(link.splitlines()).replace('\t','')
+	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(link)
+	for thumb, duration, url, name in match:
+		name = replace_all(name, dict)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
-		addDir(name, url, 21, thumb, thumb)
-
-def vietmedia_list_index(url):
-	content = make_request('https://www.youtube.com/playlist' + url)
-	newcontent = ''.join(content.splitlines()).replace('\t','')
-	newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(newcontent)
+		addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+	try:
+		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
+		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, icon, fanart)
+	except:
+		pass
+        
+def vietmedia_playlist(url): 
+	link = make_request(url)
+	link = ''.join(link.splitlines()).replace('\t','')  
+	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?href="/playlist(.+?)">(.+?)<').findall(link)
+	for thumb, url, name in match:
+		name = replace_all(name, dict)
+		thumb = 'https://i.ytimg.com/vi/' + thumb
+		addDir(name, url, 22, thumb, thumb)
+        
+def vietmedia_playlist_index(url):      
+	link = make_request('https://www.youtube.com/playlist' + url)
+	link = ''.join(link.splitlines()).replace('\t','')
+	newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(link)
 	for name, url, thumb, duration in newmatch:
+		name = replace_all(name, dict)
 		thumb = 'https:' + thumb
 		if '[Deleted Video]' in name:
 			pass
 		else:
 			addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+	try:
+		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
+		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, icon, fanart)
+	except:
+		pass
 
+def next_page(url):
+	link = make_request(url)
+	link = ''.join(link.splitlines()).replace('\t','')
+	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(link)
+	for thumb, duration, url, name in match:
+		name = replace_all(name, dict)
+		thumb = 'https://i.ytimg.com/vi/' + thumb
+		addLink(name + ' (' + duration + ')', url, 1, thumb, thumb)
+	try:
+		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
+		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, icon, fanart)
+	except:
+		pass
+        
 def vietmedia_tutorials():
 	thumb = 'https://yt3.ggpht.com/-Y4hzMs0ItTw/AAAAAAAAAAI/AAAAAAAAAAA/OquSyoI-Y2s/s100-c-k-no/photo.jpg'
 	addLink('[COLOR orange][B]VietMedia - YouTube - Hướng Dẫn[/B][/COLOR]', 'NoLinkRequired', 1, thumb, thumb)
@@ -243,7 +285,14 @@ def vietnam_abc_order():
 						pass 
 					else:
 						m3u_playlist(name, url, thumb)
-		#content = read_file(local_vietradio)
+		content = make_request(haingoaitv)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				addLink(name, url, 1, thumb, thumb)
+			else:      
+				addLink(name, url, 1, icon, fanart)
 		content = make_request(vietradio)
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
@@ -276,6 +325,14 @@ def viet_tv_group():
 						pass 
 					else:                   
 						m3u_playlist(name, url, thumb)
+		content = make_request(haingoaitv)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				addLink(name, url, 1, thumb, thumb)
+			else:      
+				addLink(name, url, 1, icon, fanart)
 	except:
 		pass
 
@@ -336,6 +393,14 @@ def viet_Family():
 						pass 
 					if 'Family' in name:                   
 						m3u_playlist(name, url, thumb)
+		content = make_request(haingoaitv)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				addLink(name, url, 1, thumb, thumb)
+			else:      
+				addLink(name, url, 1, icon, fanart)
 	except:
 		pass
 
@@ -426,10 +491,9 @@ def viet_Radio():
 						pass 
 					if 'Radio' in name:                   
 						m3u_playlist(name, url, thumb)
-		#content = read_file(local_vietradio)
 		content = make_request(vietradio)
 		match = re.compile(m3u_regex).findall(content)
-		for thumb, name, url in match[1:]:
+		for thumb, name, url in match:
 			if 'tvg-logo' in thumb:
 				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 				addLink(name, url, 1, thumb, thumb)
@@ -1117,12 +1181,13 @@ def get_params():
 	return param
 
 List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
-vietmediaurl = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZZMmhoYm01bGJDOVZRMk4xYzNwdFEyeHRWVjlxTjNaak9VNWlXVUUyVkhjdmNHeGhlV3hwYzNSeg=='.decode('base64').decode('base64')
+vietmediaurl = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZZMmhoYm01bGJDOVZRMk4xYzNwdFEyeHRWVjlxTjNaak9VNWlXVUUyVkhjPQ=='.decode('base64').decode('base64')
 koditutorials = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZjR3hoZVd4cGMzUS9iR2x6ZEQxUVRFTkdaWGw0WVVSZk4wVXpNRWxpYW1odE9FUTFjVzQzUzFWV1JFVTNiM015'.decode('base64').decode('base64')
 thuthuatkodi = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZjR3hoZVd4cGMzUS9iR2x6ZEQxUVRFTkdaWGw0WVVSZk4wVXpURXh4YW1oSmQydGliMEZsVUdkRVZDMHRPRmxH'.decode('base64').decode('base64')
 tutoriallinks = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzUjFkRzl5YVdGc2JHbHVhM011YlROMQ=='.decode('base64').decode('base64')
 thongbaomoi = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzUm9iMjVuWW1GdmJXOXBMblI0ZEE9PQ=='.decode('base64').decode('base64')
 vietradio = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzWnBaWFJ5WVdScGJ5NXRNM1U9'.decode('base64').decode('base64')
+haingoaitv = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwyaGhhVzVuYjJGcGRIWXViVE4x'.decode('base64').decode('base64')
 def addDir(name, url, mode, iconimage, fanart):
 	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
 	ok = True
@@ -1131,8 +1196,6 @@ def addDir(name, url, mode, iconimage, fanart):
 	liz.setProperty('fanart_image', fanart)
 	if 'plugin.program.chrome.launcher' in url:
 		u = url
-	if ('youtube.com/user/' in url) or ('youtube.com/channel/' in url) or ('youtube/user/' in url) or ('youtube/channel/' in url):
-		u = 'plugin://plugin.video.youtube/%s/%s/' % (url.split( '/' )[-2], url.split( '/' )[-1])
 	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = True)
 	return ok
 
@@ -1191,8 +1254,14 @@ elif mode == 20:
 	vietmedia_list()
 
 elif mode == 21:
-	vietmedia_list_index(url)
+	vietmedia_playlist(url)
 
+elif mode == 22:
+	vietmedia_playlist_index(url)
+
+elif mode == 23:
+	next_page(url)
+    
 elif mode == 27:
 	tutorial_links()
 

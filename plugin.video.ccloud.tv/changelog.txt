@@ -1,3 +1,7 @@
+[b]1.5.0[/b]
+- Added TV Hai Ngoai
+- Updated VietMedia
+- Removed all import addons in addon.xml
 [b]1.4.9[/b]
 - Added Links to Tutorials for Vietnamese newbies to Kodi
 - Speed up VietMedia 24/7 section

@@ -8,12 +8,12 @@ http://stream.onworldtv.com/edge/liveorigin/sbtn/chunklist.m3u8
 http://54.152.24.55:1935/vietset574tvv/myStream/chunklist_w1576239527.m3u8
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/vietface.png",VietFace (TV) (US) (Vietnamese)
 http://54.152.24.55:1935/vf572caliisai/myStream/chunklist_w1738221710.m3u8
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/vietchristian.png",Viet Christian (TV) (US) (Vietnamese)
+mms://live.vietchristian.com/tv
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/vietglobal.png",Viet Global (TV) (US) (Vietnamese)
 http://origin1-edge2.yourstreamlive.com:1935/live/yourstreamlive/out_956_2kr6rvfu/playlist.m3u8
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/vna.png",VNA (TV) (US) (Vietnamese)
 http://54.152.24.55:1935/vnatv/myStream/chunklist_w882536712.m3u8
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/vietchristian.png",Viet Christian (TV) (US) (Vietnamese)
-mms://live.vietchristian.com/tv
 
 
 
