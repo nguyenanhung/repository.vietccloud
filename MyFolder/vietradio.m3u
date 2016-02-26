@@ -1,6 +1,6 @@
 #EXTM3U
 
-#EXTINF:0 tvg-logo="https://github.com/vietccloudtv/repository.vietccloud/raw/master/MyFolder/icons/vietradio.png",[COLOR blue][B]Vietnam Radio Stations[/B][/COLOR]
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/vietradio.png",[COLOR blue][B]Vietnam Radio Stations[/B][/COLOR]
 NoLinkRequired
 #EXTINF:0 tvg-logo="http://www.ktulaw.com/wp-content/uploads/Radio-Bolsa-logo.jpg",Bolsa (Radio) (US) (Vietnamese)
 http://ice7.securenetsystems.net/RBVU?type=.flv&playSessionID=724B6190-D27B-7531-5AD645183B89ED51
