@@ -117,7 +117,7 @@ def main():
 		mysettings.openSettings()
 		xbmc.executebuiltin("Container.Refresh")
 	if enable_tvguide == 'true':        
-		addDir('[COLOR yellow][B]cCloud TV Guide[/B][/COLOR]', 'guide', 97, '%s/guide.png'% iconpath, fanart)     
+		addDir('[COLOR yellow][B]TV Guide[/B][/COLOR]', 'guide', 97, '%s/guide.png'% iconpath, fanart)     
 	if enable_channel_test == 'true':   
 		addDir('[COLOR lime][B]Channel Test[/B][/COLOR]', 'channeltest', 40, '%s/channeltest.png'% iconpath, fanart)   
 	if enable_local_test == 'true':     
@@ -1042,8 +1042,16 @@ def showText(heading, text):
 			pass
 
 def guide():
-	xbmc.executebuiltin("RunAddon(script.renegadestv)")
-	sys.exit()
+	dialog = xbmcgui.Dialog()
+	ret = dialog.yesno('cCloud TV Guide', '[COLOR yellow]cCloud TV[/COLOR] is now integrated with your favourite TV Guides.','This is currently in beta and not all channels are supported.','[COLOR yellow]>>>>>>>>>>>>>  Choose Your Guide Below  <<<<<<<<<<<<<[/COLOR]','iVue TV Guide','Renegades TV Guide')
+	if ret == 1:
+		xbmc.executebuiltin("RunAddon(script.renegadestv)")
+		sys.exit()
+	if ret == 0:
+		xbmc.executebuiltin("RunAddon(script.ivueguide)")
+		sys.exit()
+	else:
+		sys.exit()
 
 def channel_test():
 	try:
