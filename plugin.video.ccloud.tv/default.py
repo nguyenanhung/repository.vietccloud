@@ -54,10 +54,18 @@ adult_regex = '#(.+?)group-title="Adult",(.+)\s*(.+)\s*'
 adult_regex2 = '#(.+?)group-title="Public-Adult",(.+)\s*(.+)\s*'
 ondemand_regex = '[ON\'](.*?)[\'nd]'
 yt = 'http://www.youtube.com'
+text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
 dict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
+List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
+BackupList = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwyTkRiRzkxWkZSV0xtMHpkUT09'.decode('base64').decode('base64')
 public_uploads = 'plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3a%2f%2fscript.google.com%2fmacros%2fs%2fAKfycbxwkVU0o3lckrB5oCQBnQlZ-n8CMx5CZ_ajq6Y3o7YHSTFbcODk%2fexec'
-text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
+
+try: 
+	if urllib.urlopen(List).getcode() == 200:       
+		List = List
+except:
+	List = BackupList
 
 def read_file(file):
 	try:
@@ -285,6 +293,9 @@ def vietnam_abc_order():
 						pass 
 					else:
 						m3u_playlist(name, url, thumb)
+	except:
+		pass
+	try:
 		content = make_request(haingoaitv)
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
@@ -304,7 +315,7 @@ def vietnam_abc_order():
 		vietmedia_tutorials()
 	except:
 		pass
-
+        
 def vietnam_group():
 	addDir('Movies', 'vietnam_group', 77, '%s/group.png'% iconpath, fanart)
 	addDir('Music', 'vietnam_group', 75, '%s/group.png'% iconpath, fanart)
@@ -325,6 +336,9 @@ def viet_tv_group():
 						pass 
 					else:                   
 						m3u_playlist(name, url, thumb)
+	except:
+		pass
+	try:
 		content = make_request(haingoaitv)
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
@@ -393,6 +407,9 @@ def viet_Family():
 						pass 
 					if 'Family' in name:                   
 						m3u_playlist(name, url, thumb)
+	except:
+		pass
+	try:
 		content = make_request(haingoaitv)
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
@@ -491,6 +508,9 @@ def viet_Radio():
 						pass 
 					if 'Radio' in name:                   
 						m3u_playlist(name, url, thumb)
+	except:
+		pass
+	try:
 		content = make_request(vietradio)
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
@@ -559,6 +579,9 @@ def viet_Tutorials():
 						pass 
 					if 'Tutorials' in name:                   
 						m3u_playlist(name, url, thumb)
+	except:
+		pass
+	try:
 		vietmedia_tutorials()
 	except:
 		pass
@@ -1100,12 +1123,15 @@ def online_test():
 			except:
 				pass
 
-def m3u_online():    
+def m3u_online():
 	content = make_request(List) 
 	match = re.compile(m3u_regex).findall(content)
-	for thumb, name, url in match[0:1]:                    
+	for thumb, name, url in match[0:1]:
 		try:
-			m3u_playlist('[COLOR yellow][B]' + name + '[/B][/COLOR]', url, thumb)
+			if List == 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64'):
+				m3u_playlist('[COLOR yellow][B]' + name + '[/B][/COLOR]', url, thumb)
+			else:
+				m3u_playlist('[COLOR yellow][B]Backup List - [/B][/COLOR][COLOR magenta][B]' + name + '[/B][/COLOR]', url, thumb)
 		except:
 			pass     
 	for thumb, name, url in sorted(match, key = itemgetter(1)):                    
@@ -1188,7 +1214,6 @@ def get_params():
 				param[splitparams[0]] = splitparams[1]
 	return param
 
-List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
 vietmediaurl = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZZMmhoYm01bGJDOVZRMk4xYzNwdFEyeHRWVjlxTjNaak9VNWlXVUUyVkhjPQ=='.decode('base64').decode('base64')
 koditutorials = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZjR3hoZVd4cGMzUS9iR2x6ZEQxUVRFTkdaWGw0WVVSZk4wVXpNRWxpYW1odE9FUTFjVzQzUzFWV1JFVTNiM015'.decode('base64').decode('base64')
 thuthuatkodi = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZjR3hoZVd4cGMzUS9iR2x6ZEQxUVRFTkdaWGw0WVVSZk4wVXpURXh4YW1oSmQydGliMEZsVUdkRVZDMHRPRmxH'.decode('base64').decode('base64')
@@ -1196,6 +1221,7 @@ tutoriallinks = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1p
 thongbaomoi = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzUm9iMjVuWW1GdmJXOXBMblI0ZEE9PQ=='.decode('base64').decode('base64')
 vietradio = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzWnBaWFJ5WVdScGJ5NXRNM1U9'.decode('base64').decode('base64')
 haingoaitv = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwyaGhhVzVuYjJGcGRIWXViVE4x'.decode('base64').decode('base64')
+
 def addDir(name, url, mode, iconimage, fanart):
 	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
 	ok = True

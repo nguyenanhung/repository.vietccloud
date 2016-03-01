@@ -1,3 +1,5 @@
+[B]1.5.2[/B]
+- Added Backup List.
 [B]1.5.1[/B]
 - Added iVue TV Guide
 [B]1.5.0[/B]
