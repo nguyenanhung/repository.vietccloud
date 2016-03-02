@@ -1,3 +1,5 @@
+[B]1.5.3[/B]
+- Updated servers.
 [B]1.5.2[/B]
 - Added Backup List.
 [B]1.5.1[/B]
@@ -28,7 +30,7 @@
 - Changed add-on's icon image
 [B]1.4.3[/B]
 Updated Vietnam section
-- abc order
+- aBc order
 - category
 [B]1.4.2[/B]
 - Initial mod
