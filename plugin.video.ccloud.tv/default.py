@@ -30,7 +30,6 @@ enable_adult_section = mysettings.getSetting('enable_adult_section')
 enable_tvguide = mysettings.getSetting('enable_tvguide')
 enable_thongbao = mysettings.getSetting('enable_thongbao')
 enable_vietmedia = mysettings.getSetting('enable_vietmedia')
-enable_vietmedialist = mysettings.getSetting('enable_vietmedialist')
 enable_channel_test = mysettings.getSetting('enable_channel_test')
 enable_local_test = mysettings.getSetting('enable_local_test')
 enable_public_uploads = mysettings.getSetting('enable_public_uploads')
@@ -58,7 +57,7 @@ text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
 List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
 BackupList = 'YUhSMGNEb3ZMM2d1WTI4dlpHSmphREF4'.decode('base64').decode('base64')
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
-dict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
+dict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
 
 try: 
 	if urllib.urlopen(List).getcode() == 200:
@@ -131,7 +130,7 @@ def main():
 		addDir('[COLOR lime][B]Local M3U Playlist Test[/B][/COLOR]', 'localtest', 41, '%s/localtest.png'% iconpath, fanart)
 	if enable_online_test == 'true':     
 		addDir('[COLOR lime][B]Online M3U Playlist Test[/B][/COLOR]', 'onlinetest', 42, '%s/onlinetest.png'% iconpath, fanart)
-	if enable_vietmedialist == 'true':
+	if enable_vietmedia == 'true':
 		addDir('[COLOR orange][B]VietMedia - YouTube[/B][/COLOR]', 'NoLinkRequired', 20, '%s/vietmedialist.png'% iconpath, fanart)
 	if platform() == 'windows' or platform() == 'osx':
 		if enable_public_uploads == 'true':
@@ -204,17 +203,17 @@ def tutorial_links():
 				addLink(name, url, 1, icon, fanart)
 
 def vietmedia_list():       
-	addDir('[B]Playlists[/B]', (vietmediaurl + '/playlists'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
+	addDir('[COLOR magenta][B]Playlists[/B][/COLOR]', (vietmediaurl + '/playlists'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
 	link = make_request(vietmediaurl + '/videos')
 	link = ''.join(link.splitlines()).replace('\t','')
 	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(link)
 	for thumb, duration, url, name in match:
 		name = replace_all(name, dict)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
-		addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+		addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
-		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
+		addDir('[COLOR yellow][B]Next page [/B][/COLOR][COLOR lime][B]>>[/B][/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
         
@@ -237,7 +236,7 @@ def vietmedia_playlist_index(url):
 		if '[Deleted Video]' in name:
 			pass
 		else:
-			addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
 		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
@@ -255,7 +254,7 @@ def next_page(url):
 	for thumb, duration, url, name in match:
 		name = replace_all(name, dict)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
-		addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+		addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(newlink)  
 		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
@@ -273,7 +272,8 @@ def vietmedia_tutorials():
 		if '[Deleted Video]' in name:
 			pass
 		else:
-			addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+			name = replace_all(name, dict)
+			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	content = make_request(thuthuatkodi)
 	newcontent = ''.join(content.splitlines()).replace('\t','')
 	newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(newcontent)
@@ -282,7 +282,8 @@ def vietmedia_tutorials():
 		if '[Deleted Video]' in name:
 			pass
 		else:
-			addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+			name = replace_all(name, dict)
+			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 
 def vietnam_abc_order(): 
 	try:

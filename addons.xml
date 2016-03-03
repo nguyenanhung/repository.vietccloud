@@ -21,7 +21,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.5.4" provider-name="podgod-mod">
+<addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.5.5" provider-name="podgod-mod">
   <requires>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
@@ -33,7 +33,7 @@
     <summary>All the best from cCloud TV</summary>
     <description>cCloud is an open source cloud based social IPTV service. It is built by the community for the community, where streaming is just a click away. Just click, play and stream yup it's that simple. Just go to http://ccloudtv.org  and enjoy:) Please report any channels that are down here http://www.tiny.cc/reportchs
     </description>
-	<license>http://www.gnu.org/licenses/</license>
+    <license>http://www.gnu.org/licenses/</license>
     <forum>http://ccloudtv.org/forum</forum>
     <website>http://ccloudtv.org</website>
     <website>http://facebook.com/ccloudapp</website>

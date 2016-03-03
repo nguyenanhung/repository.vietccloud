@@ -13,10 +13,9 @@
 	<category label="General">
 		<setting id="viet_mode" type="select" label="Select Vietnam Section Mode" values="group|abc order|category" default="group" />
 		<setting id="enable_thongbao" type="bool" label="Enable Thong Bao Moi" default="true" />
-		<setting id="enable_tvguide" type="bool" label="Enable cCloud TV Guide" default="true" />
+		<setting id="enable_tvguide" type="bool" label="Enable TV Guide" default="true" />
 		<setting id="enable_channel_test" type="bool" label="Enable Channel Test" default="true" />
-		<setting id="enable_vietmedia" type="bool" label="Enable VietMedia" default="true" />
-		<setting id="enable_vietmedialist" type="bool" label="Enable VietMedia 24/7" default="true" />
+		<setting id="enable_vietmedia" type="bool" label="Enable VietMedia - YouTube" default="true" />
 		<setting id="enable_public_uploads" type="bool" label="Enable Public Uploads (Win/Mac PC)" default="true" />
 		<setting id="enable_links_to_tutorials" type="bool" label="Enable Links to Tutorials (Win/Mac PC)" default="true" />
 		<setting id="enable_autorun" type="bool" label="Enable Autostart cCloud.tv" default="false" />
