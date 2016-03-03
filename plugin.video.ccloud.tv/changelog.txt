@@ -32,7 +32,7 @@
 - Changed add-on's icon image
 [B]1.4.3[/B]
 Updated Vietnam section
-- aBc order
+- abc order
 - category
 [B]1.4.2[/B]
 - Initial mod
