@@ -1,3 +1,5 @@
+[B]1.5.4[/B]
+- Fixed VietMedia - YouTube section to show next page.
 [B]1.5.3[/B]
 - Updated servers.
 [B]1.5.2[/B]

@@ -1,7 +1,5 @@
 #EXTM3U
 
-#EXTINF:0 tvg-logo="http://img.new.livestream.com/events/000000000035079b/1bbc1f69-a941-4a82-a584-5b9e7e0480dc_170x255.jpg",[COLOR lime][B]Quê Hương[/B][/COLOR] (TV) (US) (Vietnamese)
-rtmp://vf10.aditmedia.net/ingest/ playpath=ius_000130 swfUrl=http://p.jwpcdn.com/6/8/jwplayer.flash.swf pageUrl=http://nguoiviet.tv/truyen-hinh-que-huong
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/sbtn.png",[COLOR lime][B]SBTN[/B][/COLOR] (TV) (US) (Vietnamese)
 http://stream.onworldtv.com/edge/liveorigin/sbtn/chunklist.m3u8
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/vietface.png",[COLOR lime][B]VietFace[/B][/COLOR] (TV) (US) (Vietnamese)

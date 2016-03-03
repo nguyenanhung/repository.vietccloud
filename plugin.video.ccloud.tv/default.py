@@ -214,7 +214,7 @@ def vietmedia_list():
 		addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
-		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, icon, fanart)
+		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
         
@@ -240,24 +240,28 @@ def vietmedia_playlist_index(url):
 			addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
-		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, icon, fanart)
-	except:
-		pass
-
-def next_page(url):
-	link = make_request(url)
-	link = ''.join(link.splitlines()).replace('\t','')
-	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(link)
-	for thumb, duration, url, name in match:
-		name = replace_all(name, dict)
-		thumb = 'https://i.ytimg.com/vi/' + thumb
-		addLink(name + ' (' + duration + ')', url, 1, thumb, thumb)
-	try:
-		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
-		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, icon, fanart)
+		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
         
+def next_page(url):
+	req = urllib2.Request(url)
+	req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0')
+	response = urllib2.urlopen(req) 
+	link = response.read().decode('unicode-escape').encode('utf-8').replace('\\', '')
+	response.close()
+	newlink = ''.join(link.splitlines()).replace('\t','')
+	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(newlink)
+	for thumb, duration, url, name in match:
+		name = replace_all(name, dict)
+		thumb = 'https://i.ytimg.com/vi/' + thumb
+		addLink(name + ' (' + duration + ')', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+	try:
+		match = re.compile('data-uix-load-more-href="(.+?)"').findall(newlink)  
+		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
+	except:
+		pass
+       
 def vietmedia_tutorials():
 	thumb = 'https://yt3.ggpht.com/-Y4hzMs0ItTw/AAAAAAAAAAI/AAAAAAAAAAA/OquSyoI-Y2s/s100-c-k-no/photo.jpg'
 	addLink('[COLOR orange][B]VietMedia - YouTube - Hướng Dẫn[/B][/COLOR]', 'NoLinkRequired', 1, thumb, thumb)
