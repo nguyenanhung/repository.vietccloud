@@ -14,6 +14,8 @@
 
 - [COLOR red][B]Khi upload lên cCloud server, dùng tiếng Việt không có dấu để đặt tên kênh.[/B][/COLOR]
 
+- [COLOR cyan][B]Muốn kênh được hiển thị trong mục Vietnam, khi upload lên cCloud TV server, chỉ cần chọn 1 trong các mục sau đây Country = Vietnam, Language = Vietnamese, hoặc Language 2 = Vietnamese.[/B][/COLOR]
+
 - [COLOR chocolate][B]cCloud TV server hiện nay chỉ nhận các links có 3 định dạng như sau: m3u8, rtmp (loại đơn giản không có playpath, swfUrl, pageUrl nằm trong link) và mp4 cho các nhóm OnDemand.[/B][/COLOR]
 
 - Muốn giữ các đường dẫn đến các playlist tests để add-on này có thể dùng được tới 3 m3u playlists (cCloud, local và online playlists), vào Add-on settings >> Playlist Test >> Keep Local/Online M3U Source Path? >> chọn chế độ mở.
