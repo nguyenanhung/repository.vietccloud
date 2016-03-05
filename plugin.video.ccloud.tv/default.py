@@ -30,12 +30,12 @@ enable_adult_section = mysettings.getSetting('enable_adult_section')
 enable_tvguide = mysettings.getSetting('enable_tvguide')
 enable_thongbao = mysettings.getSetting('enable_thongbao')
 enable_vietmedia = mysettings.getSetting('enable_vietmedia')
-enable_channel_test = mysettings.getSetting('enable_channel_test')
-enable_local_test = mysettings.getSetting('enable_local_test')
+enable_channel_tester = mysettings.getSetting('enable_channel_tester')
+enable_local_tester = mysettings.getSetting('enable_local_tester')
 enable_public_uploads = mysettings.getSetting('enable_public_uploads')
 enable_links_to_tutorials = mysettings.getSetting('enable_links_to_tutorials')
 local_path = mysettings.getSetting('local_path')
-enable_online_test = mysettings.getSetting('enable_online_test')
+enable_online_tester = mysettings.getSetting('enable_online_tester')
 online_path = mysettings.getSetting('online_path')
 viet_mode = mysettings.getSetting('viet_mode')
 
@@ -124,14 +124,14 @@ def main():
 		xbmc.executebuiltin("Container.Refresh")
 	if enable_tvguide == 'true':        
 		addDir('[COLOR yellow][B]TV Guide[/B][/COLOR]', 'guide', 97, '%s/guide.png'% iconpath, fanart)     
-	if enable_channel_test == 'true':   
-		addDir('[COLOR lime][B]Channel Test[/B][/COLOR]', 'channeltest', 40, '%s/channeltest.png'% iconpath, fanart)   
-	if enable_local_test == 'true':     
-		addDir('[COLOR lime][B]Local M3U Playlist Test[/B][/COLOR]', 'localtest', 41, '%s/localtest.png'% iconpath, fanart)
-	if enable_online_test == 'true':     
-		addDir('[COLOR lime][B]Online M3U Playlist Test[/B][/COLOR]', 'onlinetest', 42, '%s/onlinetest.png'% iconpath, fanart)
+	if enable_channel_tester == 'true':   
+		addDir('[COLOR lime][B]Channel Tester[/B][/COLOR]', 'channeltester', 40, '%s/channeltester.png'% iconpath, fanart)   
+	if enable_local_tester == 'true':     
+		addDir('[COLOR lime][B]Local M3U Playlist Tester[/B][/COLOR]', 'localtester', 41, '%s/localtester.png'% iconpath, fanart)
+	if enable_online_tester == 'true':     
+		addDir('[COLOR lime][B]Online M3U Playlist Tester[/B][/COLOR]', 'onlinetester', 42, '%s/onlinetester.png'% iconpath, fanart)
 	if enable_vietmedia == 'true':
-		addDir('[COLOR orange][B]VietMedia - YouTube[/B][/COLOR]', 'NoLinkRequired', 20, '%s/vietmedialist.png'% iconpath, fanart)
+		addDir('[COLOR orange][B]VietMedia - YouTube[/B][/COLOR]', 'NoLinkRequired', 20, '%s/vietmedia.png'% iconpath, fanart)
 	if platform() == 'windows' or platform() == 'osx':
 		if enable_public_uploads == 'true':
 			addDir('[COLOR brown][B]Public Uploads[/B][/COLOR]', public_uploads, None, '%s/ChromeLauncher.png'% iconpath, fanart)
@@ -180,25 +180,29 @@ def search():
 		pass
 
 def tutorial_links():
+	#content = read_file(os.path.expanduser(m3uFolder + 'tutoriallinks.m3u'))
 	content = make_request(tutoriallinks)
 	match = re.compile(m3u_regex).findall(content)
-	for thumb, name, url in match[0:1]:
-		thumb = xbmc.translatePath(os.path.join(home, 'resources/icons/huongdan.png'))
-		addLink(name, url, 1, thumb, thumb)
-	for thumb, name, url in match[1:]:
+	for thumb, name, url in match:
 		if 'plugin.program.chrome.launcher' in url:
 			if 'tvg-logo' in thumb:
 				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-				addDir(name, url, None, thumb, thumb)
+				if thumb.startswith('http'):               
+					addDir(name, url, None, thumb, thumb)
+				else:
+					thumb = '%s/%s' % (iconpath, thumb)
+					addDir(name, url, None, thumb, thumb)
 			else:      
 				addDir(name, url, None, icon, fanart)
-		elif 'Xem Hướng Dẫn Trên uTube' in name:
-			thumb = xbmc.translatePath(os.path.join(home, 'resources/icons/utube.png'))
-			addLink(name, url, 1, thumb, thumb)
-		elif 'plugin.video.youtube' in url:
+		else:
 			if 'tvg-logo' in thumb:
 				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-				addLink(name, url, 1, thumb, thumb)
+				if thumb.startswith('http'):               
+					addLink(name, url, 1, thumb, thumb)
+				else:
+					thumb = '%s/%s' % (iconpath, thumb)
+					addLink(name, url, 1, thumb, thumb)
+				print "Printing thumbs: ",thumb
 			else:      
 				addLink(name, url, 1, icon, fanart)
 
@@ -216,7 +220,7 @@ def vietmedia_list():
 		addDir('[COLOR yellow][B]Next page [/B][/COLOR][COLOR lime][B]>>[/B][/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
-        
+
 def vietmedia_playlist(url): 
 	link = make_request(url)
 	link = ''.join(link.splitlines()).replace('\t','')  
@@ -225,7 +229,7 @@ def vietmedia_playlist(url):
 		name = replace_all(name, dict)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
 		addDir(name, url, 22, thumb, thumb)
-        
+
 def vietmedia_playlist_index(url):      
 	link = make_request('https://www.youtube.com/playlist' + url)
 	link = ''.join(link.splitlines()).replace('\t','')
@@ -260,7 +264,7 @@ def next_page(url):
 		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
-       
+
 def vietmedia_tutorials():
 	thumb = 'https://yt3.ggpht.com/-Y4hzMs0ItTw/AAAAAAAAAAI/AAAAAAAAAAA/OquSyoI-Y2s/s100-c-k-no/photo.jpg'
 	addLink('[COLOR orange][B]VietMedia - YouTube - Hướng Dẫn[/B][/COLOR]', 'NoLinkRequired', 1, thumb, thumb)
@@ -284,17 +288,35 @@ def vietmedia_tutorials():
 		else:
 			name = replace_all(name, dict)
 			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+	thumb1 = '%s/utube.png'% iconpath
+	addLink('[COLOR magenta][B]Other Tutorials on YouTube - Những Hướng Dẫn Khác[/B][/COLOR]', 'NoLinkRequired', 1, thumb1, thumb1)
+	#content = read_file(os.path.expanduser(m3uFolder + 'tutoriallinks.m3u'))
+	content = make_request(tutoriallinks)
+	match = re.compile(m3u_regex).findall(content)
+	for thumb, name, url in match:
+		if 'plugin.video.youtube' in url:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				if thumb.startswith('http'):
+					addLink(name, url, 1, thumb, thumb)
+				else:
+					thumb = '%s/%s' % (iconpath, thumb)
+					addLink(name, url, 1, thumb, thumb)
+			else:
+				addLink(name, url, 1, icon, fanart)
+		else:
+			pass
 
-def vietnam_abc_order(): 
+def vietnam_abc_order():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'           
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):                           
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
+						pass
 					else:
 						m3u_playlist(name, url, thumb)
 	except:
@@ -306,7 +328,7 @@ def vietnam_abc_order():
 			if 'tvg-logo' in thumb:
 				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 				addLink(name, url, 1, thumb, thumb)
-			else:      
+			else:
 				addLink(name, url, 1, icon, fanart)
 		content = make_request(vietradio)
 		match = re.compile(m3u_regex).findall(content)
@@ -314,12 +336,12 @@ def vietnam_abc_order():
 			if 'tvg-logo' in thumb:
 				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 				addLink(name, url, 1, thumb, thumb)
-			else:      
+			else:
 				addLink(name, url, 1, icon, fanart)
 		vietmedia_tutorials()
 	except:
 		pass
-        
+
 def vietnam_group():
 	addDir('Movies', 'vietnam_group', 77, '%s/group.png'% iconpath, fanart)
 	addDir('Music', 'vietnam_group', 75, '%s/group.png'% iconpath, fanart)
@@ -330,15 +352,15 @@ def vietnam_group():
 
 def viet_tv_group():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name) or ('OnDemandMovies' in name) or ('Music' in name) or ('Radio' in name) or ('Sports' in name) or ('Tutorials' in name):
-						pass 
-					else:                   
+						pass
+					else:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
@@ -349,7 +371,7 @@ def viet_tv_group():
 			if 'tvg-logo' in thumb:
 				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 				addLink(name, url, 1, thumb, thumb)
-			else:      
+			else:
 				addLink(name, url, 1, icon, fanart)
 	except:
 		pass
@@ -369,47 +391,47 @@ def vietnam_category():
 	addDir('Sports', 'vietnam_category', 82, '%s/category.png'% iconpath, fanart)
 	addDir('Tutorials', 'vietnam_category', 83, '%s/category.png'% iconpath, fanart)
 
-def viet_Documentary():  
+def viet_Documentary():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'Documentary' in name:                   
+						pass
+					if 'Documentary' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
 
-def viet_Entertainment():  
+def viet_Entertainment():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'Entertainment' in name:                   
+						pass
+					if 'Entertainment' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
 
-def viet_Family():  
+def viet_Family():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'Family' in name:                   
+						pass
+					if 'Family' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
@@ -420,97 +442,97 @@ def viet_Family():
 			if 'tvg-logo' in thumb:
 				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 				addLink(name, url, 1, thumb, thumb)
-			else:      
+			else:
 				addLink(name, url, 1, icon, fanart)
 	except:
 		pass
 
-def viet_Movie_Channels():  
+def viet_Movie_Channels():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'Movie Channels' in name:                   
+						pass
+					if 'Movie Channels' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
 
-def viet_Music():  
+def viet_Music():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'Music' in name:                   
+						pass
+					if 'Music' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
 
-def viet_News():  
+def viet_News():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'News' in name:                   
+						pass
+					if 'News' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
 
-def viet_OnDemandMovies():  
+def viet_OnDemandMovies():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'OnDemandMovies' in name:                   
+						pass
+					if 'OnDemandMovies' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
 
-def viet_OnDemandShows():  
+def viet_OnDemandShows():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'OnDemandShows' in name:                   
+						pass
+					if 'OnDemandShows' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
 
-def viet_Radio():  
+def viet_Radio():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'Radio' in name:                   
+						pass
+					if 'Radio' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
@@ -521,67 +543,67 @@ def viet_Radio():
 			if 'tvg-logo' in thumb:
 				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 				addLink(name, url, 1, thumb, thumb)
-			else:      
+			else:
 				addLink(name, url, 1, icon, fanart)
 	except:
 		pass
 
-def viet_RandomAirTime():  
+def viet_RandomAirTime():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'RandomAirTime 24/7' in name:                   
+						pass
+					if 'RandomAirTime 24/7' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
 
-def viet_Special_Events():  
+def viet_Special_Events():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'Special Events' in name:                   
+						pass
+					if 'Special Events' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
 
-def viet_Sports():  
+def viet_Sports():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'Sports' in name:                   
+						pass
+					if 'Sports' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
 
-def viet_Tutorials():  
+def viet_Tutorials():
 	try:
-		searchText = '\(VN\)|(Vietnamese)'  
+		searchText = '\(VN\)|(Vietnamese)'
 		if len(List) > 0:
 			content = make_request(List)
 			match = re.compile(m3u_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):           
-				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					if 'Tutorials' in name:                   
+						pass
+					if 'Tutorials' in name:
 						m3u_playlist(name, url, thumb)
 	except:
 		pass
@@ -590,7 +612,7 @@ def viet_Tutorials():
 	except:
 		pass
 
-def top10(): 
+def top10():
 	try:
 		searchText = '(Top10)'
 		if len(List) > 0:
@@ -602,7 +624,7 @@ def top10():
 	except:
 		pass
 
-def sports(): 
+def sports():
 	try:
 		searchText = '(Sports)'
 		if len(List) > 0:
@@ -614,7 +636,7 @@ def sports():
 	except:
 		pass
 
-def news(): 
+def news():
 	try:
 		searchText = '(News)'
 		if len(List) > 0:
@@ -626,7 +648,7 @@ def news():
 	except:
 		pass
 
-def documentary(): 
+def documentary():
 	try:
 		searchText = '(Document)'
 		if len(List) > 0:
@@ -638,7 +660,7 @@ def documentary():
 	except:
 		pass
 
-def entertainment(): 
+def entertainment():
 	try:
 		searchText = '(Entertainment)'
 		if len(List) > 0:
@@ -650,7 +672,7 @@ def entertainment():
 	except:
 		pass
 
-def family(): 
+def family():
 	try:
 		searchText = '(Family)'
 		if len(List) > 0:
@@ -662,7 +684,7 @@ def family():
 	except:
 		pass
 
-def lifestyle(): 
+def lifestyle():
 	try:
 		searchText = '(Lifestyle)'
 		if len(List) > 0:
@@ -674,7 +696,7 @@ def lifestyle():
 	except:
 		pass
 
-def movie(): 
+def movie():
 	try:
 		searchText = '(Movie Channels)'
 		if len(List) > 0:
@@ -686,7 +708,7 @@ def movie():
 	except:
 		pass
 
-def music(): 
+def music():
 	try:
 		searchText = '(Music)'
 		if len(List) > 0:
@@ -698,7 +720,7 @@ def music():
 	except:
 		pass
 
-def ondemandmovies(): 
+def ondemandmovies():
 	try:
 		searchText = '(OnDemandMovies)'
 		if len(List) > 0:
@@ -710,7 +732,7 @@ def ondemandmovies():
 	except:
 		pass
 
-def ondemandshows(): 
+def ondemandshows():
 	try:
 		searchText = '(OnDemandShows)'
 		if len(List) > 0:
@@ -722,7 +744,7 @@ def ondemandshows():
 	except:
 		pass
 
-def twentyfour7(): 
+def twentyfour7():
 	try:
 		searchText = '(RandomAirTime 24/7)'
 		if len(List) > 0:
@@ -734,7 +756,7 @@ def twentyfour7():
 	except:
 		pass
 
-def radio(): 
+def radio():
 	try:
 		searchText = '(Radio)'
 		if len(List) > 0:
@@ -746,7 +768,7 @@ def radio():
 	except:
 		pass
 
-def adult(): 
+def adult():
 	try:
 		searchText = ('(Adult)') or ('(Public-Adult)')
 		if len(List) > 0:
@@ -764,7 +786,7 @@ def adult():
 	except:
 		pass
 
-def english(): 
+def english():
 	try:
 		searchText = '(English)'
 		if len(List) > 0:
@@ -779,17 +801,17 @@ def english():
 def international():
 	if len(List) > 0:
 		content = make_request(List)
-		match = sorted(re.compile(m3u_regex).findall(content), key = itemgetter(1))        
+		match = sorted(re.compile(m3u_regex).findall(content), key = itemgetter(1))
 		try:
-			searchVietnamese = '\(VN\)|(Vietnamese)'       
+			searchVietnamese = '\(VN\)|(Vietnamese)'
 			for thumb, name, url in match:
 				if (re.search(searchVietnamese, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
 					if ('\(Adult\)' in name) or ('\(Public-Adult\)' in name):
-						pass 
-					else:                        
-						m3u_playlist(name, url, thumb)                       
+						pass
+					else:
+						m3u_playlist(name, url, thumb)
 		except:
-			pass   
+			pass
 		try:
 			searchUrdu = '(Urdu)'
 			for thumb, name, url in match:
@@ -803,7 +825,7 @@ def international():
 				if re.search(searchUkrainian, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchTamil = '(Tamil)'
 			for thumb, name, url in match:
@@ -824,14 +846,14 @@ def international():
 				if re.search(searchSomali, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchSlovenian = '(Slovenian)'
 			for thumb, name, url in match:
 				if re.search(searchSlovenian, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchRussian = '(Russian)'
 			for thumb, name, url in match:
@@ -845,7 +867,7 @@ def international():
 				if re.search(searchRomanian, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchPortuguese = '(Portuguese)'
 			for thumb, name, url in match:
@@ -859,14 +881,14 @@ def international():
 				if re.search(searchPolish, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchMandarin = '(Mandarin)'
 			for thumb, name, url in match:
 				if re.search(searchFilipino, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchMaltese = '(Maltese)'
 			for thumb, name, url in match:
@@ -880,14 +902,14 @@ def international():
 				if re.search(searchMacedonian, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass 
+			pass
 		try:
 			searchLithuanian = '(Lithuanian)'
 			for thumb, name, url in match:
 				if re.search(searchLithuanian, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchKurdish = '(Kurdish)'
 			for thumb, name, url in match:
@@ -901,7 +923,7 @@ def international():
 				if re.search(searchJamaica, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchItalian = '(Italian)'
 			for thumb, name, url in match:
@@ -915,14 +937,14 @@ def international():
 				if re.search(searchIsraeli, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchIndian = '(Indian)'
 			for thumb, name, url in match:
 				if re.search(searchIndian, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchhungarian = '(Hungarian)'
 			for thumb, name, url in match:
@@ -943,7 +965,7 @@ def international():
 				if re.search(searchGreek, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchGerman = '(German)'
 			for thumb, name, url in match:
@@ -964,7 +986,7 @@ def international():
 				if re.search(searchFilipino, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchFarsi = '(Farsi)'
 			for thumb, name, url in match:
@@ -978,7 +1000,7 @@ def international():
 				if re.search(searchDutch, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchDeutsch = '(Deutsch)'
 			for thumb, name, url in match:
@@ -992,14 +1014,14 @@ def international():
 				if re.search(searchChinese, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass 
+			pass
 		try:
 			searchCatalan = '(Catalan)'
 			for thumb, name, url in match:
 				if re.search(searchCatalan, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					m3u_playlist(name, url, thumb)
 		except:
-			pass        
+			pass
 		try:
 			searchArabic = '(Arabic)'
 			for thumb, name, url in match:
@@ -1080,9 +1102,9 @@ def guide():
 	else:
 		sys.exit()
 
-def channel_test():
+def channelTester():
 	try:
-		keyb = xbmc.Keyboard('', 'Enter Channel Name [COLOR lime]- Tiếng Việt Không Dấu[/COLOR]')    
+		keyb = xbmc.Keyboard('', 'Enter Channel Name [COLOR lime]- Tiếng Việt Không Dấu[/COLOR]')
 		keyb.doModal()
 		if (keyb.isConfirmed()):
 			name = urllib.quote_plus(keyb.getText(), safe="%/:=&?~#+!$,;'@()*[]").replace('+', ' ')
@@ -1094,19 +1116,19 @@ def channel_test():
 		keyb.doModal()
 		if (keyb.isConfirmed()):
 			thumb = urllib.quote_plus(keyb.getText(), safe="%/:=&?~#+!$,;'@()*[]").replace('+', ' ')
-		if len(name) > 0 and len(url) > 0:    
-			if len(thumb) < 1:    
-				thumb = icon        
-			addLink(name, url, 1, thumb, fanart)        
+		if len(name) > 0 and len(url) > 0:
+			if len(thumb) < 1:
+				thumb = icon
+			addLink(name, url, 1, thumb, fanart)
 	except:
-		pass 
+		pass
 
-def local_test():
+def localTester():
 	if len(local_path) < 1:
 		mysettings.openSettings()
-		sys.exit()        
+		sys.exit()
 	else:
-		content = read_file(local_path)          
+		content = read_file(local_path)
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
 			try:
@@ -1114,14 +1136,14 @@ def local_test():
 			except:
 				pass
 
-def online_test():
+def onlineTester():
 	if len(online_path) < 1:
 		mysettings.openSettings()
-		sys.exit()        
+		sys.exit()
 	else:
 		content = make_request(online_path)
 		match = re.compile(m3u_regex).findall(content)
-		for thumb, name, url in match:                    
+		for thumb, name, url in match:
 			try:
 				m3u_playlist(name, url, thumb)
 			except:
@@ -1137,12 +1159,12 @@ def m3u_online():
 			else:
 				m3u_playlist('[COLOR magenta][B]Backup Server - ' + name + '[/B][/COLOR]', url, thumb)
 		except:
-			pass     
-	for thumb, name, url in sorted(match, key = itemgetter(1)):                    
+			pass
+	for thumb, name, url in sorted(match, key = itemgetter(1)):
 		try:
 			if 'Welcome to cCloudTV' in name:
 				pass
-			else:    
+			else:
 				m3u_playlist(name, url, thumb)
 		except:
 			pass
@@ -1218,6 +1240,7 @@ def get_params():
 				param[splitparams[0]] = splitparams[1]
 	return param
 
+m3uFolder = 'Zmk5RWIyTjFiV1Z1ZEhNdlIybDBTSFZpTDNKbGNHOXphWFJ2Y25rdWRtbGxkR05qYkc5MVpDOU5lVVp2YkdSbGNpOD0='.decode('base64').decode('base64')
 vietmediaurl = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZZMmhoYm01bGJDOVZRMk4xYzNwdFEyeHRWVjlxTjNaak9VNWlXVUUyVkhjPQ=='.decode('base64').decode('base64')
 koditutorials = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZjR3hoZVd4cGMzUS9iR2x6ZEQxUVRFTkdaWGw0WVVSZk4wVXpNRWxpYW1odE9FUTFjVzQzUzFWV1JFVTNiM015'.decode('base64').decode('base64')
 thuthuatkodi = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZjR3hoZVd4cGMzUS9iR2x6ZEQxUVRFTkdaWGw0WVVSZk4wVXpURXh4YW1oSmQydGliMEZsVUdkRVZDMHRPRmxH'.decode('base64').decode('base64')
@@ -1243,8 +1266,8 @@ def addLink(name, url, mode, iconimage, fanart):
 	liz = xbmcgui.ListItem(name, iconImage = "DefaultVideo.png", thumbnailImage = iconimage)
 	liz.setInfo( type = "Video", infoLabels = { "Title": name } )
 	liz.setProperty('fanart_image', fanart)
-	liz.setProperty('IsPlayable', 'true') 
-	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz)  
+	liz.setProperty('IsPlayable', 'true')
+	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz)
 
 params = get_params()
 url = None
@@ -1267,7 +1290,7 @@ except:
 try:
 	iconimage = urllib.unquote_plus(params["iconimage"])
 except:
-	pass  
+	pass
 
 print "Mode: " + str(mode)
 print "URL: " + str(url)
@@ -1288,7 +1311,7 @@ elif mode == 3:
 
 elif mode == 4:
 	thongbao()
-    
+
 elif mode == 20:
 	vietmedia_list()
 
@@ -1300,7 +1323,7 @@ elif mode == 22:
 
 elif mode == 23:
 	next_page(url)
-    
+
 elif mode == 27:
 	tutorial_links()
 
@@ -1311,13 +1334,13 @@ elif mode == 31:
 	viet_tv_group()
 
 elif mode == 40:
-	channel_test()
+	channelTester()
 
 elif mode == 41:
-	local_test()
+	localTester()
 
 elif mode == 42:
-	online_test()
+	onlineTester()
 
 elif mode == 48:
 	vietnam_abc_order()
