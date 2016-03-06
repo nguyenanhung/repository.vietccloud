@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>
 """
 
-import urllib, urllib2, sys, re, os, unicodedata, cookielib
+import urllib, urllib2, sys, re, os, unicodedata, cookielib, random, shutil
 import xbmc, xbmcgui, xbmcplugin, xbmcaddon, base64
 from operator import itemgetter, attrgetter
 
@@ -52,23 +52,23 @@ m3u_regex = '#(.+?),(.+)\s*(.+)\s*'
 adult_regex = '#(.+?)group-title="Adult",(.+)\s*(.+)\s*'
 adult_regex2 = '#(.+?)group-title="Public-Adult",(.+)\s*(.+)\s*'
 ondemand_regex = '[ON\'](.*?)[\'nd]'
+server_regex = '<server>(.+?)</server>'
 yt = 'http://www.youtube.com'
 text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
-List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
-BackupList = 'YUhSMGNITTZMeTluYVhSb2RXSXVZMjl0TDNacFpYUmpZMnh2ZFdSMGRpOXlaWEJ2YzJsMGIzSjVMblpwWlhSalkyeHZkV1F2Y21GM0wyMWhjM1JsY2k5TmVVWnZiR1JsY2k5alEyeHZkV1JVVmk1dE0zVT0='.decode('base64').decode('base64')
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
+SRVlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzTmxjblpsY25NdWRIaDA='.decode('base64').decode('base64')
 dict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
 
-try: 
-	req = urllib2.Request(List)
-	req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0')
-	response = urllib2.urlopen(req) 
-	link = response.read()
-	response.close()
-	if '#EXTINF:0' in link:
-		List = List
-except:
-	List = BackupList
+def make_request(url):
+	try:
+		req = urllib2.Request(url)
+		req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0')
+		response = urllib2.urlopen(req) 
+		link = response.read()
+		response.close()  
+		return link
+	except:
+		pass
 
 def read_file(file):
 	try:
@@ -79,6 +79,17 @@ def read_file(file):
 	except:
 		pass
 
+def select_server():
+	try:
+		for server in (CCLOUDTV_SRV_URL):
+			content = make_request(server)
+			if content is None:
+				server = CCLOUDTV_SRV_URL[CCLOUDTV_SRV_URL.index(server)+1]
+			else:
+				return content
+	except:
+		xbmc.executebuiltin('XBMC.Notification(%s, %s, %s, %s)' % ('[B]cCloud.tv[/B]', 'All cCloud TV servers seem to be down. Please try again in a few minutes.', 10000, icon))
+
 def replace_all(text, dict):
 	try:
 		for a, b in dict.iteritems():
@@ -86,22 +97,6 @@ def replace_all(text, dict):
 		return text
 	except:
 		pass
-
-def make_request(url):
-	try:
-		req = urllib2.Request(url)
-		req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0')
-		response = urllib2.urlopen(req) 
-		link = response.read()
-		response.close()  
-		return link
-	except urllib2.URLError, e:
-		print 'We failed to open "%s".' % url
-		if hasattr(e, 'code'):
-			print 'We failed with error code - %s.' % e.code
-		if hasattr(e, 'reason'):
-			print 'We failed to reach a server.'
-			print 'Reason: ', e.reason
 
 def platform():
 	if xbmc.getCondVisibility('system.platform.android'):
@@ -122,9 +117,9 @@ def main():
 	if enable_thongbao == 'true':
 		addDir('[COLOR royalblue][B]***Thông Báo Mới***[/B][/COLOR]', yt, 4, '%s/thongbaomoi.png'% iconpath, fanart)
 	addDir('[COLOR red][B]Search[/B][/COLOR]', 'searchlink', 99, '%s/search.png'% iconpath, fanart)
-	if len(List) > 0:
+	if len(CCLOUDTV_SRV_URL) > 0:
 		addDir('[COLOR yellow][B]All Channels[/B][/COLOR]', yt, 2, '%s/allchannels.png'% iconpath, fanart)
-	if (len(List) < 1 ):
+	if (len(CCLOUDTV_SRV_URL) < 1 ):
 		mysettings.openSettings()
 		xbmc.executebuiltin("Container.Refresh")
 	if enable_tvguide == 'true':        
@@ -175,8 +170,8 @@ def search():
 		keyb.doModal()
 		if (keyb.isConfirmed()):
 			searchText = urllib.quote_plus(keyb.getText(), safe="%/:=&?~#+!$,;'@()*[]").replace('+', ' ')
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -207,7 +202,6 @@ def tutorial_links():
 				else:
 					thumb = '%s/%s' % (iconpath, thumb)
 					addLink(name, url, 1, thumb, thumb)
-				print "Printing thumbs: ",thumb
 			else:      
 				addLink(name, url, 1, icon, fanart)
 
@@ -315,8 +309,8 @@ def vietmedia_tutorials():
 def vietnam_abc_order():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -358,8 +352,8 @@ def vietnam_group():
 def viet_tv_group():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)): 
@@ -399,8 +393,8 @@ def vietnam_category():
 def viet_Documentary():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -414,8 +408,8 @@ def viet_Documentary():
 def viet_Entertainment():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -429,8 +423,8 @@ def viet_Entertainment():
 def viet_Family():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -455,8 +449,8 @@ def viet_Family():
 def viet_Movie_Channels():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -470,8 +464,8 @@ def viet_Movie_Channels():
 def viet_Music():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -485,8 +479,8 @@ def viet_Music():
 def viet_News():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -500,8 +494,8 @@ def viet_News():
 def viet_OnDemandMovies():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -515,8 +509,8 @@ def viet_OnDemandMovies():
 def viet_OnDemandShows():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -530,8 +524,8 @@ def viet_OnDemandShows():
 def viet_Radio():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -556,8 +550,8 @@ def viet_Radio():
 def viet_RandomAirTime():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -571,8 +565,8 @@ def viet_RandomAirTime():
 def viet_Special_Events():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -586,8 +580,8 @@ def viet_Special_Events():
 def viet_Sports():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -601,8 +595,8 @@ def viet_Sports():
 def viet_Tutorials():
 	try:
 		searchText = '\(VN\)|(Vietnamese)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if (re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE)):
@@ -620,8 +614,8 @@ def viet_Tutorials():
 def top10():
 	try:
 		searchText = '(Top10)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -632,8 +626,8 @@ def top10():
 def sports():
 	try:
 		searchText = '(Sports)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -644,8 +638,8 @@ def sports():
 def news():
 	try:
 		searchText = '(News)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -656,8 +650,8 @@ def news():
 def documentary():
 	try:
 		searchText = '(Document)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -668,8 +662,8 @@ def documentary():
 def entertainment():
 	try:
 		searchText = '(Entertainment)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -680,8 +674,8 @@ def entertainment():
 def family():
 	try:
 		searchText = '(Family)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -692,8 +686,8 @@ def family():
 def lifestyle():
 	try:
 		searchText = '(Lifestyle)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -704,8 +698,8 @@ def lifestyle():
 def movie():
 	try:
 		searchText = '(Movie Channels)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -716,8 +710,8 @@ def movie():
 def music():
 	try:
 		searchText = '(Music)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -728,8 +722,8 @@ def music():
 def ondemandmovies():
 	try:
 		searchText = '(OnDemandMovies)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -740,8 +734,8 @@ def ondemandmovies():
 def ondemandshows():
 	try:
 		searchText = '(OnDemandShows)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -752,8 +746,8 @@ def ondemandshows():
 def twentyfour7():
 	try:
 		searchText = '(RandomAirTime 24/7)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -764,8 +758,8 @@ def twentyfour7():
 def radio():
 	try:
 		searchText = '(Radio)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -776,14 +770,14 @@ def radio():
 def adult():
 	try:
 		searchText = ('(Adult)') or ('(Public-Adult)')
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(adult_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
 					adult_playlist(name, url, thumb)
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(adult_regex2).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -794,8 +788,8 @@ def adult():
 def english():
 	try:
 		searchText = '(English)'
-		if len(List) > 0:
-			content = make_request(List)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in sorted(match, key = itemgetter(1)):
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
@@ -804,8 +798,8 @@ def english():
 		pass
 
 def international():
-	if len(List) > 0:
-		content = make_request(List)
+	if len(CCLOUDTV_SRV_URL) > 0:
+		content = select_server()
 		match = sorted(re.compile(m3u_regex).findall(content), key = itemgetter(1))
 		try:
 			searchVietnamese = '\(VN\)|(Vietnamese)'
@@ -1155,16 +1149,10 @@ def onlineTester():
 				pass
 
 def m3u_online():
-	content = make_request(List) 
+	content = select_server() 
 	match = re.compile(m3u_regex).findall(content)
 	for thumb, name, url in match[0:1]:
-		try:
-			if List == 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64'):
-				m3u_playlist('[COLOR yellow][B]Main Server - ' + name + '[/B][/COLOR]', url, thumb)
-			else:
-				m3u_playlist('[COLOR magenta][B]Backup Server - ' + name + '[/B][/COLOR]', url, thumb)
-		except:
-			pass
+		m3u_playlist('[COLOR yellow][B]' + name + '[/B][/COLOR]', url, thumb)
 	for thumb, name, url in sorted(match, key = itemgetter(1)):
 		try:
 			if 'Welcome to cCloudTV' in name:
@@ -1245,6 +1233,13 @@ def get_params():
 				param[splitparams[0]] = splitparams[1]
 	return param
 
+List1 = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64') .decode('base64')
+List2 = 'YUhSMGNEb3ZMM2d1WTI4dlpHSmphREF4'.decode('base64') .decode('base64')
+List3 = 'YUhSMGNEb3ZMMkZwYnk1alkyeHZkV1IwZGk1dmNtY3ZhMjlrYVE9PQ=='.decode('base64') .decode('base64')
+List4 = 'YUhSMGNEb3ZMMmR2TW13dWFXNXJMMnR2WkdrPQ=='.decode('base64') .decode('base64')
+List5 = 'YUhSMGNEb3ZMM051YVhBdWJHa3ZhMjlrYVE9PQ=='.decode('base64') .decode('base64')            
+#CCLOUDTV_SRV_URL = [List1, List2, List3, List4, List5]
+CCLOUDTV_SRV_URL = re.compile(server_regex).findall(make_request(SRVlist)) 
 m3uFolder = 'Zmk5RWIyTjFiV1Z1ZEhNdlIybDBTSFZpTDNKbGNHOXphWFJ2Y25rdWRtbGxkR05qYkc5MVpDOU5lVVp2YkdSbGNpOD0='.decode('base64').decode('base64')
 vietmediaurl = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZZMmhoYm01bGJDOVZRMk4xYzNwdFEyeHRWVjlxTjNaak9VNWlXVUUyVkhjPQ=='.decode('base64').decode('base64')
 koditutorials = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZjR3hoZVd4cGMzUS9iR2x6ZEQxUVRFTkdaWGw0WVVSZk4wVXpNRWxpYW1odE9FUTFjVzQzUzFWV1JFVTNiM015'.decode('base64').decode('base64')
@@ -1254,7 +1249,7 @@ thongbaomoi = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwW
 vietradio = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzWnBaWFJ5WVdScGJ5NXRNM1U9'.decode('base64').decode('base64')
 haingoaitv = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwyaGhhVzVuYjJGcGRIWXViVE4x'.decode('base64').decode('base64')
 public_uploads = 'plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3a%2f%2fscript.google.com%2fmacros%2fs%2fAKfycbxwkVU0o3lckrB5oCQBnQlZ-n8CMx5CZ_ajq6Y3o7YHSTFbcODk%2fexec'
-
+    
 def addDir(name, url, mode, iconimage, fanart):
 	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
 	ok = True
