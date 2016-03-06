@@ -229,6 +229,12 @@ plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fwww.zytrax.com%2Ftech%2Fweb%2Fregex.htm
 #EXTINF:0 tvg-logo="kodiaddons.png",Ten+ best online regex testers
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fscraping.pro%2F10-best-online-regex-testers%2F
+#EXTINF:0 tvg-logo="kodiaddons.png",Cách tìm URL link (Diễn Đàn Làng Sóng Việt - Ghi Danh Miễn Phí)
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Flangsongviet.com%2Ffta4vnForum%2Fupload%2Fshowthread.php%2F94834-C%25C3%25A1ch-t%25C3%25ACm-URL-link-v%25C3%25A0-l%25C3%25A0m-XML-file-cho-XBMC-URL-Snooper-2-v%25C3%25A0-URL-Helper
+#EXTINF:0 tvg-logo="kodiaddons.png",Regex (Diễn Đàn Làng Sóng Việt - Ghi Danh Miễn Phí)
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Flangsongviet.com%2Ffta4vnForum%2Fupload%2Fshowthread.php%2F103184-M%25C3%25B3n-qu%25C3%25A0-REGEX-nh%25C3%25A2n-m%25C3%25B9a-Gi%25C3%25A1ng-sinh-2013%3Fhighlight%3Dregular%2Bexpression
+#EXTINF:0 tvg-logo="kodiaddons.png",Cách tìm RTMP (Diễn Đàn Làng Sóng Việt - Ghi Danh Miễn Phí)
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Flangsongviet.com%2Ffta4vnForum%2Fupload%2Fshowthread.php%2F101309-C%25C3%25A1ch-t%25C3%25ACm-RTMP-%25C4%2591%25E1%25BB%2583-l%25C3%25A0m-xml-v%25E1%25BB%259Bi-c%25C3%25B4ng-c%25E1%25BB%25A5-Firebug-(Firefox-extensions)%3Fhighlight%3Dtvlover2013
 
 
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",[COLOR magenta][B]Các sources, repositories, add-ons, forums cho người Việt[/B][/COLOR]
