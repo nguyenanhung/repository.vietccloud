@@ -1,6 +1,6 @@
 #EXTM3U
 
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/vietccloud.png",[COLOR lime][B]HTV 7 HD[/B][/COLOR] (TV) (VN) (Vietnamese)
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/vietccloud.png",[COLOR lime][B]HTV 7[/B][/COLOR] (TV) (VN) (Vietnamese)
 http://hls75.lax.v247tv.com/lax86/HTV7/playlist.m3u8
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/vietccloud.png",[COLOR lime][B]Nhạc Việt[/B][/COLOR] (TV) (US) (Vietnamese)
 http://hls75.lax.v247tv.com/lax86/nhacviet/playlist.m3u8
