@@ -55,12 +55,17 @@ ondemand_regex = '[ON\'](.*?)[\'nd]'
 yt = 'http://www.youtube.com'
 text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
 List = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
-BackupList = 'YUhSMGNEb3ZMM2d1WTI4dlpHSmphREF4'.decode('base64').decode('base64')
+BackupList = 'YUhSMGNITTZMeTluYVhSb2RXSXVZMjl0TDNacFpYUmpZMnh2ZFdSMGRpOXlaWEJ2YzJsMGIzSjVMblpwWlhSalkyeHZkV1F2Y21GM0wyMWhjM1JsY2k5TmVVWnZiR1JsY2k5alEyeHZkV1JVVmk1dE0zVT0='.decode('base64').decode('base64')
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
 dict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
 
 try: 
-	if urllib.urlopen(List).getcode() == 200:
+	req = urllib2.Request(List)
+	req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0')
+	response = urllib2.urlopen(req) 
+	link = response.read()
+	response.close()
+	if '#EXTINF:0' in link:
 		List = List
 except:
 	List = BackupList
