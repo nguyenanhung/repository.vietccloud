@@ -87,13 +87,14 @@ def read_file(file):
 def select_server():
 	try:
 		for server in (CCLOUDTV_SRV_URL):
-			#print "Checking Server " + str(CCLOUDTV_SRV_URL.index(server))
+			#print "Checking server " + str(CCLOUDTV_SRV_URL.index(server))
 			content = make_request(server)
 			if content is None:
 				#print "Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": offline"
 				server = CCLOUDTV_SRV_URL[CCLOUDTV_SRV_URL.index(server) + 1]
 			else:
 				#print "Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": online"
+				#print "Using server " + str(CCLOUDTV_SRV_URL.index(server))
 				if server_notification == 'true':
 					if str(server) == str(CCLOUDTV_SRV_URL[-1]):
 						server_message('[COLOR magenta] Backup server[/COLOR] is currently [COLOR magenta]online[/COLOR].')
