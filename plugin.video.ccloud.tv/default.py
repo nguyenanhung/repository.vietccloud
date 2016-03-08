@@ -32,6 +32,7 @@ enable_thongbao = mysettings.getSetting('enable_thongbao')
 enable_vietmedia = mysettings.getSetting('enable_vietmedia')
 enable_channel_tester = mysettings.getSetting('enable_channel_tester')
 enable_local_tester = mysettings.getSetting('enable_local_tester')
+server_notification = mysettings.getSetting('enable_server_notification')
 enable_public_uploads = mysettings.getSetting('enable_public_uploads')
 enable_links_to_tutorials = mysettings.getSetting('enable_links_to_tutorials')
 local_path = mysettings.getSetting('local_path')
@@ -56,9 +57,13 @@ server_regex = '<server>(.+?)</server>'
 yt = 'http://www.youtube.com'
 text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
-SRVlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzTmxjblpsY25NdWRIaDA='.decode('base64').decode('base64')
+m3uFolder = 'Zmk5RWIyTjFiV1Z1ZEhNdlIybDBTSFZpTDNKbGNHOXphWFJ2Y25rdWRtbGxkR05qYkc5MVpDOU5lVVp2YkdSbGNpOD0='.decode('base64').decode('base64')
 dict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
+SRVlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzTmxjblpsY25NdWRIaDA='.decode('base64').decode('base64')
 
+def server_message(message, timeout = 10000):
+	xbmc.executebuiltin((u'XBMC.Notification("%s", "%s", %s, %s)' % ('[B]cCloud.tv[/B]', message, timeout, icon)).encode("utf-8"))
+    
 def make_request(url):
 	try:
 		req = urllib2.Request(url)
@@ -82,13 +87,21 @@ def read_file(file):
 def select_server():
 	try:
 		for server in (CCLOUDTV_SRV_URL):
+			#print "Checking Server " + str(CCLOUDTV_SRV_URL.index(server))
 			content = make_request(server)
 			if content is None:
-				server = CCLOUDTV_SRV_URL[CCLOUDTV_SRV_URL.index(server)+1]
+				#print "Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": offline"
+				server = CCLOUDTV_SRV_URL[CCLOUDTV_SRV_URL.index(server) + 1]
 			else:
+				#print "Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": online"
+				if server_notification == 'true':
+					if str(server) == str(CCLOUDTV_SRV_URL[-1]):
+						server_message('[COLOR magenta] Backup server[/COLOR] is currently [COLOR magenta]online[/COLOR].')
+					else:
+						server_message('Server ' + str(CCLOUDTV_SRV_URL.index(server)) + ' is currently online.')
 				return content
 	except:
-		xbmc.executebuiltin('XBMC.Notification(%s, %s, %s, %s)' % ('[B]cCloud.tv[/B]', 'All cCloud TV servers seem to be down. Please try again in a few minutes.', 10000, icon))
+		server_message('[COLOR red]All cCloud TV servers seem to be down. Please try again in a few minutes.[/COLOR]')
 
 def replace_all(text, dict):
 	try:
@@ -1233,14 +1246,14 @@ def get_params():
 				param[splitparams[0]] = splitparams[1]
 	return param
 
-List1 = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64') .decode('base64')
-List2 = 'YUhSMGNEb3ZMM2d1WTI4dlpHSmphREF4'.decode('base64') .decode('base64')
-List3 = 'YUhSMGNEb3ZMMkZwYnk1alkyeHZkV1IwZGk1dmNtY3ZhMjlrYVE9PQ=='.decode('base64') .decode('base64')
-List4 = 'YUhSMGNEb3ZMMmR2TW13dWFXNXJMMnR2WkdrPQ=='.decode('base64') .decode('base64')
-List5 = 'YUhSMGNEb3ZMM051YVhBdWJHa3ZhMjlrYVE9PQ=='.decode('base64') .decode('base64')            
+List1 = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
+List2 = 'YUhSMGNEb3ZMM2d1WTI4dlpHSmphREF4'.decode('base64').decode('base64')
+List3 = 'YUhSMGNEb3ZMMkZwYnk1alkyeHZkV1IwZGk1dmNtY3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')
+List4 = 'YUhSMGNEb3ZMMmR2TW13dWFXNXJMMnR2WkdrPQ=='.decode('base64').decode('base64')
+List5 = 'YUhSMGNEb3ZMM051YVhBdWJHa3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')            
 #CCLOUDTV_SRV_URL = [List1, List2, List3, List4, List5]
 CCLOUDTV_SRV_URL = re.compile(server_regex).findall(make_request(SRVlist)) 
-m3uFolder = 'Zmk5RWIyTjFiV1Z1ZEhNdlIybDBTSFZpTDNKbGNHOXphWFJ2Y25rdWRtbGxkR05qYkc5MVpDOU5lVVp2YkdSbGNpOD0='.decode('base64').decode('base64')
+#CCLOUDTV_SRV_URL = re.compile(server_regex).findall(read_file(os.path.expanduser(m3uFolder + 'servers.txt')))
 vietmediaurl = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZZMmhoYm01bGJDOVZRMk4xYzNwdFEyeHRWVjlxTjNaak9VNWlXVUUyVkhjPQ=='.decode('base64').decode('base64')
 koditutorials = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZjR3hoZVd4cGMzUS9iR2x6ZEQxUVRFTkdaWGw0WVVSZk4wVXpNRWxpYW1odE9FUTFjVzQzUzFWV1JFVTNiM015'.decode('base64').decode('base64')
 thuthuatkodi = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZjR3hoZVd4cGMzUS9iR2x6ZEQxUVRFTkdaWGw0WVVSZk4wVXpURXh4YW1oSmQydGliMEZsVUdkRVZDMHRPRmxH'.decode('base64').decode('base64')

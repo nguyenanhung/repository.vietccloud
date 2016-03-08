@@ -1,3 +1,6 @@
+[B]1.5.9[/B]
+- Added server notification
+- Minor changes in settings.xml
 [B]1.5.8[/B]
 - Updated servers again
 [B]1.5.7[/B]
