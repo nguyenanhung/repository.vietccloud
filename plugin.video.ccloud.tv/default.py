@@ -38,6 +38,7 @@ enable_links_to_tutorials = mysettings.getSetting('enable_links_to_tutorials')
 local_path = mysettings.getSetting('local_path')
 enable_online_tester = mysettings.getSetting('enable_online_tester')
 online_path = mysettings.getSetting('online_path')
+enable_iptvsimple_playlist = mysettings.getSetting('enable_iptvsimple_playlist')
 viet_mode = mysettings.getSetting('viet_mode')
 
 local_thongbaomoi = xbmc.translatePath(os.path.join(home, 'thongbaomoi.txt'))
@@ -60,8 +61,9 @@ m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WU
 m3uFolder = 'Zmk5RWIyTjFiV1Z1ZEhNdlIybDBTSFZpTDNKbGNHOXphWFJ2Y25rdWRtbGxkR05qYkc5MVpDOU5lVVp2YkdSbGNpOD0='.decode('base64').decode('base64')
 dict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
 SRVlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzTmxjblpsY25NdWRIaDA='.decode('base64').decode('base64')
+iptvsimple = xbmc.translatePath("special://home/userdata/addon_data/pvr.iptvsimple/iptv.m3u.cache")
 
-def server_message(message, timeout = 10000):
+def server_message(message, timeout = 5000):
 	xbmc.executebuiltin((u'XBMC.Notification("%s", "%s", %s, %s)' % ('[B]cCloud.tv[/B]', message, timeout, icon)).encode("utf-8"))
     
 def make_request(url):
@@ -86,21 +88,27 @@ def read_file(file):
 
 def select_server():
 	try:
-		for server in (CCLOUDTV_SRV_URL):
-			#print "Checking server " + str(CCLOUDTV_SRV_URL.index(server))
-			content = make_request(server)
-			if content is None:
-				#print "Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": offline"
-				server = CCLOUDTV_SRV_URL[CCLOUDTV_SRV_URL.index(server) + 1]
-			else:
-				#print "Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": online"
-				#print "Using server " + str(CCLOUDTV_SRV_URL.index(server))
-				if server_notification == 'true':
-					if str(server) == str(CCLOUDTV_SRV_URL[-1]):
-						server_message('[COLOR magenta] Backup server[/COLOR] is currently [COLOR magenta]online[/COLOR].')
-					else:
-						server_message('Server ' + str(CCLOUDTV_SRV_URL.index(server)) + ' is currently online.')
-				return content
+		if (enable_iptvsimple_playlist == 'true') and (os.path.exists(iptvsimple)) and ('Welcome to cCloudTV' in (read_file(iptvsimple))):
+			if server_notification == 'true':
+				server_message('[COLOR chocolate]Using IPTV Simple Client Playlist.[/COLOR]')
+			#print 'Using cCloudTV playlist from IPTV Simple Client.'
+			return (read_file(iptvsimple))
+		else:
+			for server in (CCLOUDTV_SRV_URL):
+				#print "Checking server " + str(CCLOUDTV_SRV_URL.index(server))
+				content = make_request(server)
+				if content is None:
+					#print "Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": offline"
+					server = CCLOUDTV_SRV_URL[CCLOUDTV_SRV_URL.index(server) + 1]
+				else:
+					#print "Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": online"
+					#print "Using server " + str(CCLOUDTV_SRV_URL.index(server))
+					if server_notification == 'true':
+						if str(server) == str(CCLOUDTV_SRV_URL[-1]):
+							server_message('[COLOR magenta] Backup server[/COLOR] is currently [COLOR magenta]online[/COLOR].')
+						else:
+							server_message('Server ' + str(CCLOUDTV_SRV_URL.index(server)) + ' is currently online.')
+					return content
 	except:
 		server_message('[COLOR red]All cCloud TV servers seem to be down. Please try again in a few minutes.[/COLOR]')
 
