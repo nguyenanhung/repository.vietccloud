@@ -11,10 +11,16 @@
 		<setting label="Channel Tester" type="lsep" />
 		<setting id="enable_channel_tester" type="bool" label="Enable Channel Tester" default="true" />
 	</category>
+	<category label="Servers">
+		<setting label="Manual Server Selection" type="lsep" />
+		<setting id="enable_server_selection" type="bool" label="Enable Manual Server Selection" default="false" />
+		<setting id="select_a_server" type="enum" values="0|1|2|3|4|5" label="Select Server Number" default="3"/>
+		<setting label="Other Selections" type="lsep" />
+		<setting id="enable_server_notification" type="bool" label="Enable Server Notification" default="false" />
+		<setting id="enable_iptvsimple_playlist" type="bool" label="Enable cCloudTV Playlist from IPTV Simple Client" default="false" />
+	</category>
 	<category label="General">
 		<setting id="viet_mode" type="select" label="Select Vietnam Section Mode" values="group|abc order|category" default="group" />
-		<setting id="enable_server_notification" type="bool" label="Enable Server Notification" default="false" />
-		<setting id="enable_iptvsimple_playlist" type="bool" label="Enable IPTV Simple Playlist" default="false" />
 		<setting id="enable_thongbao" type="bool" label="Enable Thong Bao Moi" default="true" />
 		<setting id="enable_tvguide" type="bool" label="Enable TV Guide" default="true" />
 		<setting id="enable_vietmedia" type="bool" label="Enable VietMedia - YouTube" default="true" />

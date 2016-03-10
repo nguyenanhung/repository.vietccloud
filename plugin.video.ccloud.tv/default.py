@@ -39,6 +39,8 @@ local_path = mysettings.getSetting('local_path')
 enable_online_tester = mysettings.getSetting('enable_online_tester')
 online_path = mysettings.getSetting('online_path')
 enable_iptvsimple_playlist = mysettings.getSetting('enable_iptvsimple_playlist')
+enable_server_selection  = mysettings.getSetting('enable_server_selection')
+select_a_server = mysettings.getSetting('select_a_server')
 viet_mode = mysettings.getSetting('viet_mode')
 
 local_thongbaomoi = xbmc.translatePath(os.path.join(home, 'thongbaomoi.txt'))
@@ -90,19 +92,48 @@ def select_server():
 	try:
 		if (enable_iptvsimple_playlist == 'true') and (os.path.exists(iptvsimple)) and ('Welcome to cCloudTV' in (read_file(iptvsimple))):
 			if server_notification == 'true':
-				server_message('[COLOR chocolate]Using IPTV Simple Client Playlist.[/COLOR]')
-			#print 'Using cCloudTV playlist from IPTV Simple Client.'
+				server_message('Using [COLOR chocolate]cCloudTV playlist[/COLOR] from [COLOR chocolate]IPTV Simple.[/COLOR]')
+			#print ('Using cCloudTV playlist from IPTV Simple.')
 			return (read_file(iptvsimple))
+		elif enable_server_selection == 'true': 
+			if select_a_server == '0':
+				server = List1
+			elif select_a_server == '1':
+				server = List2
+			elif select_a_server == '2':
+				server = List3
+			elif select_a_server == '3':
+				server = List4
+			elif select_a_server == '4':
+				server = List5
+			elif select_a_server == '5':
+				server = List6
+			content = make_request(server)
+			if server_notification == 'true':
+				if content is None:
+					#print ("Chosen server " + select_a_server + " is offline.")
+					server_message("[COLOR red]Server " + select_a_server + " is offline. Choose another server.[/COLOR]")
+				else:
+					#print ("Currently using chosen server " + select_a_server)
+					server_message("Currently using [COLOR brown]chosen server " + select_a_server + '[/COLOR]')
+					return content
+			else:
+				if content is None:
+					#print ("Chosen server " + select_a_server + " is offline.")
+					return content
+				else:
+					#print ("Currently using [COLOR brown]chosen server " + select_a_server + '[/COLOR]')
+					return content
 		else:
 			for server in (CCLOUDTV_SRV_URL):
-				#print "Checking server " + str(CCLOUDTV_SRV_URL.index(server))
+				#print ("Checking server " + str(CCLOUDTV_SRV_URL.index(server)))
 				content = make_request(server)
 				if content is None:
-					#print "Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": offline"
+					#print ("Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": offline")
 					server = CCLOUDTV_SRV_URL[CCLOUDTV_SRV_URL.index(server) + 1]
 				else:
-					#print "Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": online"
-					#print "Using server " + str(CCLOUDTV_SRV_URL.index(server))
+					#print ("Server " + str(CCLOUDTV_SRV_URL.index(server)) + ": online")
+					#print ("Using server " + str(CCLOUDTV_SRV_URL.index(server)))
 					if server_notification == 'true':
 						if str(server) == str(CCLOUDTV_SRV_URL[-1]):
 							server_message('[COLOR magenta] Backup server[/COLOR] is currently [COLOR magenta]online[/COLOR].')
@@ -1259,8 +1290,9 @@ List1 = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base
 List2 = 'YUhSMGNEb3ZMM2d1WTI4dlpHSmphREF4'.decode('base64').decode('base64')
 List3 = 'YUhSMGNEb3ZMMkZwYnk1alkyeHZkV1IwZGk1dmNtY3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')
 List4 = 'YUhSMGNEb3ZMMmR2TW13dWFXNXJMMnR2WkdrPQ=='.decode('base64').decode('base64')
-List5 = 'YUhSMGNEb3ZMM051YVhBdWJHa3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')            
-#CCLOUDTV_SRV_URL = [List1, List2, List3, List4, List5]
+List5 = 'YUhSMGNEb3ZMM051YVhBdWJHa3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')
+List6 = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwyTkRiRzkxWkZSV0xtMHpkUT09'.decode('base64').decode('base64')             
+#CCLOUDTV_SRV_URL = [List1, List2, List3, List4, List5,List6]
 CCLOUDTV_SRV_URL = re.compile(server_regex).findall(make_request(SRVlist)) 
 #CCLOUDTV_SRV_URL = re.compile(server_regex).findall(read_file(os.path.expanduser(m3uFolder + 'servers.txt')))
 vietmediaurl = 'YUhSMGNITTZMeTkzZDNjdWVXOTFkSFZpWlM1amIyMHZZMmhoYm01bGJDOVZRMk4xYzNwdFEyeHRWVjlxTjNaak9VNWlXVUUyVkhjPQ=='.decode('base64').decode('base64')
