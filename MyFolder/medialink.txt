@@ -4,4 +4,5 @@
 <medialink>https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/tutoriallinks.m3u</medialink>
 <medialink>https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/vietradio.m3u</medialink>
 <medialink>https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/haingoaitv.m3u</medialink>
+<medialink>https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/adult.m3u</medialink>
 <medialink>https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/thongbaomoi.txt</medialink>
