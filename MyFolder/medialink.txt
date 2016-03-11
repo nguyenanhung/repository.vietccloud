@@ -1,8 +1,8 @@
 <medialink>https://www.youtube.com/channel/UCcuszmClmU_j7vc9NbYA6Tw</medialink>
 <medialink>https://www.youtube.com/playlist?list=PLCFeyxaD_7E30Ibjhm8D5qn7KUVDE7os2</medialink>
 <medialink>https://www.youtube.com/playlist?list=PLCFeyxaD_7E3LLqjhIwkboAePgDT--8YF</medialink>
-<medialink>https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/tutoriallinks.m3u</medialink>
-<medialink>https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/vietradio.m3u</medialink>
-<medialink>https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/haingoaitv.m3u</medialink>
-<medialink>https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/adult.m3u</medialink>
-<medialink>https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/thongbaomoi.txt</medialink>
+<medialink>https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/tutoriallinks.m3u</medialink>
+<medialink>https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/vietradio.m3u</medialink>
+<medialink>https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/haingoaitv.m3u</medialink>
+<medialink>https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/adult.m3u</medialink>
+<medialink>https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/thongbaomoi.txt</medialink>
