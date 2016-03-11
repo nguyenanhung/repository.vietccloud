@@ -1,3 +1,6 @@
+[B]1.6.3[/B]
+- Encoded source lists.
+- URL shortener.
 [B]1.6.2[/B]
 - More changes.
 [B]1.6.1[/B]

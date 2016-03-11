@@ -58,15 +58,14 @@ adult_regex2 = '#(.+?)group-title="Public-Adult",(.+)\s*(.+)\s*'
 ondemand_regex = '[ON\'](.*?)[\'nd]'
 server_regex = '<server>(.*?)</server>'
 media_regex = '<medialink>(.*?)</medialink>'
-yt = 'http://www.youtube.com'
+yt = 'https://www.youtube.com/'
 text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
-m3uFolder = 'Zmk5RWIyTjFiV1Z1ZEhNdlIybDBTSFZpTDNKbGNHOXphWFJ2Y25rdWRtbGxkR05qYkc5MVpDOU5lVVp2YkdSbGNpOD0='.decode('base64').decode('base64')
-dict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
-public_uploads = 'plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3a%2f%2fscript.google.com%2fmacros%2fs%2fAKfycbxwkVU0o3lckrB5oCQBnQlZ-n8CMx5CZ_ajq6Y3o7YHSTFbcODk%2fexec'
-SRVlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwzTmxjblpsY25NdWRIaDA='.decode('base64').decode('base64')
-medialink = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMM1pwWlhSalkyeHZkV1IwZGk5eVpYQnZjMmwwYjNKNUxuWnBaWFJqWTJ4dmRXUXZiV0Z6ZEdWeUwwMTVSbTlzWkdWeUwyMWxaR2xoYkdsdWF5NTBlSFE9'.decode('base64').decode('base64')
+dic = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
+SRVlist = 'YUhSMGNEb3ZMM1JwYm5rdVkyTXZkbU5zWkhOeWRnPT0='.decode('base64').decode('base64')
+medialink = 'YUhSMGNEb3ZMM1JwYm5rdVkyTXZkbU5zWkcxc2FXNXI='.decode('base64').decode('base64')
 iptvsimple = xbmc.translatePath("special://home/userdata/addon_data/pvr.iptvsimple/iptv.m3u.cache")
+public_uploads = 'plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3a%2f%2fscript.google.com%2fmacros%2fs%2fAKfycbxwkVU0o3lckrB5oCQBnQlZ-n8CMx5CZ_ajq6Y3o7YHSTFbcODk%2fexec'
 
 def server_message(message, timeout = 5000):
 	xbmc.executebuiltin((u'XBMC.Notification("%s", "%s", %s, %s)' % ('[B]cCloud.tv[/B]', message, timeout, icon)).encode("utf-8"))
@@ -146,9 +145,9 @@ def select_server():
 	except:
 		server_message('[COLOR red]All cCloud TV servers seem to be down. Please try again in a few minutes.[/COLOR]')
 
-def replace_all(text, dict):
+def replace_all(text, dic):
 	try:
-		for a, b in dict.iteritems():
+		for a, b in dic.iteritems():
 			text = text.replace(a, b)
 		return text
 	except:
@@ -221,10 +220,22 @@ def removeAccents(s):
 	return ''.join((c for c in unicodedata.normalize('NFD', s.decode('utf-8')) if unicodedata.category(c) != 'Mn'))
 
 def srv_list():
-	return re.compile(server_regex).findall(make_request(SRVlist))
+	#match = re.compile(server_regex).findall(read_file(os.path.expanduser(r'~\Desktop\servers.txt')))
+	match = re.compile(server_regex).findall(make_request(SRVlist))
+	i=0
+	while i < len(match):
+		match[i] = match[i].decode('base64').decode('base64')
+		i+=1 
+	return match
 
 def media_link():
-	return re.compile(media_regex).findall(make_request(medialink))
+	#match = re.compile(media_regex).findall(read_file(os.path.expanduser(r'~\Desktop\medialink.txt')))
+	match =  re.compile(media_regex).findall(make_request(medialink))
+	i=0
+	while i < len(match):
+		match[i] = match[i].decode('base64').decode('base64')
+		i+=1
+	return match
 
 def search(): 
 	try:
@@ -242,8 +253,7 @@ def search():
 		pass
 
 def tutorial_links():
-	#content = read_file(os.path.expanduser(m3uFolder + 'tutoriallinks.m3u'))
-	content = make_request(media_link()[3])
+	content = make_request(media_link()[1])
 	match = re.compile(m3u_regex).findall(content)
 	for thumb, name, url in match:
 		if 'plugin.program.chrome.launcher' in url:
@@ -268,12 +278,12 @@ def tutorial_links():
 				addLink(name, url, 1, icon, fanart)
 
 def vietmedia_list():
-	addDir('[COLOR magenta][B]Playlists[/B][/COLOR]', (media_link()[0] + '/playlists'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
-	link = make_request(media_link()[0] + '/videos')
+	addDir('[COLOR magenta][B]Playlists[/B][/COLOR]', (yt + 'channel/UCcuszmClmU_j7vc9NbYA6Tw/playlists'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
+	link = make_request(yt + 'channel/UCcuszmClmU_j7vc9NbYA6Tw/videos')
 	link = ''.join(link.splitlines()).replace('\t','')
 	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(link)
 	for thumb, duration, url, name in match:
-		name = replace_all(name, dict)
+		name = replace_all(name, dic)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
 		addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
@@ -287,7 +297,7 @@ def vietmedia_playlist(url):
 	link = ''.join(link.splitlines()).replace('\t','')
 	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?href="/playlist(.+?)">(.+?)<').findall(link)
 	for thumb, url, name in match:
-		name = replace_all(name, dict)
+		name = replace_all(name, dic)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
 		addDir(name, url, 22, thumb, thumb)
 
@@ -296,7 +306,7 @@ def vietmedia_playlist_index(url):
 	link = ''.join(link.splitlines()).replace('\t','')
 	newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(link)
 	for name, url, thumb, duration in newmatch:
-		name = replace_all(name, dict)
+		name = replace_all(name, dic)
 		thumb = 'https:' + thumb
 		if '[Deleted Video]' in name:
 			pass
@@ -317,7 +327,7 @@ def next_page(url):
 	newlink = ''.join(link.splitlines()).replace('\t','')
 	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(newlink)
 	for thumb, duration, url, name in match:
-		name = replace_all(name, dict)
+		name = replace_all(name, dic)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
 		addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
@@ -329,7 +339,7 @@ def next_page(url):
 def vietmedia_tutorials():
 	thumb = 'https://yt3.ggpht.com/-Y4hzMs0ItTw/AAAAAAAAAAI/AAAAAAAAAAA/OquSyoI-Y2s/s100-c-k-no/photo.jpg'
 	addLink('[COLOR orange][B]VietMedia - YouTube - Hướng Dẫn[/B][/COLOR]', 'NoLinkRequired', 1, thumb, thumb)
-	content = make_request(media_link()[1])
+	content = make_request(yt + 'playlist?list=PLCFeyxaD_7E30Ibjhm8D5qn7KUVDE7os2')
 	newcontent = ''.join(content.splitlines()).replace('\t','')
 	newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(newcontent)
 	for name, url, thumb, duration in newmatch:
@@ -337,9 +347,9 @@ def vietmedia_tutorials():
 		if '[Deleted Video]' in name:
 			pass
 		else:
-			name = replace_all(name, dict)
+			name = replace_all(name, dic)
 			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
-	content = make_request(media_link()[2])
+	content = make_request(yt + 'playlist?list=PLCFeyxaD_7E3LLqjhIwkboAePgDT--8YF')
 	newcontent = ''.join(content.splitlines()).replace('\t','')
 	newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(newcontent)
 	for name, url, thumb, duration in newmatch:
@@ -347,12 +357,11 @@ def vietmedia_tutorials():
 		if '[Deleted Video]' in name:
 			pass
 		else:
-			name = replace_all(name, dict)
+			name = replace_all(name, dic)
 			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	thumb1 = '%s/utube.png'% iconpath
 	addLink('[COLOR magenta][B]Other Tutorials on YouTube - Những Hướng Dẫn Khác[/B][/COLOR]', 'NoLinkRequired', 1, thumb1, thumb1)
-	#content = read_file(os.path.expanduser(m3uFolder + 'tutoriallinks.m3u'))
-	content = make_request(media_link()[3])
+	content = make_request(media_link()[1])
 	match = re.compile(m3u_regex).findall(content)
 	for thumb, name, url in match:
 		if 'plugin.video.youtube' in url:
@@ -383,7 +392,7 @@ def vietnam_abc_order():
 	except:
 		pass
 	try:
-		content = make_request(media_link()[5])
+		content = make_request(media_link()[3])
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
 			if 'tvg-logo' in thumb:
@@ -391,7 +400,7 @@ def vietnam_abc_order():
 				addLink(name, url, 1, thumb, thumb)
 			else:
 				addLink(name, url, 1, icon, fanart)
-		content = make_request(media_link()[4])
+		content = make_request(media_link()[2])
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
 			if 'tvg-logo' in thumb:
@@ -426,7 +435,7 @@ def viet_tv_group():
 	except:
 		pass
 	try:
-		content = make_request(media_link()[5])
+		content = make_request(media_link()[3])
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
 			if 'tvg-logo' in thumb:
@@ -497,7 +506,7 @@ def viet_Family():
 	except:
 		pass
 	try:
-		content = make_request(media_link()[5])
+		content = make_request(media_link()[3])
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
 			if 'tvg-logo' in thumb:
@@ -598,7 +607,7 @@ def viet_Radio():
 	except:
 		pass
 	try:
-		content = make_request(media_link()[4])
+		content = make_request(media_link()[2])
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
 			if 'tvg-logo' in thumb:
@@ -847,7 +856,7 @@ def adult():
 	except:
 		pass
 	try:
-		content = make_request(media_link()[6])
+		content = make_request(media_link()[4])
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
 			if 'tvg-logo' in thumb:
@@ -1116,8 +1125,8 @@ def international():
 def thongbao():
 	try:
 		text = '[COLOR royalblue][B]***Thông Báo Mới***[/B][/COLOR]'
-		if urllib.urlopen(media_link()[7]).getcode() == 200:
-			link = make_request(media_link()[7])
+		if urllib.urlopen(media_link()[0]).getcode() == 200:
+			link = make_request(media_link()[0])
 		else:
 			link = read_file(local_thongbaomoi)
 		match=re.compile("<START>(.+?)<END>",re.DOTALL).findall(link)
@@ -1318,7 +1327,6 @@ List5 = 'YUhSMGNEb3ZMM051YVhBdWJHa3ZhMjlrYVE9PQ=='.decode('base64').decode('base
 List6 = srv_list()[-1]
 CCLOUDTV_SRV_URL = srv_list() 
 #CCLOUDTV_SRV_URL = [List1, List2, List3, List4, List5, List6]
-#CCLOUDTV_SRV_URL = re.compile(server_regex).findall(read_file(os.path.expanduser(m3uFolder + 'servers.txt')))
 
 def addDir(name, url, mode, iconimage, fanart):
 	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
