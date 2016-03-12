@@ -1,3 +1,7 @@
+[B]1.6.4[/B]
+- 2 server groups.
+- No URL shortener.
+- Deleted all sample files.
 [B]1.6.3[/B]
 - Encoded source lists.
 - URL shortener.

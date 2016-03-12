@@ -12,6 +12,8 @@
 		<setting id="enable_channel_tester" type="bool" label="Enable Channel Tester" default="true" />
 	</category>
 	<category label="Servers">
+		<setting label="Server Groups" type="lsep" />
+		<setting id="choose_server_group" type="enum" values="1|2" label="Choose Server Group Number" default="0"/>
 		<setting label="Manual Server Selection" type="lsep" />
 		<setting id="enable_server_selection" type="bool" label="Enable Manual Server Selection" default="false" />
 		<setting id="select_a_server" type="enum" values="0|1|2|3|4|5" label="Select Server Number" default="3"/>

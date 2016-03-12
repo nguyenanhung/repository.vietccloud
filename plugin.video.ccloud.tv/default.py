@@ -39,7 +39,8 @@ local_path = mysettings.getSetting('local_path')
 enable_online_tester = mysettings.getSetting('enable_online_tester')
 online_path = mysettings.getSetting('online_path')
 enable_iptvsimple_playlist = mysettings.getSetting('enable_iptvsimple_playlist')
-enable_server_selection  = mysettings.getSetting('enable_server_selection')
+choose_server_group = mysettings.getSetting('choose_server_group')
+enable_server_selection = mysettings.getSetting('enable_server_selection')
 select_a_server = mysettings.getSetting('select_a_server')
 viet_mode = mysettings.getSetting('viet_mode')
 
@@ -62,13 +63,15 @@ yt = 'https://www.youtube.com/'
 text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
 dic = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
-SRVlist = 'YUhSMGNEb3ZMM1JwYm5rdVkyTXZkbU5zWkhOeWRnPT0='.decode('base64').decode('base64')
-medialink = 'YUhSMGNEb3ZMM1JwYm5rdVkyTXZkbU5zWkcxc2FXNXI='.decode('base64').decode('base64')
+SRVlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM05sY25abGNuTXVkSGgw'.decode('base64').decode('base64')
+medialink = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjFsWkdsaGJHbHVheTUwZUhRPQ=='.decode('base64').decode('base64')
 iptvsimple = xbmc.translatePath("special://home/userdata/addon_data/pvr.iptvsimple/iptv.m3u.cache")
 public_uploads = 'plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3a%2f%2fscript.google.com%2fmacros%2fs%2fAKfycbxwkVU0o3lckrB5oCQBnQlZ-n8CMx5CZ_ajq6Y3o7YHSTFbcODk%2fexec'
-
-def server_message(message, timeout = 5000):
-	xbmc.executebuiltin((u'XBMC.Notification("%s", "%s", %s, %s)' % ('[B]cCloud.tv[/B]', message, timeout, icon)).encode("utf-8"))
+List1 = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
+List2 = 'YUhSMGNEb3ZMM2d1WTI4dlpHSmphREF4'.decode('base64').decode('base64')
+List3 = 'YUhSMGNEb3ZMMkZwYnk1alkyeHZkV1IwZGk1dmNtY3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')
+List4 = 'YUhSMGNEb3ZMMmR2TW13dWFXNXJMMnR2WkdrPQ=='.decode('base64').decode('base64')
+List5 = 'YUhSMGNEb3ZMM051YVhBdWJHa3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')
 
 def make_request(url):
 	try:
@@ -89,6 +92,33 @@ def read_file(file):
 		return content
 	except:
 		pass
+        
+def srv_list():
+	#match = re.compile(server_regex).findall(read_file(os.path.expanduser(r'~\Desktop\servers.txt')))
+	match = re.compile(server_regex).findall(make_request(SRVlist))
+	i=0
+	while i < len(match):
+		match[i] = match[i].decode('base64').decode('base64')
+		i+=1 
+	return match
+
+List6 = srv_list()[-1]
+if choose_server_group == '0':
+	CCLOUDTV_SRV_URL = [List1, List2, List3, List4, List5, List6]
+else:
+	CCLOUDTV_SRV_URL = srv_list()
+
+def media_link():
+	#match = re.compile(media_regex).findall(read_file(os.path.expanduser(r'~\Desktop\medialink.txt')))
+	match =  re.compile(media_regex).findall(make_request(medialink))
+	i=0
+	while i < len(match):
+		match[i] = match[i].decode('base64').decode('base64')
+		i+=1
+	return match
+
+def server_message(message, timeout = 5000):
+	xbmc.executebuiltin((u'XBMC.Notification("%s", "%s", %s, %s)' % ('[B]cCloud.tv[/B]', message, timeout, icon)).encode("utf-8"))
 
 def select_server():
 	try:
@@ -218,24 +248,6 @@ def main():
 
 def removeAccents(s):
 	return ''.join((c for c in unicodedata.normalize('NFD', s.decode('utf-8')) if unicodedata.category(c) != 'Mn'))
-
-def srv_list():
-	#match = re.compile(server_regex).findall(read_file(os.path.expanduser(r'~\Desktop\servers.txt')))
-	match = re.compile(server_regex).findall(make_request(SRVlist))
-	i=0
-	while i < len(match):
-		match[i] = match[i].decode('base64').decode('base64')
-		i+=1 
-	return match
-
-def media_link():
-	#match = re.compile(media_regex).findall(read_file(os.path.expanduser(r'~\Desktop\medialink.txt')))
-	match =  re.compile(media_regex).findall(make_request(medialink))
-	i=0
-	while i < len(match):
-		match[i] = match[i].decode('base64').decode('base64')
-		i+=1
-	return match
 
 def search(): 
 	try:
@@ -1318,15 +1330,6 @@ def get_params():
 			if (len(splitparams)) == 2:
 				param[splitparams[0]] = splitparams[1]
 	return param
-
-List1 = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
-List2 = 'YUhSMGNEb3ZMM2d1WTI4dlpHSmphREF4'.decode('base64').decode('base64')
-List3 = 'YUhSMGNEb3ZMMkZwYnk1alkyeHZkV1IwZGk1dmNtY3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')
-List4 = 'YUhSMGNEb3ZMMmR2TW13dWFXNXJMMnR2WkdrPQ=='.decode('base64').decode('base64')
-List5 = 'YUhSMGNEb3ZMM051YVhBdWJHa3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')
-List6 = srv_list()[-1]
-CCLOUDTV_SRV_URL = srv_list() 
-#CCLOUDTV_SRV_URL = [List1, List2, List3, List4, List5, List6]
 
 def addDir(name, url, mode, iconimage, fanart):
 	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
