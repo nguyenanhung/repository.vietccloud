@@ -1365,12 +1365,8 @@ def addLink(name, url, mode, iconimage, fanart):
 	liz = xbmcgui.ListItem(name, iconImage = "DefaultVideo.png", thumbnailImage = iconimage)
 	liz.setInfo( type = "Video", infoLabels = { "Title": name } )
 	liz.setProperty('fanart_image', fanart)
-	if not 'plugin://plugin.video.youtube' in url:
-		u = url
-		ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = True)
-	else:
-		liz.setProperty('IsPlayable', 'true')
-		ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz)
+	liz.setProperty('IsPlayable', 'true')
+	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz)
 
 params = get_params()
 url = None
