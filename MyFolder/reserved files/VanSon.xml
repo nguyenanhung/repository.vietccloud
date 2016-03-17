@@ -1,638 +1,133 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+﻿<?xml version="1.0" ?>
 
 <items>
 
 <item>
-<title>Kỳ Phùng Địch Thủ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=DUNwxt3vvro</link>
-<thumbnail>https://img.youtube.com/vi/DUNwxt3vvro/0.jpg</thumbnail>
+		<title>[COLOR ffffa500]vân sơn live show 51 - Mùa Thu Tình Yêu - FALL IN LOVE DISC 1[/COLOR]</title>
+			<link>$doregex[url]</link>
+					<regex>
+						<name>url</name>
+						<expres>$pyFunction:'$doregex[jsonurl]'.replace('\\/','/')</expres>
+						<page></page>
+					</regex>
+					<regex>                                                  
+						<name>jsonurl</name>                                                      
+						<expres>stream_hls_url":"(.*?)"</expres>
+						<page>http://www.dailymotion.com/embed/video/x2huuxt_hopxemphim-vanso51-d1_animals</page>
+					</regex>
+		<thumbnail>http://www.vansonentertainment.com/shop/userfiles/image/vanson_in_hanoi.jpg</thumbnail>
 </item>
-
-<item>
-<title>Dưới quê mới lên</title>
-<link>plugin://plugin.video.youtube/play/?video_id=EeSBAK0P2dQ</link>
-<thumbnail>https://img.youtube.com/vi/EeSBAK0P2dQ/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Nhớ Con</title>
-<link>plugin://plugin.video.youtube/play/?video_id=tdCACS02qkI</link>
-<thumbnail>https://img.youtube.com/vi/tdCACS02qkI/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Tình Đổi Chiều</title>
-<link>plugin://plugin.video.youtube/play/?video_id=gD2cHAbGzyI</link>
-<thumbnail>https://img.youtube.com/vi/gD2cHAbGzyI/0.jpg</thumbnail>
-</item>
-</item>
-
-<item>
-<title>Lấy chồng xứ lạ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=Be5zCTOjYpY</link>
-<thumbnail>https://img.youtube.com/vi/Be5zCTOjYpY/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Kỵ Rơ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=umnrGAWpMeI</link>
-<thumbnail>https://img.youtube.com/vi/umnrGAWpMeI/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Thăm Quê</title>
-<link>plugin://plugin.video.youtube/play/?video_id=raMHTR4MavE</link>
-<thumbnail>https://img.youtube.com/vi/raMHTR4MavE/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Lột Mặt Nạ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=OK5zmWGpSRU</link>
-<thumbnail>https://img.youtube.com/vi/OK5zmWGpSRU/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Làm Ăn</title>
-<link>plugin://plugin.video.youtube/play/?video_id=_hKG_RQFTQ8</link>
-<thumbnail>https://img.youtube.com/vi/_hKG_RQFTQ8/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Chuyện Sui Gia</title>
-<link>plugin://plugin.video.youtube/play/?video_id=OUbv8VJTd6c</link>
-<thumbnail>https://img.youtube.com/vi/OUbv8VJTd6c/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Một Góc Cuộc Đời</title>
-<link>plugin://plugin.video.youtube/play/?video_id=TcVGgD-RwMk</link>
-<thumbnail>https://img.youtube.com/vi/TcVGgD-RwMk/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Ghen</title>
-<link>plugin://plugin.video.youtube/play/?video_id=fQ3PbxwSfCI</link>
-<thumbnail>https://img.youtube.com/vi/fQ3PbxwSfCI/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Tống Hổ Nghinh Mẹo</title>
-<link>plugin://plugin.video.youtube/play/?video_id=nALuG_isWTQ</link>
-<thumbnail>https://img.youtube.com/vi/nALuG_isWTQ/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Dương Quý Phi Thời Đại</title>
-<link>plugin://plugin.video.youtube/play/?video_id=uvryK6-CBYc</link>
-<thumbnail>https://img.youtube.com/vi/uvryK6-CBYc/0.jpg</thumbnail>
-</item>
-
-<item>
-<title> Nhịp Cầu Tri Âm</title>
-<link>plugin://plugin.video.youtube/play/?video_id=YEMTc3npYok</link>
-<thumbnail>https://img.youtube.com/vi/YEMTc3npYok/0.jpg</thumbnail>
-</item>
-
-<item>
-<title> Hoa Hậu Châu Á</title>
-<link>plugin://plugin.video.youtube/play/?video_id=uJ2nQ8Cgi5U</link>
-<thumbnail>https://img.youtube.com/vi/uJ2nQ8Cgi5U/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Hoa Hậu 3 Miền</title>
-<link>plugin://plugin.video.youtube/play/?video_id=2Yfp8gl3Wa8</link>
-<thumbnail>https://img.youtube.com/vi/2Yfp8gl3Wa8/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Ba Giai Tú Xuất</title>
-<link>plugin://plugin.video.youtube/play/?video_id=cGpQzHmNjHc</link>
-<thumbnail>https://img.youtube.com/vi/cGpQzHmNjHc/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>2 Chàng Cua Gái</title>
-<link>plugin://plugin.video.youtube/play/?video_id=ikYUiCjO7r8</link>
-<thumbnail>https://img.youtube.com/vi/ikYUiCjO7r8/0.jpg</thumbnail>
-</item>
-
-<item>
-<title> Tết </title>
-<link>plugin://plugin.video.youtube/play/?video_id=8SK6daWrHLo</link>
-<thumbnail>https://img.youtube.com/vi/8SK6daWrHLo/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Tình Già - Vân Sơn, Hoài Linh</title>
-<link>plugin://plugin.video.youtube/play/?video_id=0LKHHJ43iAE</link>
-<thumbnail>https://img.youtube.com/vi/0LKHHJ43iAE/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Tình Già 2 </title>
-<link>plugin://plugin.video.youtube/play/?video_id=AdTaVMbNAiU</link>
-<thumbnail>https://img.youtube.com/vi/AdTaVMbNAiU/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Con Gái Bây Giờ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=3tKQ422EYzg</link>
-<thumbnail>https://img.youtube.com/vi/3tKQ422EYzg/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Chồng Ơi Là Chồng - Vân Sơn ft Bảo Liêm ft Lê Huỳnh</title>
-<link>plugin://plugin.video.youtube/play/?video_id=6FACipyvWEs</link>
-<thumbnail>https://img.youtube.com/vi/6FACipyvWEs/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Chuyện Tình Vào Hạ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=yVrb7vijGIc</link>
-<thumbnail>https://img.youtube.com/vi/yVrb7vijGIc/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Tuổi Hạc</title>
-<link>plugin://plugin.video.youtube/play/?video_id=HHizu5_c7Pg</link>
-<thumbnail>https://img.youtube.com/vi/HHizu5_c7Pg/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Ngày Sinh Nhật</title>
-<link>plugin://plugin.video.youtube/play/?video_id=eIdygHO09rA</link>
-<thumbnail>https://img.youtube.com/vi/eIdygHO09rA/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Bánh Xe Lãng Tử</title>
-<link>plugin://plugin.video.youtube/play/?video_id=Ow6JO1WF00I</link>
-<thumbnail>https://img.youtube.com/vi/Ow6JO1WF00I/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Ảo Thuật Hột Gà</title>
-<link>plugin://plugin.video.youtube/play/?video_id=xJz0KVKdlwg</link>
-<thumbnail>https://img.youtube.com/vi/xJz0KVKdlwg/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Lương Sơn Bá, Chúc Anh Đài</title>
-<link>plugin://plugin.video.youtube/play/?video_id=p0iy1wUzFj0</link>
-<thumbnail>https://img.youtube.com/vi/p0iy1wUzFj0/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Tiên Việt Nam</title>
-<link>plugin://plugin.video.youtube/play/?video_id=wntWHMdGO0k</link>
-<thumbnail>https://img.youtube.com/vi/wntWHMdGO0k/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Ai Là Triệu Phú</title>
-<link>plugin://plugin.video.youtube/play/?video_id=Mm1tT-CMlZg</link>
-<thumbnail>https://img.youtube.com/vi/Mm1tT-CMlZg/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Welcome to America</title>
-<link>plugin://plugin.video.youtube/play/?video_id=MBF9bwqEiOs</link>
-<thumbnail>https://img.youtube.com/vi/MBF9bwqEiOs/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Vùng Trời Kỷ Niệm</title>
-<link>plugin://plugin.video.youtube/play/?video_id=wLZzMV1YnDk</link>
-<thumbnail>https://img.youtube.com/vi/wLZzMV1YnDk/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Vợ Ơi Là Vợ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=LJK527bpgj8</link>
-<thumbnail>https://img.youtube.com/vi/LJK527bpgj8/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Hai Đất Ba Ruộng</title>
-<link>plugin://plugin.video.youtube/play/?video_id=Ut5sWmSZImg</link>
-<thumbnail>https://img.youtube.com/vi/Ut5sWmSZImg/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Hài Kịch Hắc Bạch Công Tử</title>
-<link>plugin://plugin.video.youtube/play/?video_id=HtBma4__oHc</link>
-<thumbnail>https://img.youtube.com/vi/HtBma4__oHc/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Giờ Tý Canh 3</title>
-<link>plugin://plugin.video.youtube/play/?video_id=ySzBkXMs864</link>
-<thumbnail>https://img.youtube.com/vi/ySzBkXMs864/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Di Truyền</title>
-<link>plugin://plugin.video.youtube/play/?video_id=-Hatmh_HLck</link>
-<thumbnail>https://img.youtube.com/vi/-Hatmh_HLck/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Căn Bện Trầm Kha</title>
-<link>plugin://plugin.video.youtube/play/?video_id=ASN8aAVWlIk</link>
-<thumbnail>https://img.youtube.com/vi/ASN8aAVWlIk/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Trách Nhiệm</title>
-<link>plugin://plugin.video.youtube/play/?video_id=2RQnyooI3mQ</link>
-<thumbnail>https://img.youtube.com/vi/2RQnyooI3mQ/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Con Riêng</title>
-<link>plugin://plugin.video.youtube/play/?video_id=x06uJ9SCHOE</link>
-<thumbnail>https://img.youtube.com/vi/x06uJ9SCHOE/0.jpg</thumbnail>
-</item>
-
 <item>
-<title>Vợ Chồng Mộng Mơ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=2R22h3EkjHg</link>
-<thumbnail>https://img.youtube.com/vi/2R22h3EkjHg/0.jpg</thumbnail>
+		<title>[COLOR ffffa500]vân sơn live show 51 - Mùa Thu Tình Yêu - FALL IN LOVE DISC 2[/COLOR]</title>
+			<link>$doregex[url]</link>
+					<regex>
+						<name>url</name>
+						<expres>$pyFunction:'$doregex[jsonurl]'.replace('\\/','/')</expres>
+						<page></page>
+					</regex>
+					<regex>                                                  
+						<name>jsonurl</name>                                                      
+						<expres>stream_hls_url":"(.*?)"</expres>
+						<page>http://www.dailymotion.com/embed/video/x2i1g9v_hopxemphim-vanson51-d2_animals</page>
+					</regex>
+		<thumbnail>http://www.vansonentertainment.com/shop/userfiles/image/vanson_in_hanoi.jpg</thumbnail>
 </item>
-
-<item>
-<title>Hậu Ăn Khế Trả Vàng</title>
-<link>plugin://plugin.video.youtube/play/?video_id=tx-kwkWgPs0</link>
-<thumbnail>https://img.youtube.com/vi/tx-kwkWgPs0/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Việt Kiều Hội Họp</title>
-<link>plugin://plugin.video.youtube/play/?video_id=zm5wnwctwAk</link>
-<thumbnail>https://img.youtube.com/vi/zm5wnwctwAk/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Lỡ Thời</title>
-<link>plugin://plugin.video.youtube/play/?video_id=sRKqh2aUGvQ</link>
-<thumbnail>https://img.youtube.com/vi/sRKqh2aUGvQ/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Hậu Sinh Khả Ố</title>
-<link>plugin://plugin.video.youtube/play/?video_id=NQBkfYwBR58</link>
-<thumbnail>https://img.youtube.com/vi/NQBkfYwBR58/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Tai Nạn Radio</title>
-<link>plugin://plugin.video.youtube/play/?video_id=atc304HsYcU</link>
-<thumbnail>https://img.youtube.com/vi/atc304HsYcU/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Nhất Nghệ Tinh</title>
-<link>plugin://plugin.video.youtube/play/?video_id=ZkE99OUEDa0</link>
-<thumbnail>https://img.youtube.com/vi/ZkE99OUEDa0/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Táo Quân</title>
-<link>plugin://plugin.video.youtube/play/?video_id=Vd8Heg0wXkE</link>
-<thumbnail>https://img.youtube.com/vi/Vd8Heg0wXkE/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Cha Con</title>
-<link>plugin://plugin.video.youtube/play/?video_id=XLMknSg7BjY</link>
-<thumbnail>https://img.youtube.com/vi/XLMknSg7BjY/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Ông Ninh Ông Nang</title>
-<link>plugin://plugin.video.youtube/play/?video_id=d3R_zVyjs9k</link>
-<thumbnail>https://img.youtube.com/vi/d3R_zVyjs9k/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Song Tấu Chơi Chữ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=uSO5uPe2OW8</link>
-<thumbnail>https://img.youtube.com/vi/uSO5uPe2OW8/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Táo Quân</title>
-<link>plugin://plugin.video.youtube/play/?video_id=UZUimIKeMCI</link>
-<thumbnail>https://img.youtube.com/vi/UZUimIKeMCI/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Một Chuyến Đi Về</title>
-<link>plugin://plugin.video.youtube/play/?video_id=KbWx7I_7JOM</link>
-<thumbnail>https://img.youtube.com/vi/KbWx7I_7JOM/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Hài Kịch Người Bạn Tốt </title>
-<link>plugin://plugin.video.youtube/play/?video_id=1Ko5SDrbXc8</link>
-<thumbnail>https://img.youtube.com/vi/1Ko5SDrbXc8/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Người Đẹp Trong Tranh</title>
-<link>plugin://plugin.video.youtube/play/?video_id=9s2r1jsJXkc</link>
-<thumbnail>https://img.youtube.com/vi/9s2r1jsJXkc/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Chuyện Vợ, Chuyện Chồng - Quang Minh, Hồng Đào</title>
-<link>plugin://plugin.video.youtube/play/?video_id=GaO02HlAzfY</link>
-<thumbnail>https://img.youtube.com/vi/GaO02HlAzfY/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Thi Hoa Hậu Đồng Phục</title>
-<link>plugin://plugin.video.youtube/play/?video_id=6C6sw9IFbH4</link>
-<thumbnail>https://img.youtube.com/vi/6C6sw9IFbH4/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Lạy Anh Em Đi Lấy Chồng</title>
-<link>plugin://plugin.video.youtube/play/?video_id=pK4T94Kvtcw</link>
-<thumbnail>https://img.youtube.com/vi/pK4T94Kvtcw/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Tìm Bạn Bốn Phương</title>
-<link>plugin://plugin.video.youtube/play/?video_id=rUng83U98y4</link>
-<thumbnail>https://img.youtube.com/vi/rUng83U98y4/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Võ Tắc Thiên</title>
-<link>plugin://plugin.video.youtube/play/?video_id=7_EUChTlw-8</link>
-<thumbnail>https://img.youtube.com/vi/7_EUChTlw-8/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Hành trình trên đất phù sa</title>
-<link>plugin://plugin.video.youtube/play/?video_id=FCklsdSeZWc</link>
-<thumbnail>https://img.youtube.com/vi/FCklsdSeZWc/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Bạn Già</title>
-<link>plugin://plugin.video.youtube/play/?video_id=yXKLvzHd9b8</link>
-<thumbnail>https://img.youtube.com/vi/yXKLvzHd9b8/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Ước Gì</title>
-<link>plugin://plugin.video.youtube/play/?video_id=3JqCDUHcf-c</link>
-<thumbnail>https://img.youtube.com/vi/3JqCDUHcf-c/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Người Giàu Cũng Khóc</title>
-<link>plugin://plugin.video.youtube/play/?video_id=xQ2pmgmPBi8</link>
-<thumbnail>https://img.youtube.com/vi/xQ2pmgmPBi8/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Hai Bà Mẹ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=2qhzDQxKCiM</link>
-<thumbnail>https://img.youtube.com/vi/2qhzDQxKCiM/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>P1-Vật đổi sao dời</title>
-<link>plugin://plugin.video.youtube/play/?video_id=YadsYgZvbcw</link>
-<thumbnail>https://img.youtube.com/vi/YadsYgZvbcw/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>P2-Vật đổi sao dời</title>
-<link>plugin://plugin.video.youtube/play/?video_id=CfIE3CJJ5wU</link>
-<thumbnail>https://img.youtube.com/vi/CfIE3CJJ5wU/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 1-Hà Nội Ký Sự</title>
-<link>plugin://plugin.video.youtube/play/?video_id=eaj3UCRSfbU</link>
-<thumbnail>https://img.youtube.com/vi/eaj3UCRSfbU/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 2-Hà Nội Ký Sự</title>
-<link>plugin://plugin.video.youtube/play/?video_id=ygc58u-r86w</link>
-<thumbnail>https://img.youtube.com/vi/ygc58u-r86w/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 3-Hà Nội Ký Sự</title>
-<link>plugin://plugin.video.youtube/play/?video_id=vBcr_MERBZM</link>
-<thumbnail>https://img.youtube.com/vi/vBcr_MERBZM/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 4-Hà Nội Ký Sự</title>
-<link>plugin://plugin.video.youtube/play/?video_id=0Tq2k8t34Io</link>
-<thumbnail>https://img.youtube.com/vi/0Tq2k8t34Io/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 1-Vân Sơn 12 Nụ Cười & Âm Nhạc</title>
-<link>plugin://plugin.video.youtube/play/?video_id=QfRA4ZuwyUc</link>
-<thumbnail>https://img.youtube.com/vi/QfRA4ZuwyUc/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 2-Vân Sơn 12 Nụ Cười & Âm Nhạc</title>
-<link>plugin://plugin.video.youtube/play/?video_id=DfdyiThXJpo</link>
-<thumbnail>https://img.youtube.com/vi/DfdyiThXJpo/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 3-Vân Sơn 12 Nụ Cười & Âm Nhạc</title>
-<link>plugin://plugin.video.youtube/play/?video_id=ewWn38zB4uM</link>
-<thumbnail>https://img.youtube.com/vi/ewWn38zB4uM/0.jpg</thumbnail>
-</item>
-
-
-<item>
-<title>Phần 1-Vân Sơn 11 Nụ Cười & Âm Nhạc</title>
-<link>plugin://plugin.video.youtube/play/?video_id=DfSlbN82ZJU</link>
-<thumbnail>https://img.youtube.com/vi/DfSlbN82ZJU/0.jpg</thumbnail>
-</item>
-
 <item>
-<title>Phần 2-Vân Sơn 11 Nụ Cười & Âm Nhạc</title>
-<link>plugin://plugin.video.youtube/play/?video_id=TqztkvJ1yS0</link>
-<thumbnail>https://img.youtube.com/vi/TqztkvJ1yS0/0.jpg</thumbnail>
+		<title>[COLOR ffffa500]vân sơn live show 51 - Mùa Thu Tình Yêu - FALL IN LOVE DISC 3[/COLOR]</title>
+			<link>$doregex[url]</link>
+					<regex>
+						<name>url</name>
+						<expres>$pyFunction:'$doregex[jsonurl]'.replace('\\/','/')</expres>
+						<page></page>
+					</regex>
+					<regex>                                                  
+						<name>jsonurl</name>                                                      
+						<expres>stream_hls_url":"(.*?)"</expres>
+						<page>http://www.dailymotion.com/embed/video/x2hy904_hopxemphim-vanson52-d3_animals</page>
+					</regex>
+		<thumbnail>http://www.vansonentertainment.com/shop/userfiles/image/vanson_in_hanoi.jpg</thumbnail>
 </item>
-
-<item>
-<title>Phần 3-Vân Sơn 11 Nụ Cười & Âm Nhạc</title>
-<link>plugin://plugin.video.youtube/play/?video_id=l75SnByM8Vk</link>
-<thumbnail>https://img.youtube.com/vi/l75SnByM8Vk/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 1-Vân Sơn 10 Sân Khấu & Nụ Cười</title>
-<link>plugin://plugin.video.youtube/play/?video_id=SdNRgZpIIt0</link>
-<thumbnail>https://img.youtube.com/vi/SdNRgZpIIt0/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 2-Vân Sơn 10 Sân Khấu & Nụ Cười</title>
-<link>plugin://plugin.video.youtube/play/?video_id=py5xHyBdleE</link>
-<thumbnail>https://img.youtube.com/vi/py5xHyBdleE/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 3-Vân Sơn 10 Sân Khấu & Nụ Cười</title>
-<link>plugin://plugin.video.youtube/play/?video_id=ZS1RZ9GJfyQ</link>
-<thumbnail>https://img.youtube.com/vi/ZS1RZ9GJfyQ/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 1-Vân Sơn 9 Nụ Cười & Âm Nhạc</title>
-<link>plugin://plugin.video.youtube/play/?video_id=S2sGIHBY3Yk</link>
-<thumbnail>https://img.youtube.com/vi/S2sGIHBY3Yk/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 2-Vân Sơn 9 Nụ Cười & Âm Nhạc</title>
-<link>plugin://plugin.video.youtube/play/?video_id=6x0_wPmdB1A</link>
-<thumbnail>https://img.youtube.com/vi/6x0_wPmdB1A/0.jpg</thumbnail>
-</item>
-
-<item>
-<title>Phần 3-Vân Sơn 9 Nụ Cười & Âm Nhạc</title>
-<link>plugin://plugin.video.youtube/play/?video_id=Cmom8sP4B_c</link>
-<thumbnail>https://img.youtube.com/vi/Cmom8sP4B_c/0.jpg</thumbnail>
-</item>
-
 <item>
-<title> Phần 1-Vân Sơn 8 In Australia</title>
-<link>plugin://plugin.video.youtube/play/?video_id=qEQBhFJ_bvg</link>
-<thumbnail>https://img.youtube.com/vi/qEQBhFJ_bvg/0.jpg</thumbnail>
+<title>Van Son 50 In VietNam - Chuyen Tinh Que Huong Toi - P1</title>
+<link>rtmp://27.118.16.105/vod/mp4:http/2014/05/07/van-son-50-chuyen-tinh-que-huong-video-p1.mp4</link>
+<thumbnail>http://origin.lifetv.vn/data/video/thumbnails/2014/05/07/van-son-50-chuyen-tinh-que-huong-video-p1.jpg</thumbnail>
 </item>
 
 <item>
-<title> Phần 2-Vân Sơn 8 In Australia</title>
-<link>plugin://plugin.video.youtube/play/?video_id=cqV7oaS4ZZc</link>
-<thumbnail>https://img.youtube.com/vi/cqV7oaS4ZZc/0.jpg</thumbnail>
+<title>Van Son 50 In VietNam - Chuyen Tinh Que Huong Toi - P2</title>
+<link>rtmp://27.118.16.105/vod/mp4:http/2014/05/07/van-son-50-chuyen-tinh-que-huong-video-p2.mp4</link>
+<thumbnail>http://origin.lifetv.vn/data/video/thumbnails/2014/05/07/van-son-50-chuyen-tinh-que-huong-video-p2.jpg</thumbnail>
 </item>
 
 <item>
-<title> Phần 3-Vân Sơn 8 In Australia</title>
-<link>plugin://plugin.video.youtube/play/?video_id=RkD2niZeBVQ</link>
-<thumbnail>https://img.youtube.com/vi/RkD2niZeBVQ/0.jpg</thumbnail>
+<title>Van Son 50 In VietNam - Chuyen Tinh Que Huong Toi - P1 test</title>
+<link>rtmp://115.146.123.95:1935/mediacache/ playpath=mp4:http/2014/05/07/van-son-50-chuyen-tinh-que-huong-video-p1.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://lifetv.vn/video/chi-tiet/3450/van-son-50-in-vietnam-chuyen-tinh-que-huong-toi-p1</link>
+<thumbnail>http://origin.lifetv.vn/data/video/thumbnails/2014/05/07/van-son-50-chuyen-tinh-que-huong-video-p1.jpg</thumbnail>
 </item>
-
-<item>
-<title>Phần 1-Show Mẹ & Quê Hương - Vân Sơn </title>
-<link>plugin://plugin.video.youtube/play/?video_id=jZINvZaJ5h4</link>
-<thumbnail>https://img.youtube.com/vi/jZINvZaJ5h4/0.jpg</thumbnail>
-</item>
-
 <item>
-<title>Phần 2-Show Mẹ & Quê Hương - Vân Sơn</title>
-<link>plugin://plugin.video.youtube/play/?video_id=si-8xL9rVaE</link>
-<thumbnail>https://img.youtube.com/vi/si-8xL9rVaE/0.jpg</thumbnail>
+<title>Van Son 50 In VietNam - Chuyen Tinh Que Huong Toi - P2 test</title>
+<link>rtmp://27.118.16.105/redirectvod/ playpath=mp4:http/2014/05/07/van-son-50-chuyen-tinh-que-huong-video-p2.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://lifetv.vn/video/chi-tiet/3450/van-son-50-in-vietnam-chuyen-tinh-que-huong-toi-p2</link>
+<thumbnail>http://origin.lifetv.vn/data/video/thumbnails/2014/05/07/van-son-50-chuyen-tinh-que-huong-video-p2.jpg</thumbnail>
 </item>
 
 <item>
-<title>Phần 3-Show Mẹ & Quê Hương - Vân Sơn</title>
-<link>plugin://plugin.video.youtube/play/?video_id=c_UOvoalqRw</link>
-<thumbnail>https://img.youtube.com/vi/c_UOvoalqRw/0.jpg</thumbnail>
+<title> Vân Sơn 45 - In Minnesota (Huyền Thoại) - Disc 1</title>
+<link>rtmp://115.146.123.95:1935/mediacache/ playpath=mp4:http/2012/12/25/van-son-45-huyen-thoai-disc-1-dvd-ntsc-ac3-x264-sdvb-muxed.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://cuocsongthongminh.lifetv.vn/show-video/van-son-45-in-minnesota-huyen-thoai-disc-01</link>
+<thumbnail>http://www.vansonentertainment.com/shop/images/products/Van_Son_Entertainment/VS45inMinnesota.jpg</thumbnail>
 </item>
 
 <item>
-<title>Phần 4-Show Mẹ & Quê Hương - Vân Sơn</title>
-<link>plugin://plugin.video.youtube/play/?video_id=8RCkWuVO52I</link>
-<thumbnail>https://img.youtube.com/vi/8RCkWuVO52I/0.jpg</thumbnail>
+<title> Vân Sơn 45 - In Minnesota (Huyền Thoại)  - Disc 2</title>
+<link>rtmp://115.146.123.95:1935/mediacache/ playpath=mp4:http/2012/11/29/van-son-45-huyen-thoai-disc-2-dvd-ntsc-ac3-x264-sdvb-muxed.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://cuocsongthongminh.lifetv.vn/show-video/van-son-45-in-minnesota-huyen-thoai-disc-02</link>
+<thumbnail>http://www.vansonentertainment.com/shop/images/products/Van_Son_Entertainment/VS45inMinnesota.jpg</thumbnail>
 </item>
-
 
-
-
-
 <item>
-<title> P1-Đạo Nghĩa Giang Hồ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=K4zCYvKZAXA</link>
-<thumbnail>https://img.youtube.com/vi/K4zCYvKZAXA/0.jpg</thumbnail>
+<title> Vân Sơn 46 - In Praha (Giữ Trọn Tình Quê) - Disc 1</title>
+<link>rtmp://115.146.123.95:1935/mediacache/ playpath=mp4:http/2012/11/15/van-son-46-in-praha-giu-tron-tinh-que-d01-ntsc-dvd-dd2-0-x264-sdvb-muxed.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://cuocsongthongminh.lifetv.vn/show-video/van-son-46-in-praha-giu-tron-tinh-que-dvd-1</link>
+<thumbnail>http://www.vansonentertainment.com/shop/images/products/Van_Son_Entertainment/VS46-in-Praha.jpg</thumbnail>
 </item>
-
 
 <item>
-<title> P2-Đạo Nghĩa Giang Hồ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=r1T4aGJ9iHQ</link>
-<thumbnail>https://img.youtube.com/vi/r1T4aGJ9iHQ/0.jpg</thumbnail>
+<title> Vân Sơn 46 - In Praha (Giữ Trọn Tình Quê) - Disc 2</title>
+<link>rtmp://115.146.123.95:1935/mediacache/ playpath=mp4:http/2012/11/15/van-son-46-in-praha-giu-tron-tinh-que-d02-ntsc-dvd-dd2-0-x264-sdvb-muxed.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://cuocsongthongminh.lifetv.vn/show-video/van-son-46-in-praha-giu-tron-tinh-que-dvd-2</link>
+<thumbnail>http://www.vansonentertainment.com/shop/images/products/Van_Son_Entertainment/VS46-in-Praha.jpg</thumbnail>
 </item>
 
-
 <item>
-<title> P3-Đạo Nghĩa Giang Hồ</title>
-<link>plugin://plugin.video.youtube/play/?video_id=h4fsjJ9P-y0</link>
-<thumbnail>https://img.youtube.com/vi/h4fsjJ9P-y0/0.jpg</thumbnail>
+<title> Vân Sơn 47 - Hè Trên Xứ Lạnh - Disc 1</title>
+<link>rtmp://115.146.123.95:1935/mediacache/ playpath=mp4:http/2012/07/30/van-son-47-in-edmonton-2011-d01-ntsc-dvd-dd2-0-x264-sdvb-muxed.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://cuocsongthongminh.lifetv.vn/show-video/van-son-47-2011-disc-01-he-tren-xu-lanh</link>
+<thumbnail>http://www.vansonentertainment.com/shop/images/products/Van_Son_Entertainment/VS47_muahetrenxulanh.jpg</thumbnail>
 </item>
 
 <item>
-<title> P1-Vượt Biên Giới</title>
-<link>plugin://plugin.video.youtube/play/?video_id=CqInaLzZcOk</link>
-<thumbnail>https://img.youtube.com/vi/CqInaLzZcOk/0.jpg</thumbnail>
+<title> Vân Sơn 47 - Hè Trên Xứ Lạnh - Disc 2</title>
+<link>rtmp://115.146.123.95:1935/mediacache/ playpath=mp4:http/2012/08/01/van-son-47-in-edmonton-2011-d02-ntsc-dvd-dd2-0-x264-sdvb-muxed.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://cuocsongthongminh.lifetv.vn/show-video/van-son-47-2011-disc-02-he-tren-xu-lanh</link>
+<thumbnail>http://www.vansonentertainment.com/shop/images/products/Van_Son_Entertainment/VS47_muahetrenxulanh.jpg</thumbnail>
 </item>
-
 
 <item>
-<title> P2-Vượt Biên Giới</title>
-<link>plugin://plugin.video.youtube/play/?video_id=f9NtxY3mr3Y</link>
-<thumbnail>https://img.youtube.com/vi/f9NtxY3mr3Y/0.jpg</thumbnail>
+<title> Vân Sơn 47 - Hè Trên Xứ Lạnh - Disc 3</title>
+<link>rtmp://115.146.123.95:1935/mediacache/ playpath=mp4:http/2012/08/01/van-son-47-in-edmonton-2011-d03-ntsc-dvd-dd2-0-x264-sdvb-muxed.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://cuocsongthongminh.lifetv.vn/show-video/van-son-47-2011-disc-03-he-tren-xu-lanh</link>
+<thumbnail>http://www.vansonentertainment.com/shop/images/products/Van_Son_Entertainment/VS47_muahetrenxulanh.jpg</thumbnail>
 </item>
 
-
 <item>
-<title> P3-Vượt Biên Giới</title>
-<link>plugin://plugin.video.youtube/play/?video_id=Tq6_PygL474</link>
-<thumbnail>https://img.youtube.com/vi/Tq6_PygL474/0.jpg</thumbnail>
+<title> Vân Sơn 48 - In Chicagoland 2012 - Disc 1</title>
+<link>rtmp://115.146.123.95:1935/mediacache/ playpath=mp4:http/2012/07/05/van-son-48-in-chicagoland-2012-disk01-ntsc-dvd-flac-x264-sdvb-muxed.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://cuocsongthongminh.lifetv.vn/show-video/van-son-48-in-chicagoland-2012-disc-01</link>
+<thumbnail>http://www.vansonentertainment.com/shop/images/products/Van_Son_Entertainment/vanson_nhungngaynangdepDVD.jpg</thumbnail>
 </item>
 
-
 <item>
-<title> Phần 1-Những Nẻo Đường Miền Tây</title>
-<link>plugin://plugin.video.youtube/play/?video_id=boTyRSCMo60</link>
-<thumbnail>https://img.youtube.com/vi/boTyRSCMo60/0.jpg</thumbnail>
+<title> Vân Sơn 48 - In Chicagoland 2012 - Disc 2</title>
+<link>rtmp://115.146.123.95:1935/mediacache/ playpath=mp4:http/2012/07/05/van-son-48-in-chicagoland-2012-disk02-ntsc-dvd-flac-x264-sdvb-muxed.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://cuocsongthongminh.lifetv.vn/show-video/van-son-48-in-chicagoland-2012-disc-02</link>
+<thumbnail>http://www.vansonentertainment.com/shop/images/products/Van_Son_Entertainment/vanson_nhungngaynangdepDVD.jpg</thumbnail>
 </item>
-
 
 <item>
-<title> Phần 2-Những Nẻo Đường Miền Tây</title>
-<link>plugin://plugin.video.youtube/play/?video_id=wvQJKDLLErs</link>
-<thumbnail>https://img.youtube.com/vi/wvQJKDLLErs/0.jpg</thumbnail>
+<title> Vân Sơn 48 - In Chicagoland 2012 - Disc 3</title>
+<link>rtmp://115.146.123.95:1935/mediacache/ playpath=mp4:http/2012/07/05/van-son-48-in-chicagoland-2012-disk03-ntsc-dvd-flac-x264-sdvb-muxed.mp4 swfUrl=http://cuocsongthongminh.lifetv.vn/jwplayer/playerlifeTV.swf pageUrl=http://cuocsongthongminh.lifetv.vn/show-video/van-son-48-in-chicagoland-2012-disc-03</link>
+<thumbnail>http://www.vansonentertainment.com/shop/images/products/Van_Son_Entertainment/vanson_nhungngaynangdepDVD.jpg</thumbnail>
 </item>
 
 </items>
-</channel>
