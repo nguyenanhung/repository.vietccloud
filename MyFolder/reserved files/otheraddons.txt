@@ -1,0 +1,9 @@
+﻿#EXTM3U
+
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/topshows.png",Top Shows
+plugin://plugin.video.topshows
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/kodi4vnlauncher.png",Kodi4VN Launcher
+plugin://plugin.video.kodi4vn.launcher
+
+
+

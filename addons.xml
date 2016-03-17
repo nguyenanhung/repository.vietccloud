@@ -21,7 +21,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.6.4" provider-name="podgod-mod">
+<addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.6.5" provider-name="podgod-mod">
   <requires>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
@@ -60,6 +60,34 @@
   <extension point="xbmc.addon.metadata">
     <summary>VietTV24.com</summary>
     <description>Watch hundreds of Vietnamesse and English channels from viettv24.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.topshows"
+       name="Top Shows"
+       version="1.0.0"
+       provider-name="TopShows">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.beautifulsoup" version="3.2.1"/>
+    <import addon="script.module.simple.downloader" version="0.9.4"/>
+    <import addon="script.module.beautifulsoup4" />
+    <import addon="script.module.requests" />
+    <import addon="script.module.httplib2" />
+    <import addon="script.module.youtube.dl" optional="true"/>
+    <import addon="plugin.video.youtube" optional="true" />
+    <import addon="script.module.urlresolver" optional="true"/>
+    <import addon="script.module.simplejson" />
+     <import addon="script.module.livestreamer" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Top Shows</summary>
+    <description>
+    </description>
     <platform>all</platform>
   </extension>
 </addon>
@@ -127,6 +155,26 @@
 	<extension point="xbmc.addon.metadata">
 		<summary>Install Kodi4VN Addons</summary>
 		<description>Download and install addons from Kodi4VN's Repo: Best addons for Vietnamesse</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.shani" name="Shanis Addon Repository" version="2.8" provider-name="Shani">
+	<extension point="xbmc.addon.repository" name="Shanis Addon Repository">
+    <dir>
+            <info compressed="false">https://raw.github.com/Shani-08/ShaniXBMCWork2/master/addons.xml</info>
+            <checksum>https://raw.github.com/Shani-08/ShaniXBMCWork2/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.github.com/Shani-08/ShaniXBMCWork2/master/zips</datadir>
+    </dir>
+
+    <info compressed="false">https://offshoregit.com/Shani-08/main/addons.xml</info>
+    <checksum>https://offshoregit.com/Shani-08/main/addons.xml.md5</checksum>
+    <datadir zip="true">https://offshoregit.com/Shani-08/main/zips</datadir>
+
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Addons related to XBMC for Zemtv etc</summary>
+		<description>Go though the plugins and see what you like</description>
 		<platform>all</platform>
 	</extension>
 </addon>

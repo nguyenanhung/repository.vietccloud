@@ -42,6 +42,7 @@ enable_iptvsimple_playlist = mysettings.getSetting('enable_iptvsimple_playlist')
 choose_server_group = mysettings.getSetting('choose_server_group')
 enable_server_selection = mysettings.getSetting('enable_server_selection')
 select_a_server = mysettings.getSetting('select_a_server')
+enable_other_addons = mysettings.getSetting('enable_other_addons')
 viet_mode = mysettings.getSetting('viet_mode')
 
 local_thongbaomoi = xbmc.translatePath(os.path.join(home, 'thongbaomoi.txt'))
@@ -67,6 +68,7 @@ SRVlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa
 medialink = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjFsWkdsaGJHbHVheTUwZUhRPQ=='.decode('base64').decode('base64')
 iptvsimple = xbmc.translatePath("special://home/userdata/addon_data/pvr.iptvsimple/iptv.m3u.cache")
 public_uploads = 'plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3a%2f%2fscript.google.com%2fmacros%2fs%2fAKfycbxwkVU0o3lckrB5oCQBnQlZ-n8CMx5CZ_ajq6Y3o7YHSTFbcODk%2fexec'
+otheraddons = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjkwYUdWeVlXUmtiMjV6TG5SNGRBPT0='.decode('base64').decode('base64')
 List1 = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
 List2 = 'YUhSMGNEb3ZMM2d1WTI4dlpHSmphREF4'.decode('base64').decode('base64')
 List3 = 'YUhSMGNEb3ZMMkZwYnk1alkyeHZkV1IwZGk1dmNtY3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')
@@ -92,7 +94,7 @@ def read_file(file):
 		return content
 	except:
 		pass
-        
+
 def srv_list():
 	#match = re.compile(server_regex).findall(read_file(os.path.expanduser(r'~\Desktop\servers.txt')))
 	match = re.compile(server_regex).findall(make_request(SRVlist))
@@ -217,6 +219,8 @@ def main():
 		addDir('[COLOR lime][B]Online M3U Playlist Tester[/B][/COLOR]', 'onlinetester', 42, '%s/onlinetester.png'% iconpath, fanart)
 	if enable_vietmedia == 'true':
 		addDir('[COLOR orange][B]VietMedia - YouTube[/B][/COLOR]', 'NoLinkRequired', 20, '%s/vietmedia.png'% iconpath, fanart)
+	if enable_other_addons == 'true':
+		addDir('[COLOR cyan][B]Other Addons[/B][/COLOR]', 'NoLinkRequired', 100, '%s/otheraddons.png'% iconpath, fanart)
 	if platform() == 'windows' or platform() == 'osx':
 		if enable_public_uploads == 'true':
 			addDir('[COLOR brown][B]Public Uploads[/B][/COLOR]', public_uploads, None, '%s/ChromeLauncher.png'% iconpath, fanart)
@@ -245,6 +249,20 @@ def main():
 	addDir('[COLOR royalblue][B]Non-English/International (Z-A)[/B][/COLOR]', 'international', 64,'%s/international.png'% iconpath, fanart)
 	if getSetting("enable_adult_section") == 'true':
 		addDir('[COLOR magenta][B]Adult(18+)[/B][/COLOR]', 'adult', 98, '%s/adult.png'% iconpath, fanart)
+
+def other_addons():
+	content = make_request(otheraddons)
+	match = re.compile(m3u_regex).findall(content)
+	for thumb, name, url in match:
+		if 'tvg-logo' in thumb:
+			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+			if thumb.startswith('http'):
+				addDir(name, url, None, thumb, thumb)
+			else:
+				thumb = '%s/%s' % (iconpath, thumb)
+				addDir(name, url, None, thumb, thumb)
+		else:
+			addDir(name, url, None, icon, fanart)
 
 def removeAccents(s):
 	return ''.join((c for c in unicodedata.normalize('NFD', s.decode('utf-8')) if unicodedata.category(c) != 'Mn'))
@@ -1337,7 +1355,7 @@ def addDir(name, url, mode, iconimage, fanart):
 	liz = xbmcgui.ListItem(name, iconImage = "DefaultFolder.png", thumbnailImage = iconimage)
 	liz.setInfo( type = "Video", infoLabels = { "Title": name } )
 	liz.setProperty('fanart_image', fanart)
-	if 'plugin.program.chrome.launcher' in url:
+	if 'plugin://plugin' in url:
 		u = url
 	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = True)
 	return ok
@@ -1347,8 +1365,12 @@ def addLink(name, url, mode, iconimage, fanart):
 	liz = xbmcgui.ListItem(name, iconImage = "DefaultVideo.png", thumbnailImage = iconimage)
 	liz.setInfo( type = "Video", infoLabels = { "Title": name } )
 	liz.setProperty('fanart_image', fanart)
-	liz.setProperty('IsPlayable', 'true')
-	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz)
+	if not 'plugin://plugin.video.youtube' in url:
+		u = url
+		ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = True)
+	else:
+		liz.setProperty('IsPlayable', 'true')
+		ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz)
 
 params = get_params()
 url = None
@@ -1525,4 +1547,7 @@ elif mode == 98:
 elif mode == 99:
 	search()
 
+elif mode == 100:
+	 other_addons()
+     
 xbmcplugin.endOfDirectory(plugin_handle)

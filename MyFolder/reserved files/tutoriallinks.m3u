@@ -237,79 +237,81 @@ plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Flangsongviet.com%2Ffta4vnForum%2Fupload%2Fshowthread.php%2F101309-C%25C3%25A1ch-t%25C3%25ACm-RTMP-%25C4%2591%25E1%25BB%2583-l%25C3%25A0m-xml-v%25E1%25BB%259Bi-c%25C3%25B4ng-c%25E1%25BB%25A5-Firebug-(Firefox-extensions)%3Fhighlight%3Dtvlover2013
 
 
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",[COLOR magenta][B]Các sources, repositories, add-ons, forums cho người Việt[/B][/COLOR]
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR magenta][B]Các sources, repositories, add-ons, forums cho người Việt[/B][/COLOR]
 NoLinkRequired
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",Source của Kodi
+#EXTINF:0 tvg-logo="kodi4viet.png",Source của Kodi
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fftp.halifax.rwth-aachen.de%2Fxbmc%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",Source của nhóm Việt Kodii
+#EXTINF:0 tvg-logo="kodi4viet.png",Source của nhóm Việt Kodii
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Frepo.kodi.vn%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",Source của andytx
+#EXTINF:0 tvg-logo="kodi4viet.png",Source của andytx
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fvietkodiandytx.netau.net
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",Source của DKnight
+#EXTINF:0 tvg-logo="kodi4viet.png",Source của DKnight
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2F162.248.143.235%2Fxbmc%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",Source của Hộp Đen TV Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",Source của Hộp Đen TV Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fhdtvblackbox.com%2FHopDenTV_REPO%2FZips%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",Source của podgod (cCloudTV)
+#EXTINF:0 tvg-logo="kodi4viet.png",Source của podgod (cCloudTV)
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Foffshoregit.com%2Fpodgod%2Frepo%2Fzips%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",Source của shani (LiveStreamPro add-on)
+#EXTINF:0 tvg-logo="kodi4viet.png",Source của shani (LiveStreamPro add-on)
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Foffshoregit.com%2FShani-08%2Fmain%2Fzips%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",anphunl Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",anphunl Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fanphunl%2Fkodi
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",AznKodi Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",AznKodi Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2FAznKodi%2Frepository.AznKodi%2Ftree%2Fmaster%2Fzips
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",bacha Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",bacha Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fbac-ha%2Frepository.bacha%2Ftree%2Fmaster%2Fzips
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",Cantobumedia Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",Cantobumedia Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fphuoclv%2Frepository.cantobumedia
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",cxkodi Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",cxkodi Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fvinhhrv%2Fcxkodi
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",DKnight Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",DKnight Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fdknlght%2Fdkodi
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",HieuHien Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",HieuHien Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fhieuhienvn%2Fhieuhien.vn%2Fraw%2Fmaster%2Fzips%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",Hockeyanon Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",Hockeyanon Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fhockeyanon%2Fxbmc-repo
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",lnt900 Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",lnt900 Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Flnt900%2Fkodi.repo.lnt900
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",nguyentuan Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",nguyentuan Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Frepo.chuongtrinhviet.com%3A81%2Fsvn%2Frepo%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",Other Guys Stuff Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",Other Guys Stuff Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fbitbucket.org%2Fdknlght%2Fdk-xbmc-repaddon-rep%2Fraw%2Fmaster%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",tamnm Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",tamnm Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Ftamnm%2Fkodi.mp3.zing.vn
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",traitravinh Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",traitravinh Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Ftraitravinh%2Ftraitravinh.repository.xbmc
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",TrungK43 HD Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",TrungK43 HD Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Ftrungk43%2Fxbmc-plugins
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",uPlayHD Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",uPlayHD Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fbitbucket.org%2Fbrianminh84%2Fuplayhd.com%2Fraw%2Fmaster%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",V137 Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",V137 Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fv137%2Fkodi
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",VietcCloud Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",VietcCloud Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fvietccloudtv%2Frepository.vietccloud%2Fraw%2Fmaster%2Fzips
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",VietMedia Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",VietMedia Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fonepas%2Fkodi-addons
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",Xshare Repo
+#EXTINF:0 tvg-logo="kodi4viet.png",Xshare Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fthaitni%2Fxbmc.repo.xshare
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",zecoj Repo (tvvn add-on)
+#EXTINF:0 tvg-logo="kodi4viet.png",zecoj Repo (tvvn add-on)
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fzecoj%2Fxbmc-tvvn
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",[COLOR blue]http://mirrors.kodi.tv[/COLOR]
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR blue]http://mirrors.kodi.tv[/COLOR]
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fmirrors.kodi.tv
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",[COLOR blue]Official Kodi Website[/COLOR]
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR blue]Official Kodi Website[/COLOR]
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fkodi.tv%2Fdownload%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",[COLOR blue]Official Kodi Add-ons[/COLOR]
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR blue]Official Kodi Add-ons[/COLOR]
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Faddons.kodi.tv%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",[COLOR blue]Official Kodi Forum[/COLOR]
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR blue]Official Kodi Forum[/COLOR]
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fforum.kodi.tv%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",[COLOR orange]Viet Kodii Facebook[/COLOR]
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR orange]Viet Kodii Facebook[/COLOR]
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fwww.facebook.com%2Fgroups%2Fvietkodi%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",[COLOR orange]Diễn Đàn HD Vietnam[/COLOR]
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR orange]Diễn Đàn VietMediaF[/COLOR]
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fvietmediaf.net%2Fthreads%2F1210%2F
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR orange]Diễn Đàn HD Vietnam[/COLOR]
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fhdvietnam.com%2Fdiendan%2F229-android-box%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",[COLOR orange]Diễn Đàn Làng Sóng Việt[/COLOR]
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR orange]Diễn Đàn Làng Sóng Việt[/COLOR]
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Flangsongviet.com%2Ffta4vnForum%2Fupload%2Fforumdisplay.php%2F513-Android-TV-Apple-TV%3Fs%3D4f7548c51e31676f377b822daec02f4b
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",[COLOR orange]Diễn Đàn Kodi Việt[/COLOR]
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR orange]Diễn Đàn Kodi Việt[/COLOR]
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fkodiviet.com%2F
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/vietccloudtv/repository.vietccloud/master/MyFolder/icons/kodi4viet.png",[COLOR orange]Diễn Đàn tinhte.vn[/COLOR]
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR orange]Diễn Đàn tinhte.vn[/COLOR]
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Ftinhte.vn%2Fforums%2F
 
 
