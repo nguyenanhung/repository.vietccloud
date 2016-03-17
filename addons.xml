@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
+<addon id="kodi.repo.hcmlike-media" name="HCMLIKE-Media Repository" version="1.0.2" provider-name="HCMLIKE.com">
+  <extension point="xbmc.addon.repository" name="Official XBMC.org Add-on Repository">
+    <info compressed="true">http://hcmlike.entrydns.org/hcmlike/kodi.repo.hcmlike-media/addons.xml</info>
+    <checksum>http://hcmlike.entrydns.org/hcmlike/kodi.repo.hcmlike-media/addons.xml.md5</checksum>
+    <datadir zip="true">http://hcmlike.entrydns.org/hcmlike/kodi.repo.hcmlike-media</datadir>
+    <hashes>true</hashes>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Play Film, Show, Clip and TV Online from sources from Internet</summary>
+    <description>Download and install addons from HCMLIKE-Media Repository: Watch films from phim.megabox.vn/, TV online from hplus.com.vn, and other sources from Internet</description>
+    <language>en</language>
+    <platform>all</platform>
+    <license>http://www.gnu.org/licenses/</license>
+    <source>http://hcmlike.entrydns.org/hcmlike/kodi.repo.hcmlike-media</source>
+    <email>hcmlike@gmail.com</email>
+  </extension>
+</addon>
+
 <addon id="plugin.audio.vietmediaF"
        name="[B]VietMediaF[/B]"
        version="1.0.0"
@@ -88,6 +106,56 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
     <email/>
     <platform>all</platform>
   </extension>
+</addon>
+
+<addon
+	id="plugin.video.FlashCards"
+	version="1.0"
+	name="[COLOR lime][B]BÉ HỌC CHỮ[/B][/COLOR]"
+	provider-name="Tuấn Tàu">
+	<requires>
+		<import addon="script.module.simplejson" />
+		<import addon="xbmc.python" version="2.1.0"/>
+		<import addon="script.module.simple.downloader" version="1.9.4" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="liveshow.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>[COLOR red]Tuấn Tàu[/COLOR]</summary>
+		<description>[COLOR lime][B]Add-on dạy bé học chữ dựa trên phương pháp Flash Cards[/B][/COLOR]</description>
+		<disclaimer>Tất cả nội dung được lấy từ Internet - chúng tôi hoàn toàn không chịu trách nhiệm về bản quyền hay độ ổn định của chương trình</disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="plugin.video.hcmlike-tvonline" name="HCMLIKE - TV Online" version="1.2.7" provider-name="HCMLIKE.com">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en">HCMLIKE - TV Online</summary>
+        <language></language>
+        <description lang="en">Add-ons được viết bởi HCMLIKE.COM, chúng tôi không sao chép từ bất kỳ tác giả nào khác. Bản quyền tác giả Add-ons thuộc về HCMLIKE.COM.
+
+Add-ons được chia sẻ hoàn toàn miễn phí và được duy trì bởi HCMLIKE.COM. Chúng tôi rất vui lòng khi được cộng đồng người dùng Kodi sử dụng và chia sẻ cho mục đích phi thương mại. Rất mong người dùng vui lòng KHÔNG THAY ĐỔI THÔNG TIN ADD-ONS khi sử dụng.
+
+Đây là sản phẩm tinh thần mà đội ngũ Lập trình viên của HCMLIKE.COM ngày đêm viết code với mong muốn mang đến cho người dùng những trải nghiệm hoàn hảo nhất. Các sản phẩm của chúng tôi: HCMLIKE TV Online, HCMLIKE Film Online, HCMLIKE NAS Online, HCMLIKE Camera Online,...
+
+Mọi ý kiến đóng góp về Add-ons, vui lòng phản hồi: https://www.facebook.com/hcmlike hoặc http://hcmlike.com/ hoặc hcmlike@gmail.com
+
+Trân trọng./.</description>
+        <disclaimer lang="en">[COLOR lime]Copyright © HCMLIKE.com[/COLOR]
+[COLOR red]Nguồn phát bởi HTVOnline và một số nguồn khác trên Internet. Chúng tôi không kiểm soát bất kỳ kênh truyền hình nào, cũng như không chịu trách nhiệm bản quyền nội dung trên các kênh truyền hình. Người xem đồng ý và cân nhắc nội dung mà mình muốn xem.[/COLOR]</disclaimer>
+        <website>http://hcmlike.com</website>
+        <source>http://hcmlike.entrydns.org/hcmlike/kodi.repo.hcmlike-media</source>
+        <forum>http://www.hdvietnam.com/diendan/229-android-box/1027509-hcmlike-media-repository-add-ons-chuyen.html</forum>
+        <email>hcmlike@gmail.com</email>
+    </extension>
 </addon>
 
 <addon id="plugin.video.hieuhien.vn.liveshow"
@@ -223,6 +291,24 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 - Không được thay đổi tên, hoặc các thông tin liên quan đến các add-on trong group.
 - Và có thể thêm các điều khác (chưa nghĩ ra) Biểu tượng cảm xúc smile
 Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong quá trình phát triển cũng như duy trì những add-on này.</disclaimer>
+    </extension>
+</addon>
+
+<addon id="plugin.video.xshare" name="[COLOR red][B]Xshare[/COLOR]-[COLOR green]XBMC[/COLOR] [COLOR blue]HD Video[/B][/COLOR]" version="3.3.5" provider-name="thaitni">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0" optional="true" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="xshare.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Xshare - XBMC HD Video</summary>
+		<description lang="en">Tìm và Xem HD Video trên XBMC từ: fshare.vn, 4share.vn, vaphim.com, ifile.tv, phimfshare.com, fptplay.net, hdvietnam.com, megabox.vn, dangcaphd.com, hayhaytv.vn, hdviet.com, pubvn.net, vuahd.tv, phimmoi.net, hdonline.vn, phim3s.net, kenh88.com, phimdata.com, phimsot.com, phim47.com</description>
+		<platform>all</platform>
+		<language>en</language>
+		<license>GNU General Public License - v2</license>
+		<source>https://github.com/thaitni/xbmc.repo.xshare</source>
+		<email>thai@thanhthai.net</email>
     </extension>
 </addon>
 
@@ -444,6 +530,24 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 		<description>Download and install for iVue2 Tv guide addons </description>
 		<disclaimer> Repo for iVue2 Tv guide addon </disclaimer>
 		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="xbmc.repo.xshare" name="Xshare Repository" version="1.0.0" provider-name="thaitni">
+	<extension point="xbmc.addon.repository" name="Official XBMC.org Add-on Repository">
+		<info compressed="true">https://raw.githubusercontent.com/thaitni/xbmc.repo.xshare/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/thaitni/xbmc.repo.xshare/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/thaitni/xbmc.repo.xshare/master</datadir>
+		<hashes>true</hashes>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Play Video with find subs on XBMC from many host</summary>
+		<description>Download and install addons from Xshare Repository: Watch movies from fshare.vn, 4share.vn, tenlua.vn, ...</description>
+		<language>en</language>
+		<platform>all</platform>
+		<license>GNU General Public License - v2</license>
+		<source>https://github.com/thaitni/xbmc.repo.xshare</source>
+		<email>thai@thanhthai.net</email>
 	</extension>
 </addon>
 </addons>

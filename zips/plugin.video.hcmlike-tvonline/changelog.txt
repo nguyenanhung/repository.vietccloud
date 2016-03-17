@@ -1,0 +1,48 @@
+1.0.0
+- First Try
+- Load m3u file to render TV channels
+1.0.1
+- Play a video link directly
+- Improve icon quality
+- Update commands in build.sh
+- Change version to 1.0.1 in addon.xml
+1.0.2
+- Show list item as thumbnail as default.
+- Update commands in build.sh
+- Change version to 1.0.2 in addon.xml
+1.1.0
+- Update changelog.txt
+- Update HCMLIKE.com info to addon.xml
+- Change addon name from "plugin.video.tvonline" to "plugin.video.hcmlike-tvonline"
+- Remove unused info from addon.xml
+1.1.1
+- Remove unused "resources" folder (set disabled Configure in Add-on Information of Kodi)
+1.1.2
+- Fix bug about loading not enough channels
+- Fix bug about changing m3u links for missed channels in previous version.
+1.2.0
+- Change from htvonline.com.vn link to hplus.com.vn link.
+- Change code for changing link above.
+1.2.1
+- Update full channels.
+
+1.2.2
+- Fix bug that can not play channels (reverting to version 1.1.2).
+
+1.2.3
+- Refactor code to fetch channels quickly.
+
+1.2.4
+- Fix bug which channels are not displayed.
+
+1.2.5
+- Fix bug which channels are not displayed again.
+- Update some HD channels.
+
+1.2.6
+- Fix the encodeURL function.
+- Change URL of repo.
+- Change background & icon, description, disclaimer.
+
+1.2.7
+- Update description.
