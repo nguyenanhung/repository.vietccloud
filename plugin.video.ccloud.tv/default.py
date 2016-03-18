@@ -362,7 +362,7 @@ def next_page(url):
 		addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(newlink)
-		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
+		addDir('[COLOR yellow][B]Next page [/B][/COLOR][COLOR lime][B]>>[/B][/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
 
