@@ -1,11 +1,18 @@
 __author__ = 'bromix'
 
+import xbmcaddon
 import time
 import urlparse
 
 from resources.lib.kodion import simple_requests as requests
 from resources.lib.youtube.youtube_exceptions import LoginException
 
+addon = xbmcaddon.Addon()
+api_key = addon.getSetting('youtube.api.key')
+api_id = addon.getSetting('youtube.api.id').replace('.apps.googleusercontent.com', '')
+api_secret = addon.getSetting('youtube.api.secret')
+
+# Kodi 17 support by Uukrul
 
 class LoginClient(object):
     CONFIGS = {
@@ -19,47 +26,53 @@ class LoginClient(object):
         'youtube-for-kodi-quota': {
             'token-allowed': False,
             'system': 'All',
-            'key': 'AIzaSyAd-YEOqZz9nXVzGtn3KWzYLbLaajhqIDA',
-            'id': '861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com',
-            'secret': 'SboVhoG9s0rNafixCSGGKXAT'
+            'key': '%s' % api_key,
+            'id': '%s.apps.googleusercontent.com' % api_id,
+            'secret': '%s' % api_secret
         },
         'youtube-for-kodi-fallback': {
             'token-allowed': False,
             'system': 'Fallback!',
-            'key': 'AIzaSyAUjiaAUOcm6wmA8BHMloDby6U4RMtKLvs',
-            'id': '970514987436-b1rlhh1sf3fufqcvlm2a2taa2tq4t5uc.apps.googleusercontent.com',
-            'secret': 'zFaJYGEbvx329c8G_GPO5RJ3'
+            'key': '%s' % api_key,
+            'id': '%s.apps.googleusercontent.com' % api_id,
+            'secret': '%s' % api_secret
         },
         'youtube-for-kodi-12': {
             'system': 'Frodo',
-            'key': 'AIzaSyAd-YEOqZz9nXVzGtn3KWzYLbLaajhqIDA',
-            'id': '861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com',
-            'secret': 'SboVhoG9s0rNafixCSGGKXAT'
+            'key': '%s' % api_key,
+            'id': '%s.apps.googleusercontent.com' % api_id,
+            'secret': '%s' % api_secret
         },
         'youtube-for-kodi-13': {
             'system': 'Gotham',
-            'key': 'AIzaSyAd-YEOqZz9nXVzGtn3KWzYLbLaajhqIDA',
-            'id': '861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com',
-            'secret': 'SboVhoG9s0rNafixCSGGKXAT'
+            'key': '%s' % api_key,
+            'id': '%s.apps.googleusercontent.com' % api_id,
+            'secret': '%s' % api_secret
         },
         'youtube-for-kodi-14': {
             'system': 'Helix',
-            'key': 'AIzaSyAd-YEOqZz9nXVzGtn3KWzYLbLaajhqIDA',
-            'id': '861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com',
-            'secret': 'SboVhoG9s0rNafixCSGGKXAT'
+            'key': '%s' % api_key,
+            'id': '%s.apps.googleusercontent.com' % api_id,
+            'secret': '%s' % api_secret
         },
         'youtube-for-kodi-15': {
             'system': 'Isengard',
-            'key': 'AIzaSyAd-YEOqZz9nXVzGtn3KWzYLbLaajhqIDA',
-            'id': '861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com',
-            'secret': 'SboVhoG9s0rNafixCSGGKXAT'
+            'key': '%s' % api_key,
+            'id': '%s.apps.googleusercontent.com' % api_id,
+            'secret': '%s' % api_secret
         },
         'youtube-for-kodi-16': {
             'system': 'Jarvis',
-            'key': 'AIzaSyAd-YEOqZz9nXVzGtn3KWzYLbLaajhqIDA',
-            'id': '861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com',
-            'secret': 'SboVhoG9s0rNafixCSGGKXAT'
-            }
+            'key': '%s' % api_key,
+            'id': '%s.apps.googleusercontent.com' % api_id,
+            'secret': '%s' % api_secret
+        },
+            'youtube-for-kodi-17': {
+            'system': 'Krypton',
+            'key': '%s' % api_key,
+            'id': '%s.apps.googleusercontent.com' % api_id,
+            'secret': '%s' % api_secret
+        }
     }
 
     def __init__(self, config={}, language='en-US', access_token='', access_token_tv=''):

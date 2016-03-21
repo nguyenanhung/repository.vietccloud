@@ -132,6 +132,7 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 <addon id="plugin.video.hcmlike-tvonline" name="HCMLIKE - TV Online" version="1.2.7" provider-name="HCMLIKE.com">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="kodi.repo.hcmlike-media" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -312,7 +313,7 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
     </extension>
 </addon>
 
-<addon id="plugin.video.youtube" name="YouTube" version="5.1.20.1" provider-name="bromix">
+<addon id="plugin.video.youtube" name="YouTube" version="5.1.20.5" provider-name="bromix">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0"/>
 	</requires>
@@ -358,6 +359,20 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 	<extension point="xbmc.addon.metadata">
 		<summary>Kodi repository</summary>
 		<description>Repository for Kodi</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.dk-xbmc-repaddon" name="dk-xbmc-repaddon Add-on Repository" version="1.0.5" provider-name="dk-xbmc-repaddon">
+	<extension point="xbmc.addon.repository" name="dk-xbmc-repaddon Add-on Repository">
+		<info compressed="false">http://raw.githubusercontent.com/dknlght/dkodi/master/addons.xml</info>
+		<checksum>http://raw.githubusercontent.com/dknlght/dkodi/master/addons.xml.md5</checksum>
+		<datadir zip="true">http://raw.githubusercontent.com/dknlght/dkodi/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Install Add-ons from dk Add-on Repository</summary>
+		<description>Video plug-ins for XBMC</description>
+		<disclaimer></disclaimer>
 		<platform>all</platform>
 	</extension>
 </addon>
@@ -437,6 +452,20 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 	<extension point="xbmc.addon.metadata">
 		<summary>Addons related to XBMC for Zemtv etc</summary>
 		<description>Go though the plugins and see what you like</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.traitravinh" name="TraiTraVinh's Testing Repo" version="1.0" provider-name="traitravinh">
+	<extension point="xbmc.addon.repository" name="TraiTraVinh's Testing Repo">
+		<info compressed="false">https://raw.github.com/traitravinh/traitravinh.repository.xbmc/master/addons.xml</info>
+		<checksum>https://raw.github.com/traitravinh/traitravinh.repository.xbmc/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.github.com/traitravinh/traitravinh.repository.xbmc/master/zips</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Testing repo</summary>
+		<description>Testing repo</description>
+		<disclaimer></disclaimer>
 		<platform>all</platform>
 	</extension>
 </addon>
