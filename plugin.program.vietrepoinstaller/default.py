@@ -27,36 +27,36 @@ dialog = xbmcgui.Dialog()
 VERSION = "1.0.0"
 PATH = "vietrepoinstaller"            
 
-    
+
 def categories():
     if source == 'Local':
-        link = open_file(local_wizard).replace('\n','').replace('\r','')	
+        link = open_file(local_wizard).replace('\n','').replace('\r','')
     else:
         if len(url_source) < 1:
             ADDON.openSettings()
-            sys.exit()			
+            sys.exit()
         link = open_file(online_wizard).replace('\n','').replace('\r','')
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
     for name,url,iconimage,fanart,description in match:
         if url == 'use_url':
-		    url = url.replace('use_url', url_source)
-        addDir(name,url,1,image_file+'/'+iconimage,image_file+'/'+fanart,description)	
+            url = url.replace('use_url', url_source)
+        addDir(name,url,1,image_file+'/'+iconimage,image_file+'/'+fanart,description)
     setView('movies', 'MAIN')
 
-	
+
 def open_file(file):
     content = open(file, 'r')
     link = content.read()
     content.close()
-    return link	
-    
-    
+    return link
+
+
 def wizard(name,url,description):
     if url == 'use_local_file':
         dp = xbmcgui.DialogProgress()
         dp.create(localString(30001).encode('utf-8'), localString(30002).encode('utf-8'), '', '')
         lib=kodi_zip
-    else:	
+    else:
         path = xbmc.translatePath(os.path.join('special://home/addons','packages'))
         dp = xbmcgui.DialogProgress()
         dp.create(localString(30001).encode('utf-8'), localString(30003).encode('utf-8'), '', '')
@@ -76,9 +76,9 @@ def wizard(name,url,description):
     dialog = xbmcgui.Dialog()
     #dialog.ok(localString(30005).encode('utf-8'), localString(30006).encode('utf-8'), localString(30007).encode('utf-8'), localString(30008).encode('utf-8'))
     #killxbmc()
-    dialog.ok(localString(30005).encode('utf-8'), localString(30022).encode('utf-8'), "", "")		
-      
-        
+    dialog.ok(localString(30005).encode('utf-8'), localString(30022).encode('utf-8'), "", "")
+
+
 def killxbmc():
     choice = xbmcgui.Dialog().yesno(localString(30009).encode('utf-8'), localString(30010).encode('utf-8'), localString(30011).encode('utf-8'), nolabel=localString(30012).encode('utf-8'), yeslabel=localString(30013).encode('utf-8'))
     if choice == 0:
@@ -146,7 +146,7 @@ def killxbmc():
         except: pass
         dialog.ok(localString(30014).encode('utf-8'), localString(30015).encode('utf-8'), localString(30016).encode('utf-8'), localString(30021).encode('utf-8'))
 
-		
+
 def platform():
     if xbmc.getCondVisibility('system.platform.android'):
         return 'android'
@@ -170,8 +170,8 @@ def addDir(name,url,mode,iconimage,fanart,description):
         liz.setProperty( "Fanart_Image", fanart )
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
         return ok
-        
-               
+
+
 def get_params():
         param=[]
         paramstring=sys.argv[2]
@@ -189,8 +189,8 @@ def get_params():
                                 param[splitparams[0]]=splitparams[1]
                                 
         return param
-        
-                      
+
+
 params=get_params()
 url=None
 name=None
@@ -224,8 +224,8 @@ try:
         description=urllib.unquote_plus(params["description"])
 except:
         pass
-        
-        
+
+
 print str(PATH)+': '+str(VERSION)
 print "Mode: "+str(mode)
 print "URL: "+str(url)
@@ -239,14 +239,13 @@ def setView(content, viewType):
         xbmcplugin.setContent(int(sys.argv[1]), content)
     if ADDON.getSetting('auto-view')=='true':
         xbmc.executebuiltin("Container.SetViewMode(%s)" % ADDON.getSetting(viewType) )
-        
-        
+
+
 if mode==None or url==None or len(url)<1:
         categories()
-       
+
 elif mode==1:
         wizard(name,url,description)
-      
-        
-xbmcplugin.endOfDirectory(int(sys.argv[1]))
 
+
+xbmcplugin.endOfDirectory(int(sys.argv[1]))
