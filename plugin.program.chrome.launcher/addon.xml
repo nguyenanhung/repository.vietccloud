@@ -3,6 +3,7 @@
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="script.module.pydevd" version="2.1.0" optional="true"/>
+        <import addon="repository.addonscriptorde-beta" optional="true" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>executable</provides>

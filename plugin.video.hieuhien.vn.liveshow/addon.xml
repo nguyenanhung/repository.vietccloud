@@ -8,7 +8,7 @@
     <import addon="script.module.beautifulsoup" version="3.2.1"/>
     <import addon="script.module.simple.downloader" version="0.9.4"/>
     <import addon="script.module.simplejson" />
-    <import addon="repository.hieuhien.vn" />
+    <import addon="repository.hieuhien.vn" optional="true" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>

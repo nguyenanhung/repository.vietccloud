@@ -25,8 +25,8 @@
 	<requires>
 		<import addon="xbmc.python" version="2.1.0" />
 		<import addon="script.module.simple.downloader" version="1.9.4" />
-		<import addon="plugin.video.youtube" version="4.4.10"/>
-		<import addon="repository.vietmedia" />
+		<import addon="plugin.video.youtube" version="4.4.10" />
+		<import addon="repository.vietmedia" optional="true" />
  	</requires>
     <extension point="xbmc.python.pluginsource"
                library="default.py">
@@ -52,6 +52,7 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="script.module.pydevd" version="2.1.0" optional="true"/>
+        <import addon="repository.addonscriptorde-beta" optional="true" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>executable</provides>
@@ -67,6 +68,23 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
         <email>AddonScriptorDE at yahoo dot de</email>
         <website></website>
     </extension>
+</addon>
+
+<addon id="plugin.program.vietrepoinstaller" name="Viet Repos Installer" version="1.0.0" provider-name="bacha">
+  <requires>
+    <import addon="repository.bacha" optional="true" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Viet Repos Installer</summary>
+    <description lang="en">
+- Install Vietnamese repositories.
+
+- Cài repositories Việt Nam.</description>
+    <platform>all</platform>
+  </extension>
 </addon>
 
 <addon id="plugin.video.canhacgiaitri"
@@ -89,6 +107,7 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 
 <addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.6.6" provider-name="podgod-mod">
   <requires>
+    <import addon="repository.vietccloud" optional="true" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
@@ -105,6 +124,28 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
     <website>http://facebook.com/ccloudapp</website>
     <website>http://twitter.com/ccloudapp</website>
     <email/>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon
+  id="plugin.video.chiasenhac"
+  version="0.0.2"
+  name="[COLOR ff696969]C[/COLOR][COLOR ffff0000]S[/COLOR][COLOR ff696969]N[/COLOR]"
+  provider-name="traitravinh">
+  <requires>
+	<import addon="xbmc.python" version="2.1.0" />
+    <import addon="script.common.plugin.cache" version="2.5.2" />
+    <import addon="script.module.simple.downloader" version="1.9.4" />
+    <import addon="repository.traitravinh" optional="true" />
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="chiasenhac.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Chiasenhac</summary>
+    <description>Search and play/download music on chiasenhac.com</description>
     <platform>all</platform>
   </extension>
 </addon>
@@ -133,7 +174,7 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 <addon id="plugin.video.hcmlike-tvonline" name="HCMLIKE - TV Online" version="1.2.7" provider-name="HCMLIKE.com">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
-        <import addon="kodi.repo.hcmlike-media" />
+        <import addon="kodi.repo.hcmlike-media" optional="true" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -169,7 +210,7 @@ Trân trọng./.</description>
     <import addon="script.module.beautifulsoup" version="3.2.1"/>
     <import addon="script.module.simple.downloader" version="0.9.4"/>
     <import addon="script.module.simplejson" />
-    <import addon="repository.hieuhien.vn" />
+    <import addon="repository.hieuhien.vn" optional="true" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
@@ -190,7 +231,7 @@ Trân trọng./.</description>
 		<import addon="script.module.simplejson" />
 		<import addon="xbmc.python" version="2.1.0"/>
 		<import addon="script.module.simple.downloader" version="1.9.4" />
-		<import addon="repository.hieuhien.vn" />
+		<import addon="repository.hieuhien.vn" optional="true" />
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="liveshow.py">
 		<provides>video</provides>
@@ -211,7 +252,7 @@ Trân trọng./.</description>
     <import addon="xbmc.python" version="2.1.0" optional="true" />
 	<import addon="script.module.simplejson" />
 	<import addon="script.module.t0mm0.common" version="1.1.0"/>
-	<import addon="repository.itvplus" />
+	<import addon="repository.itvplus" optional="true" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -241,7 +282,7 @@ Trân trọng./.</description>
     <import addon="script.module.xbmcswift2" version="1.3.1" />
     <import addon="plugin.video.youtube" version="4.4.1" />
     <import addon="script.module.requests" version="1.0" />
-    <import addon="repository.kodi4vn" />
+    <import addon="repository.kodi4vn" optional="true" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -268,7 +309,8 @@ Trân trọng./.</description>
     <import addon="plugin.video.youtube" optional="true" />
     <import addon="script.module.urlresolver" optional="true"/>
     <import addon="script.module.simplejson" />
-     <import addon="script.module.livestreamer" optional="true"/>
+    <import addon="script.module.livestreamer" optional="true"/>
+    <import addon="repository.vietccloud" optional="true" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
@@ -283,6 +325,7 @@ Trân trọng./.</description>
 
 <addon id="plugin.video.tubevip4pc" name="Tube VIP for PC" version="1.0.1" provider-name="vietccloud">
   <requires>
+    <import addon="repository.vietccloud" optional="true" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
@@ -306,7 +349,7 @@ Trân trọng./.</description>
 		<import addon="xbmc.python" version="2.1.0" />
 		<import addon="script.module.simple.downloader" version="1.9.4" />
 		<import addon="plugin.video.youtube" version="4.4.10"/>
-		<import addon="repository.vietmedia" />
+		<import addon="repository.vietmedia" optional="true" />
  	</requires>
     <extension point="xbmc.python.pluginsource"
                library="default.py">
@@ -331,7 +374,7 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 <addon id="plugin.video.xshare" name="[COLOR red][B]Xshare[/COLOR]-[COLOR green]XBMC[/COLOR] [COLOR blue]HD Video[/B][/COLOR]" version="3.3.5" provider-name="thaitni">
     <requires>
         <import addon="xbmc.python" version="2.1.0" optional="true" />
-        <import addon="xbmc.repo.xshare" />
+        <import addon="xbmc.repo.xshare" optional="true" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="xshare.py">
         <provides>video</provides>
@@ -381,6 +424,20 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 		<website>http://www.youtube.com</website>
 		<email>bromix at gmx dot net</email>
 		<source>https://github.com/bromix/plugin.video.youtube</source>
+	</extension>
+</addon>
+
+<addon id="repository.addonscriptorde-beta" name="AddonScriptorDE's Testing Repo" version="1.0.1" provider-name="AddonScriptorDE">
+	<extension point="xbmc.addon.repository" name="AddonScriptorDE's Testing Repo">
+		<info compressed="false">http://addonscriptorde-beta-repo.googlecode.com/svn/trunk/addons.xml</info>
+		<checksum>http://addonscriptorde-beta-repo.googlecode.com/svn/trunk/addons.xml.md5</checksum>
+		<datadir zip="false">http://addonscriptorde-beta-repo.googlecode.com/svn/trunk/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Add-ons and updates that are not (yet) available via the xbmc.org repo</summary>
+		<description>Add-ons and updates that are not (yet) available via the xbmc.org repo</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
 	</extension>
 </addon>
 

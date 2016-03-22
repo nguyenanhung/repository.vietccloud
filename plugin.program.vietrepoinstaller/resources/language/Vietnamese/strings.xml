@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <string id="30001">Viet Repos Installer</string>  
+  <string id="30002">Đang chạy...</string> 
+  <string id="30003">Đang tải....</string> 
+  <string id="30004">Đang giải nén. Vui lòng chờ...</string>  
+  <string id="30005">ĐÃ CÀI XONG.</string>
+  <string id="30006">Chỉ có cách duy nhất để giữ được những thay đổi trong guisettings.xml là phải force close Kodi.</string>
+  <string id="30007">KHÔNG DÙNG quit/exit để đóng Kodi một cách bình thường.</string>
+  <string id="30008">Cần phải nhấn OK để force close Kodi hoặc Quí Vị tự force close Kodi.</string> 
+  <string id="30009">Force Close Kodi</string>
+  <string id="30010">Chuẩn bị force close Kodi.</string>
+  <string id="30011">Quí Vị có muốn tiếp tục không?</string>
+  <string id="30012">Không</string>
+  <string id="30013">Có</string>
+  <string id="30014">[COLOR=red][B]CẢNH BÁO  !!![/COLOR][/B]</string>
+  <string id="30015">Nếu Quí Vị thấy dòng chữ này, có nghĩa là force close đã thất bại.</string>
+  <string id="30016">Vui lòng force close XBMC/Kodi. [COLOR=lime]KHÔNG DÙNG[/COLOR] quit/exit để đóng Kodi một cách bình thường.</string>  
+  <string id="30017">Quí Vị đang sử dụng máy Android.</string> 
+  <string id="30018">Cho nên [COLOR=yellow][B]phải[/COLOR][/B] force close Kodi. [COLOR=lime]KHÔNG DÙNG[/COLOR] quit/exit để đóng Kodi một cách bình thường.</string>
+  <string id="30019">Có thể đóng bằng cách dùng Task Manager (Nếu không biết chắc, rút dây điện của máy ra rồi cắm lại.)</string>  
+  <string id="30020">Dùng Task Manager, KHÔNG DÙNG ALT F4</string>
+  <string id="30021">Quí vị rút dây điện của máy ra, sau đó cắm lại.</string>  
+  <string id="30022">Vui lòng khởi động lại Kodi.</string>  
+</strings>

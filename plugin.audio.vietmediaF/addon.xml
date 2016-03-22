@@ -6,8 +6,8 @@
 	<requires>
 		<import addon="xbmc.python" version="2.1.0" />
 		<import addon="script.module.simple.downloader" version="1.9.4" />
-		<import addon="plugin.video.youtube" version="4.4.10"/>
-		<import addon="repository.vietmedia" />
+		<import addon="plugin.video.youtube" version="4.4.10" />
+		<import addon="repository.vietmedia" optional="true" />
  	</requires>
     <extension point="xbmc.python.pluginsource"
                library="default.py">
