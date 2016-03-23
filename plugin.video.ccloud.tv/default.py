@@ -886,6 +886,13 @@ def adult():
 	except:
 		pass
 	try:
+		content = make_request('http://www.giniko.com/watch.php?id=95')
+		match = re.compile('image: "([^"]*)",\s*file: "([^"]+)"').findall(content)
+		for thumb, url in match:
+			addLink('[COLOR magenta][B]Miami TV (Adult 18+)[/B][/COLOR]', url, 1, thumb, thumb)
+	except:
+		pass
+	try:
 		content = make_request(media_link()[4])
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
