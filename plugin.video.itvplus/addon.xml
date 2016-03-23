@@ -7,7 +7,6 @@
     <import addon="xbmc.python" version="2.1.0" optional="true" />
 	<import addon="script.module.simplejson" />
 	<import addon="script.module.t0mm0.common" version="1.1.0"/>
-	<import addon="repository.itvplus" optional="true" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>

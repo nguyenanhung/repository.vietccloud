@@ -15,7 +15,6 @@
     <import addon="script.module.urlresolver" optional="true"/>
     <import addon="script.module.simplejson" />    
     <import addon="script.module.livestreamer" optional="true"/>
-    <import addon="repository.vietccloud" optional="true" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
