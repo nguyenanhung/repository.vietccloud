@@ -270,6 +270,64 @@ Trân trọng./.</description>
   </extension>
 </addon>
 
+<addon id="plugin.video.live.streamspro"
+       name="LiveStreamsPro"
+       version="2.3.4"
+       provider-name="Shani">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.beautifulsoup" version="3.2.1"/>
+    <import addon="script.module.simple.downloader" version="0.9.4"/>
+    <import addon="script.module.beautifulsoup4" />
+    <import addon="script.module.requests" />
+    <import addon="script.module.httplib2" />
+    <import addon="script.module.youtube.dl" optional="true"/>
+    <import addon="plugin.video.youtube" optional="true" />
+    <import addon="script.module.urlresolver" optional="true"/>
+    <import addon="script.module.simplejson" />
+     <import addon="script.module.livestreamer" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>livestreamspro- shamelessly forked from livestreams but added many thinks</summary>
+    <description>
+        In addition to what livestreams allowed you to do, you can now,
+        1. call regex in regex,
+        2. multiple regex in page, regex in session, also htmlunescape responses
+        3. create session from one regex and pass onto next in line
+        4. save sessions to a file and open again later
+        5. write python code in .py file, put in the profile directory and then call from your regex.
+        6. use epoctime, guid and unpack as functions already defined.
+        7. Use it to post values to the pages to get the proper responses
+        8. support many headers, like origin, X-Requested-With
+        9. you can now append cookies in response and then read in regex using includeheaders
+        10. You can now link to another web url via your xml using externallink
+        11. support for google captcha, now you can show and then post the text
+
+    </description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.playlistLoader" name="Playlist Loader" version="1.0.9" provider-name="Avigdor">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="repository.xbmc-israel" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Playlist Loader - downloaded for free from:
+http://www.hometheater.co.il</summary>
+    <description lang="en">Playlist Loader - downloaded for free from:
+http://www.hometheater.co.il</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.topshows"
        name="Top Shows"
        version="1.0.0"
@@ -566,6 +624,19 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 		<disclaimer lang="en"></disclaimer>
 		<platform>all</platform>
 	</extension>
+</addon>
+
+<addon id="repository.xbmc-israel" name=".[COLOR blue]XBMC Israeli [/COLOR][COLOR white] Streaming Sites[/COLOR]" version="1.0.4" provider-name="cubicle-vdo">
+    <extension point="xbmc.addon.repository" name="XBMC Israeli streaming repo for streaming sites">
+        <info compressed="false">https://raw.githubusercontent.com/cubicle-vdo/xbmc-israel/master/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/cubicle-vdo/xbmc-israel/master/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/cubicle-vdo/xbmc-israel/master/repo</datadir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>XBMC Israeli Streaming Sites</summary>
+        <description>Download and install addons for XBMC Israeli streaming repo for streaming sites</description>
+        <platform>all</platform>
+    </extension>
 </addon>
 
 <addon id="script.ivueguide" name="Ivue TV Guide" version="0.0.6" provider-name="iVue Tv Guide">
