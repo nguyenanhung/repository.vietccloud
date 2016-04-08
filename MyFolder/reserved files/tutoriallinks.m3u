@@ -43,6 +43,10 @@ plugin://plugin.video.youtube/play/?video_id=BBbED55XPZg
 plugin://plugin.video.youtube/play/?video_id=nBE1ON4eBEQ
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/2cnoAmwg4Ko/maxresdefault.jpg",Hướng dẫn xem K+ siêu nét trên máy tính bằng phần mềm KODI
 plugin://plugin.video.youtube/play/?video_id=2cnoAmwg4Ko
+#EXTINF:0 tvg-logo="https://i.ytimg.com/vi/NXDP2u5Gj0g/hqdefault.jpg",HOW-TO SETUP LIVESTREAMSPRO ADD-ON
+plugin://plugin.video.youtube/play/?video_id=NXDP2u5Gj0g
+#EXTINF:0 tvg-logo="https://i.ytimg.com/vi/t55vy-DD4bo/hqdefault.jpg",How-to setup Playlist Loader 
+plugin://plugin.video.youtube/play/?video_id=t55vy-DD4bo
 
 
 #EXTINF:0 tvg-logo="https://yt3.ggpht.com/-b-RsqDVfnKA/AAAAAAAAAAI/AAAAAAAAAAA/inzrLSRPB-o/s100-c-k-no/photo.jpg",[COLOR cyan][B]Dạy Nhau Học - Python Programming[/B][/COLOR]
@@ -229,6 +233,8 @@ plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fwww.zytrax.com%2Ftech%2Fweb%2Fregex.htm
 #EXTINF:0 tvg-logo="kodiaddons.png",Ten+ best online regex testers
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fscraping.pro%2F10-best-online-regex-testers%2F
+#EXTINF:0 tvg-logo="kodiaddons.png",Find hidden stream URL
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fall-streaming-media.com%2Ffind-stream-URL%2F
 #EXTINF:0 tvg-logo="kodiaddons.png",Cách tìm URL link (Diễn Đàn Làng Sóng Việt - Ghi Danh Miễn Phí)
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Flangsongviet.com%2Ffta4vnForum%2Fupload%2Fshowthread.php%2F94834-C%25C3%25A1ch-t%25C3%25ACm-URL-link-v%25C3%25A0-l%25C3%25A0m-XML-file-cho-XBMC-URL-Snooper-2-v%25C3%25A0-URL-Helper
 #EXTINF:0 tvg-logo="kodiaddons.png",Regex (Diễn Đàn Làng Sóng Việt - Ghi Danh Miễn Phí)
@@ -247,11 +253,9 @@ plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fvietkodiandytx.netau.net
 #EXTINF:0 tvg-logo="kodi4viet.png",Source của DKnight
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2F162.248.143.235%2Fxbmc%2F
-#EXTINF:0 tvg-logo="kodi4viet.png",Source của Hộp Đen TV Repo
-plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fhdtvblackbox.com%2FHopDenTV_REPO%2FZips%2F
 #EXTINF:0 tvg-logo="kodi4viet.png",Source của podgod (cCloudTV)
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Foffshoregit.com%2Fpodgod%2Frepo%2Fzips%2F
-#EXTINF:0 tvg-logo="kodi4viet.png",Source của shani (LiveStreamPro add-on)
+#EXTINF:0 tvg-logo="kodi4viet.png",Source của shani (LiveStreamsPro add-on)
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Foffshoregit.com%2FShani-08%2Fmain%2Fzips%2F
 #EXTINF:0 tvg-logo="kodi4viet.png",anphunl Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fanphunl%2Fkodi
@@ -275,6 +279,8 @@ plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Frepo.chuongtrinhviet.com%3A81%2Fsvn%2Frepo%2F
 #EXTINF:0 tvg-logo="kodi4viet.png",Other Guys Stuff Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fbitbucket.org%2Fdknlght%2Fdk-xbmc-repaddon-rep%2Fraw%2Fmaster%2F
+#EXTINF:0 tvg-logo="kodi4viet.png",Shani Repo (LiveStreamsPro add-on)
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2FShani-08%2FShaniXBMCWork2
 #EXTINF:0 tvg-logo="kodi4viet.png",tamnm Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Ftamnm%2Fkodi.mp3.zing.vn
 #EXTINF:0 tvg-logo="kodi4viet.png",traitravinh Repo
@@ -289,6 +295,8 @@ plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fvietccloudtv%2Frepository.vietccloud%2Fraw%2Fmaster%2Fzips
 #EXTINF:0 tvg-logo="kodi4viet.png",VietMedia Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fonepas%2Fkodi-addons
+#EXTINF:0 tvg-logo="kodi4viet.png",xbmc-israel Repo (Playlist Loader add-on)
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fcubicle-vdo%2Fxbmc-israel
 #EXTINF:0 tvg-logo="kodi4viet.png",Xshare Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fthaitni%2Fxbmc.repo.xshare
 #EXTINF:0 tvg-logo="kodi4viet.png",zecoj Repo (tvvn add-on)
