@@ -330,7 +330,7 @@ http://www.hometheater.co.il</description>
 
 <addon id="plugin.video.topshows"
        name="Top Shows"
-       version="1.0.0"
+       version="1.0.1"
        provider-name="TopShows">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
