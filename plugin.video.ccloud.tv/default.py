@@ -18,7 +18,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>
 """
 
 import urllib, urllib2, sys, re, os, unicodedata, cookielib, random, shutil
-import xbmc, xbmcgui, xbmcplugin, xbmcaddon, base64
+import xbmc, xbmcgui, xbmcplugin, xbmcaddon, base64, json
 from operator import itemgetter, attrgetter
 
 plugin_handle = int(sys.argv[1])
@@ -315,7 +315,7 @@ def vietmedia_list():
 	for thumb, duration, url, name in match:
 		name = replace_all(name, dic)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
-		addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+		addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
 		addDir('[COLOR yellow][B]Next page [/B][/COLOR][COLOR lime][B]>>[/B][/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
@@ -341,10 +341,10 @@ def vietmedia_playlist_index(url):
 		if '[Deleted Video]' in name:
 			pass
 		else:
-			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+			addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
-		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
+		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 24, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
 
@@ -352,20 +352,38 @@ def next_page(url):
 	req = urllib2.Request(url)
 	req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0')
 	response = urllib2.urlopen(req) 
-	link = response.read().decode('unicode-escape').encode('utf-8').replace('\\', '')
+	link = response.read()
 	response.close()
-	newlink = ''.join(link.splitlines()).replace('\t','')
-	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(newlink)
-	for thumb, duration, url, name in match:
+	newlink = ''.join(link.splitlines()).replace('\\', '').replace('\t','')
+	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label="(.+?)".+?dir="ltr" title="(.+?)".+?href="/watch\?v=(.+?)"').findall(newlink)
+	for thumb, duration, name, url in match:
 		name = replace_all(name, dic)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
-		addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+		addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(newlink)
 		addDir('[COLOR yellow][B]Next page [/B][/COLOR][COLOR lime][B]>>[/B][/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
 
+def next_page_playlist(url):
+	req = urllib2.Request(url)
+	req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0')
+	response = urllib2.urlopen(req) 
+	link = response.read()
+	response.close()
+	newlink = ''.join(link.splitlines()).replace('\\', '').replace('\t','')
+	match = re.compile('data-video-id="(.+?)".+?data-title="(.+?)".+?data-thumb="//i.ytimg.com/vi/(.+?)".+?aria-label="(.+?)"').findall(newlink)
+	for url, name, thumb, duration in match:
+		name = replace_all(name, dic)
+		thumb = 'https://i.ytimg.com/vi/' + thumb
+		addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+	try:
+		match = re.compile('data-uix-load-more-href="(.+?)"').findall(newlink)
+		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 24, '%s/nextpage.png'% iconpath, fanart)
+	except:
+		pass
+        
 def vietmedia_tutorials():
 	thumb = 'https://yt3.ggpht.com/-Y4hzMs0ItTw/AAAAAAAAAAI/AAAAAAAAAAA/OquSyoI-Y2s/s100-c-k-no/photo.jpg'
 	addLink('[COLOR orange][B]VietMedia - YouTube - Hướng Dẫn[/B][/COLOR]', 'NoLinkRequired', 1, thumb, thumb)
@@ -378,7 +396,7 @@ def vietmedia_tutorials():
 			pass
 		else:
 			name = replace_all(name, dic)
-			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+			addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	content = make_request(yt + 'playlist?list=PLCFeyxaD_7E3LLqjhIwkboAePgDT--8YF')
 	newcontent = ''.join(content.splitlines()).replace('\t','')
 	newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(newcontent)
@@ -388,7 +406,7 @@ def vietmedia_tutorials():
 			pass
 		else:
 			name = replace_all(name, dic)
-			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+			addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	thumb1 = '%s/utube.png'% iconpath
 	addLink('[COLOR magenta][B]Other Tutorials on YouTube - Những Hướng Dẫn Khác[/B][/COLOR]', 'NoLinkRequired', 1, thumb1, thumb1)
 	content = make_request(media_link()[1])
@@ -1429,6 +1447,9 @@ elif mode == 22:
 
 elif mode == 23:
 	next_page(url)
+
+elif mode == 24:
+	next_page_playlist(url)
 
 elif mode == 27:
 	tutorial_links()

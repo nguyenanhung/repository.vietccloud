@@ -1,3 +1,5 @@
+[B]1.6.8[/B]
+- Fixed VietMedia - YouTube
 [B]1.6.7[/B]
 - Added Miami TV (18+)
 - <import addon="script.renegadestv" optional="true" />
