@@ -457,6 +457,37 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 	</extension>
 </addon>
 
+<addon id="plugin.video.ZemTV-shani"
+       name="ZemTV.com"
+       version="4.7.6"
+       provider-name="shani">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.urlresolver" version="1.0.0"/>
+	<import addon="plugin.video.youtube" version="2.9.2" optional="true"/>
+    <import addon="script.module.simplejson" version="3.3.0"/>
+       	<import addon="script.module.elementtree" version="1.2.8"/>
+
+
+    <import addon="plugin.video.f4mTester" version="2.2.3" optional="true" />
+
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>ZemTV.tv Kodi Client. Visit TVADDONS.ag for support</summary>
+    <description>Watch ZemTV.com on your XBMC. This plugin fetches the video sources from ZemTV.com and play on XBMC compatible plateforms</description>
+    <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+    <forum>https://forums.tvaddons.ag/shanis-addon-repository/</forum>
+    <email>@shani_08_kodi</email>
+    <platform>all</platform>
+
+
+  </extension>
+</addon>
+
 <addon id="repository.addonscriptorde-beta" name="AddonScriptorDE's Testing Repo" version="1.0.1" provider-name="AddonScriptorDE">
 	<extension point="xbmc.addon.repository" name="AddonScriptorDE's Testing Repo">
 		<info compressed="false">http://addonscriptorde-beta-repo.googlecode.com/svn/trunk/addons.xml</info>
@@ -544,7 +575,7 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 	</extension>
 </addon>
 
-<addon id="repository.kodi4vn" name="Kodi4VN's REPO" version="1.1" provider-name="ThongLD">
+<addon id="repository.kodi4vn" name="Kodi4VN's REPO" version="1.3" provider-name="ThongLD">
 	<extension point="xbmc.addon.repository" name="ThongLD's Addon Repository">
 		<info compressed="false">http://thong.viettv24.com/kodi4vn/addons.xml</info>
 		<checksum>http://thong.viettv24.com/kodi4vn/addons.xml.md5</checksum>
