@@ -42,6 +42,7 @@ enable_iptvsimple_playlist = mysettings.getSetting('enable_iptvsimple_playlist')
 choose_server_group = mysettings.getSetting('choose_server_group')
 enable_server_selection = mysettings.getSetting('enable_server_selection')
 select_a_server = mysettings.getSetting('select_a_server')
+enable_other_sources = mysettings.getSetting('enable_other_sources')
 enable_other_addons = mysettings.getSetting('enable_other_addons')
 viet_mode = mysettings.getSetting('viet_mode')
 
@@ -69,6 +70,8 @@ medialink = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjN
 iptvsimple = xbmc.translatePath("special://home/userdata/addon_data/pvr.iptvsimple/iptv.m3u.cache")
 public_uploads = 'plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3a%2f%2fscript.google.com%2fmacros%2fs%2fAKfycbxwkVU0o3lckrB5oCQBnQlZ-n8CMx5CZ_ajq6Y3o7YHSTFbcODk%2fexec'
 otheraddons = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjkwYUdWeVlXUmtiMjV6TG5SNGRBPT0='.decode('base64').decode('base64')
+othersources = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjkwYUdWeWMyOTFjbU5sY3k1MGVIUT0='.decode('base64').decode('base64')
+adultaddons = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMkZrZFd4MFlXUmtiMjV6TG5SNGRBPT0='.decode('base64').decode('base64')
 List1 = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
 List2 = 'YUhSMGNEb3ZMM2d1WTI4dlpHSmphREF4'.decode('base64').decode('base64')
 List3 = 'YUhSMGNEb3ZMMkZwYnk1alkyeHZkV1IwZGk1dmNtY3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')
@@ -218,7 +221,9 @@ def main():
 	if enable_online_tester == 'true':
 		addDir('[COLOR lime][B]Online M3U Playlist Tester[/B][/COLOR]', 'onlinetester', 42, '%s/onlinetester.png'% iconpath, fanart)
 	if enable_vietmedia == 'true':
-		addDir('[COLOR orange][B]VietMedia - YouTube[/B][/COLOR]', 'NoLinkRequired', 20, '%s/vietmedia.png'% iconpath, fanart)
+		addDir('[COLOR orange][B]VietMedia[/B][/COLOR]', 'NoLinkRequired', 20, '%s/vietmedia.png'% iconpath, fanart)
+	if enable_other_sources == 'true':
+		addDir('[COLOR orangered][B]Other Sources[/B][/COLOR]', 'NoLinkRequired', 110, '%s/othersources.png'% iconpath, fanart)
 	if enable_other_addons == 'true':
 		addDir('[COLOR cyan][B]Other Addons[/B][/COLOR]', 'NoLinkRequired', 100, '%s/otheraddons.png'% iconpath, fanart)
 	if platform() == 'windows' or platform() == 'osx':
@@ -249,6 +254,29 @@ def main():
 	addDir('[COLOR royalblue][B]Non-English/International (Z-A)[/B][/COLOR]', 'international', 64,'%s/international.png'% iconpath, fanart)
 	if getSetting("enable_adult_section") == 'true':
 		addDir('[COLOR magenta][B]Adult(18+)[/B][/COLOR]', 'adult', 98, '%s/adult.png'% iconpath, fanart)
+
+def other_sources():
+	content = make_request(othersources)
+	match = re.compile(m3u_regex).findall(content)
+	for thumb, name, url in match:
+		if 'tvg-logo' in thumb:
+			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+			if thumb.startswith('http'):
+				addDir(name, url, 111, thumb, thumb)
+			else:
+				thumb = '%s/%s' % (iconpath, thumb)
+				addDir(name, url, 111, thumb, thumb)
+		else:
+			addDir(name, url, 111, icon, fanart)
+
+def other_sources_list(url):
+	content = make_request(url)
+	match = re.compile(m3u_regex).findall(content)
+	for thumb, name, url in match:
+		try:
+			m3u_playlist(name, url, thumb)
+		except:
+			pass
 
 def other_addons():
 	content = make_request(otheraddons)
@@ -887,6 +915,7 @@ def radio():
 		pass
 
 def adult():
+	addDir('[COLOR red][B]Adult Addons[/B][/COLOR]', 'adult_addons', 120, '%s/xxx.png'% iconpath, fanart)
 	try:
 		searchText = ('(Adult)') or ('(Public-Adult)')
 		if len(CCLOUDTV_SRV_URL) > 0:
@@ -925,6 +954,20 @@ def adult():
 				addLink(name, url, 1, icon, fanart)
 	except:
 		pass
+
+def adult_addons():
+	content = make_request(adultaddons)
+	match = re.compile(m3u_regex).findall(content)
+	for thumb, name, url in match:
+		if 'tvg-logo' in thumb:
+			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+			if thumb.startswith('http'):
+				addDir(name, url, None, thumb, thumb)
+			else:
+				thumb = '%s/%s' % (iconpath, thumb)
+				addDir(name, url, None, thumb, thumb)
+		else:
+			addDir(name, url, None, icon, fanart)
 
 def english():
 	try:
@@ -1573,5 +1616,14 @@ elif mode == 99:
 
 elif mode == 100:
 	 other_addons()
+
+elif mode == 110:
+	 other_sources()
+
+elif mode == 111:
+	 other_sources_list(url)
+
+elif mode == 120:
+	 adult_addons()
      
 xbmcplugin.endOfDirectory(plugin_handle)

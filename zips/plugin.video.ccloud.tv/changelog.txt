@@ -1,3 +1,6 @@
+[B]1.6.9[/B]
+- Added Other Sources section.
+- Added Adult Addons section.
 [B]1.6.8[/B]
 - Fixed VietMedia - YouTube
 [B]1.6.7[/B]

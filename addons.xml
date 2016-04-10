@@ -68,6 +68,60 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
     </extension>
 </addon>
 
+<addon id="plugin.video.adult.3xz"
+       name="3XZ"
+       version="1.6.1"
+       provider-name="smokdpi">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0"/>
+		<import addon="script.module.smokdpi.addon"/>
+        <import addon="theme.3xz.default" optional="true"/>
+		<import version="3.2.1" addon="script.module.beautifulsoup"/>
+	</requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">ADULT ONLY -- 18+ XXX -- Stream from multiple sources.</summary>
+        <description lang="en">[B][COLOR white]ADULT ONLY[/COLOR] [COLOR red]18+ XXX[/COLOR][/B][CR][CR]Stream full length XXX movies and scenes from multiple sources.[CR][CR][B]Artwork by @konsumer420[/B]</description>
+        <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider(s). Any likeness' portrayed do not endorse/support the author, sites or content within.</disclaimer>
+        <platform>all</platform>
+    </extension>
+</addon>
+
+	<addon id="plugin.video.beeg.com" name="beeg.com  (Adult) - Powered by XBMCHUB.COM" version="1.0.7" provider-name="MisterX">
+		<requires>
+			<import addon="xbmc.python" version="2.1.0"/>
+		</requires>
+		<extension point="xbmc.python.pluginsource" library="Default.py">
+			<provides>video</provides>
+		</extension>
+		<extension point="xbmc.addon.metadata">
+			<summary lang="en">beeg.com (Adult)</summary>
+			<description lang="en">beeg.com (Adult) - Powered by XBMCHUB.COM</description>
+			<license>GPL 3.0</license>
+			<platform>all</platform>
+		</extension>
+	</addon>
+
+	<addon id="plugin.video.beegcom" name="beeg (XXX)" version="1.0.2" provider-name="MisterX">
+		<requires>
+			<import addon="xbmc.python" version="2.1.0"/>
+		</requires>
+		<extension point="xbmc.python.pluginsource" library="Default.py">
+			<provides>video</provides>
+		</extension>
+		<extension point="xbmc.addon.metadata">
+			<summary lang="en">Long Quality Porn Videos from 8-40 Minutes Long</summary>
+			<description lang="en">Long Quality Porn Videos from 8-40 Minutes Long</description>
+			<disclaimer>Adults Only! 18+</disclaimer>
+			<license>GPL 3.0</license>
+			<platform>all</platform>
+			<forum>http://www.adultxbmc.com</forum>
+                <website>http://www.adultxbmc.com</website>
+		</extension>
+	</addon>
+
 <addon id="plugin.video.canhacgiaitri"
        name="Ca Nhac Giai Tri"
        version="1.4.8"
@@ -86,7 +140,7 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
   </extension>
 </addon>
 
-<addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.6.8" provider-name="podgod-mod">
+<addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.6.9" provider-name="podgod-mod">
   <requires>
     <import addon="script.renegadestv" optional="true" />
     <import addon="script.ivueguide" optional="true" />
@@ -110,6 +164,37 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
   </extension>
 </addon>
 
+<addon id="plugin.video.cherrypie"
+       name="Cherry Pie"
+       version="3.0.1"
+       provider-name="Cherry Pie Productions">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.t0mm0.common" version="2.0.0"/>
+    <import addon="script.module.beautifulsoup" version="3.2.1"/>
+    <import addon="script.module.simple.downloader" version="0.9.4"/>
+    <import addon="script.module.beautifulsoup4" />
+    <import addon="script.module.simple.downloader" version="0.9.4"/>
+    <import addon="script.module.requests" />
+    <import addon="script.module.httplib2" />
+    <import addon="script.module.youtube.dl" optional="true"/>
+    <import addon="plugin.video.youtube" version="3.0.0"/>
+    <import addon="script.module.urlresolver" optional="true"/>
+    <import addon="script.module.simplejson" />
+    <import addon="script.common.plugin.cache" version="2.5.2"/>
+    <import addon="script.module.metahandler" version="2.5.1"/>
+
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">ONE STOP SHOP FOR ALL ADULT CONTENT</summary>
+    <description lang="en">live XXX TV, VOD XXX, Full XXX Adult Movies</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon
   id="plugin.video.chiasenhac"
   version="0.0.2"
@@ -129,6 +214,111 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
     <description>Search and play/download music on chiasenhac.com</description>
     <platform>all</platform>
   </extension>
+</addon>
+
+<addon id="plugin.video.dclip"
+	   name="Dclip"
+	   version="1.0.1"
+	   provider-name=" ">
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from Deviantclip.com</summary>
+    <description>Adult(18+) videos from Deviantclip.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.empflix" name="Empflix" version="2.0.9" provider-name="xbmc-adult">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="addon.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Stream adult videos from empflix.com</summary>
+        <description>Empflix.com features a variety of adult videos. This addon contains explicit adult material. You may only view this addon if you are at least 18 years of age, or at least the age of majority in the jurisdiction where you reside or from which you access this content. If you do not meet these requirements, then you do not have permission to use this addon.  All content is hosted by empflix.com.</description>
+        <disclaimer>The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+    <platform>all</platform>
+    </extension>
+</addon>
+
+<addon id="plugin.video.eporner"
+	   name="Eporner"
+	   version="1.0.1"
+	   provider-name="pcd">
+  <requires>
+        <import addon="script.module.youtube.dl" version="15.318.0"/>
+  </requires>
+
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from eporner.com</summary>
+    <description>Adult(18+) videos from eporner.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.ero-tik" name="Ero-Tik (XXX)" version="1.0.9" provider-name="Metalkettle">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.t0mm0.common" version="1.1.0"/>
+    <import addon="script.module.beautifulsoup"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Full Length Adult HD Content from Ero-Tik.com</summary>
+    <description lang="en">Full Length Adult HD Content from Ero-Tik.com</description>
+    <disclaimer>Adults Only! 18+</disclaimer>
+    <platform>all</platform>
+                <forum>http://www.adultxbmc.com</forum>
+                <website>http://www.adultxbmc.com</website>
+  </extension>
+</addon>
+
+<addon id="plugin.video.erotik" name="Erotik (XXX)" version="1.0.16" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.t0mm0.common" version="1.1.0"/>
+    <import addon="script.module.beautifulsoup"/>
+    <import addon="script.module.urlresolver" version="2.2.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en"></summary>
+    <description lang="en"></description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.fantasticc"
+       name="Fantasti.cc"
+       version="2.3.22"
+       provider-name="xbmc-adult">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="script.module.pil"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource"
+               library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <license>GPL 2.0</license>
+        <summary lang="en">Fantasti.cc -  Browse videos from a site that aggregates the best porn videos online using the votes of users as the deciding factor</summary>
+        <description lang="en">Browse collections (user designed categories) as well as the most popular videos today/week/month as decided by the users of the site</description>
+    </extension>
 </addon>
 
 <addon
@@ -222,6 +412,36 @@ Trân trọng./.</description>
 	</extension>
 </addon>
 
+<addon id="plugin.video.hotgoo"
+	   name="Hotgoo"
+	   version="1.0.2"
+	   provider-name=" ">
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from www.hotgoo.com</summary>
+    <description>Adult(18+) videos from www.hotgoo.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.hstube"
+	   name="HSTube"
+	   version="1.0.1"
+	   provider-name="pcd">
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from hardsextube.com</summary>
+    <description>Adult(18+) videos from hardsextube.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.itvplus"
        version="2.2.1"
        name="[COLOR ffff0000]*ITV*[/COLOR]Plus"
@@ -249,6 +469,19 @@ Trân trọng./.</description>
   </extension>
 </addon>
 
+<addon id="plugin.video.javstream" name="JAV Stream" version="0.72.1" provider-name="ptom">
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Jav Stream</summary>
+		<description lang="en">[COLOR yellow]Jav Stream[/COLOR] - Bringing JAV to Kodi! For all your Japanese AV Idol and Gravure Idol needs! Pulling streams from the most popular JAV websites.</description>
+		<platform>all</platform>
+		<language>en</language>
+		<email>ptom98@ptom.co.uk</email>
+	</extension>
+</addon>
+
 <addon
   id="plugin.video.kodi4vn.launcher"
   version="1.1.3"
@@ -268,6 +501,49 @@ Trân trọng./.</description>
     <description>Watch hundreds of Vietnamesse and English channels from viettv24.com</description>
     <platform>all</platform>
   </extension>
+</addon>
+
+<addon id="plugin.video.korea-xxx" name="korean XXX" version="1.1.0" provider-name="IPTVxtra">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary>IPTVxtra Team</summary>
+    <description>koreanisches XXX TV</description>
+  </extension>
+</addon>
+
+<addon id="plugin.video.largecamtube"
+	   name="largecamtube"
+	   version="1.0.0"
+	   provider-name="pcd">
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from largecamtube.com</summary>
+    <description>Adult(18+) videos from largecamtube.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.likuoo" name="Likuoo" version="0.4" provider-name="ptom">
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Likuoo</summary>
+		<description lang="en">Pulling all the best porn from likuoo.com</description>
+		<platform>all</platform>
+		<language>en</language>
+		<email>ptom98@ptom.co.uk</email>
+	</extension>
 </addon>
 
 <addon id="plugin.video.live.streamspro"
@@ -311,6 +587,54 @@ Trân trọng./.</description>
   </extension>
 </addon>
 
+<addon id="plugin.video.lubetube"
+       name="Lubetube (Adult)"
+       version="1.16"
+       provider-name="xbmc-adult">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Thousands of Free Streaming Porn videos! Updated every day. Lube Tube is the youtube of free porn.</summary>
+    <description>Thousands of Free Streaming Porn videos! Updated every day. Lube Tube is the youtube of free porn.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.motherless"
+	   name="motherless"
+	   version="1.0.2"
+	   provider-name=" ">
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from motherless.com</summary>
+    <description>Adult(18+) videos from motherless.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.oxo"
+	   name="Oxo"
+	   version="1.0.1"
+	   provider-name="pcd@xtrend-alliance">
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from OxoTube.co</summary>
+    <description>Adult(18+) videos from OxoTube.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.playlistLoader" name="Playlist Loader" version="1.0.9" provider-name="Avigdor">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -324,6 +648,36 @@ Trân trọng./.</description>
 http://www.hometheater.co.il</summary>
     <description lang="en">Playlist Loader - downloaded for free from:
 http://www.hometheater.co.il</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.pornhub" version="1.0.4" name="Porn Hub" provider-name="Blazetamer">
+<requires>
+<import addon="xbmc.python" version="2.1.0"/>
+<import addon="script.module.urlresolver"	version="1.1.0"/>
+</requires>
+<extension point="xbmc.python.pluginsource" library="default.py">
+<provides>video</provides>
+</extension>
+<extension point="xbmc.addon.metadata">
+<summary> A large, organized database of Adult Videos.</summary>
+<description> **ADULTS OVER 18 ONLY*** By installing this addon you agree that you are over the age of 18 and consent to recieving adult oriented material***Based on the Popular Adult Website PornHub.com</description>
+<platform>all</platform>
+</extension>
+</addon>
+
+<addon id="plugin.video.sirinatv"
+	   name="SirinaTV"
+	   version="1.0.1"
+	   provider-name="pcd">
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from Sirina.tv</summary>
+    <description>Adult(18+) videos from Sirina.tv</description>
     <platform>all</platform>
   </extension>
 </addon>
@@ -356,6 +710,36 @@ http://www.hometheater.co.il</description>
   </extension>
 </addon>
 
+<addon id="plugin.video.tube8" name="Tube8" version="2.1.9" provider-name="xbmc-adult">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="addon.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Stream adult videos from tube8.com</summary>
+        <description>Tube8.com features a variety of adult videos. This addon contains explicit adult material. You may only view this addon if you are at least 18 years of age, or at least the age of majority in the jurisdiction where you reside or from which you access this content. If you do not meet these requirements, then you do not have permission to use this addon.  All content is hosted by tube8.com.</description>
+        <disclaimer>The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+        <platform>all</platform>
+    </extension>
+</addon>
+
+<addon id="plugin.video.tubesex"
+	   name="Tubesex"
+	   version="1.0.1"
+	   provider-name="pcd">
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from Tubesex.com</summary>
+    <description>Adult(18+) videos from Tubesex.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.tubevip4pc" name="Tube VIP for PC" version="1.0.1" provider-name="vietccloud">
   <requires>
   </requires>
@@ -369,6 +753,47 @@ http://www.hometheater.co.il</description>
 
 [B]- Kodi add-on này chỉ dùng được trong máy Windows, Macintosh, hoặc Linux PC đã cài Kodi Chrome Launcher và Google Chrome Browser.[/B]
     </description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.uwc"
+       name="Ultimate Whitecream"
+       version="1.0.99"
+       provider-name="mortael">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource"
+               library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <license>GPL 2.0</license>
+        <summary lang="en">Watch [COLOR red][B]ADULT[/B][/COLOR] Movies with Ultimate WhiteCream</summary>
+        <description lang="en">Watch [COLOR red][B]ADULT[/B][/COLOR] Movies with Ultimate WhiteCream</description>
+		<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+    </extension>
+</addon>
+
+<addon
+  id="plugin.video.videodevil"
+  version="1.7.128"
+  name="VideoDevil"
+  provider-name="xbmc-adult">
+  <requires>
+   <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension
+    point="xbmc.python.pluginsource"
+    library="default.py">
+   <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Play videos from different adult streaming sites</summary>
+    <description>This addon plays videos from YouPorn, Tube8, Boysfood, MoviesAnd, PornoTube, xHamster, KeezMovies and some other adult streaming sites. It contains explicit adult material. You may only view this addon if you are at least 18 years of age, or at least the age of majority in the jurisdiction where you reside or from which you access this content. If you do not meet these requirements, then you do not have permission to use this addon.</description>
+    <disclaimer>The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
     <platform>all</platform>
   </extension>
 </addon>
@@ -402,6 +827,55 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
     </extension>
 </addon>
 
+<addon id="plugin.video.wildfire"
+	   name="Wildfire"
+	   version="1.0.1"
+	   provider-name="pcd">
+  <requires>
+  	<import addon="xbmc.python" version="2.1.0"/>
+  	<import addon="script.module.urlresolver"  />
+  	<import addon="script.module.t0mm0.common" />
+  </requires>
+
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from wildfireporn.com</summary>
+    <description>Adult(18+) videos from wildfireporn.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.woodrocket" name="Wood Rocket" version="0.3" provider-name="ptom">
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Wood Rocket</summary>
+		<description lang="en">Pulling all the best porn from WoodRocket.com</description>
+		<platform>all</platform>
+		<language>en</language>
+		<email>ptom98@ptom.co.uk</email>
+	</extension>
+</addon>
+
+<addon id="plugin.video.xhamster"
+	   name="Xhamster"
+	   version="1.0.3"
+	   provider-name="pcd">
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from Xhamster.com</summary>
+    <description>Adult(18+) videos from Xhamster.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.xshare" name="[COLOR red][B]Xshare[/COLOR]-[COLOR green]XBMC[/COLOR] [COLOR blue]HD Video[/B][/COLOR]" version="3.3.5" provider-name="thaitni">
     <requires>
         <import addon="xbmc.python" version="2.1.0" optional="true" />
@@ -417,6 +891,40 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 		<license>GNU General Public License - v2</license>
 		<source>https://github.com/thaitni/xbmc.repo.xshare</source>
 		<email>thai@thanhthai.net</email>
+    </extension>
+</addon>
+
+<addon id="plugin.video.xvideos"
+	   name="Xvideo"
+	   version="1.0.1"
+	   provider-name="pcd">
+  <extension point="xbmc.python.pluginsource"
+			 library="default.py">
+    	<provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Adult(18+) videos from xvideos.com</summary>
+    <description>Adult(18+) videos from xvideos.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.you.jizz"
+       name="YouJizz.com"
+       version="1.0.10"
+       provider-name="xbmc-adult">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource"
+               library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <license>GPL 2.0</license>
+        <summary lang="en">YouJizz.com</summary>
+        <description lang="en">****ADULT CONTENT***** Watch erotic and sexy videos from YouJizz.com</description>
     </extension>
 </addon>
 
@@ -588,6 +1096,35 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 	</extension>
 </addon>
 
+	<addon id="repository.MisterX" name="MisterX Repository" version="1.0.9" provider-name="MisterX">
+		<extension point="xbmc.addon.repository" name="MisterX addon repository">
+        	<info compressed="false">https://raw.github.com/MisterXx/MisterX/master/addons.xml</info>
+
+			<info compressed="false">https://raw.github.com/MisterXx/MisterX/master/addons.xml</info>
+			<checksum>https://raw.github.com/MisterXx/MisterX/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.github.com/MisterXx/MisterX/master/zips</datadir>
+		</extension>
+		<extension point="xbmc.addon.metadata">
+			<summary>MisterX Addon Repository</summary>
+			<description>Addons developed by MisterX - Powered by XBMCHUB.COM</description>
+			<platform>all</platform>
+		</extension>
+	</addon>
+
+<addon id="repository.ptom" name="PTOM Repo" version="0.2" provider-name="ptom">
+	<extension point="xbmc.addon.repository" name="PTOM Repo">
+		<info compressed="false">http://ptom.co.uk/repo/addons.xml</info>
+		<checksum>http://ptom.co.uk/repo/addons.xml.md5</checksum>
+		<datadir zip="true">http://ptom.co.uk/repo</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>It's the PTOM Repo \o/</summary>
+		<description>This Repo consists of numerous addons for Kodi created by ptom.</description>
+		<disclaimer>The owner and submitters to this repository do not host or distribute any of the content displayed by these addons nor do they have any affiliation with the content providers.</disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
 <addon id="repository.shani" name="Shanis Addon Repository" version="2.8" provider-name="Shani">
 	<extension point="xbmc.addon.repository" name="Shanis Addon Repository">
     <dir>
@@ -604,6 +1141,19 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 	<extension point="xbmc.addon.metadata">
 		<summary>Addons related to XBMC for Zemtv etc</summary>
 		<description>Go though the plugins and see what you like</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.smokdpi" name="smokdpi's Add-ons" version="1.0.0" provider-name="smokdpi">
+	<extension point="xbmc.addon.repository" name="smokdpi's Add-ons">
+		<info compressed="false">https://raw.githubusercontent.com/smokdpi/kodi/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/smokdpi/kodi/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/smokdpi/kodi/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Install smokdpi's add-ons</summary>
+		<description>Download and install add-ons by smokdpi[CR][CR][B]Artwork by @konsumer420[/B]</description>
 		<platform>all</platform>
 	</extension>
 </addon>
@@ -657,6 +1207,20 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 	</extension>
 </addon>
 
+<addon id="repository.whitecream" name="WhiteCream repo" version="0.0.1" provider-name="mortael">
+	<extension point="xbmc.addon.repository" name="WhiteCream repo">
+		<info compressed="false">http://raw.github.com/whitecream01/WhiteCream-V0.0.1/master/addons.xml</info>
+		<checksum>http://raw.github.com/whitecream01/WhiteCream-V0.0.1/master/addons.xml.md5</checksum>
+		<datadir zip="true">http://raw.github.com/whitecream01/WhiteCream-V0.0.1/master</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>The Official WhiteCream repository</summary>
+		<description>This repository contains addons that are for adults only. You may only view the contents of this repository if you are at least 18 years of age, or at least the age of majority in the jurisdiction where you reside or from which you access this content.</description>
+		<disclaimer>The owners and submitters to this repository do not host or distribute any of the content displayed by these addons nor do they have any affiliation with the content providers.</disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
 <addon id="repository.xbmc-israel" name=".[COLOR blue]XBMC Israeli [/COLOR][COLOR white] Streaming Sites[/COLOR]" version="1.0.4" provider-name="cubicle-vdo">
     <extension point="xbmc.addon.repository" name="XBMC Israeli streaming repo for streaming sites">
         <info compressed="false">https://raw.githubusercontent.com/cubicle-vdo/xbmc-israel/master/addons.xml</info>
@@ -668,6 +1232,35 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
         <description>Download and install addons for XBMC Israeli streaming repo for streaming sites</description>
         <platform>all</platform>
     </extension>
+</addon>
+
+<addon id="repository.xbmcadult" name="XBMC-Adult Addons" version="1.0.6" provider-name="xbmc-adult">
+	<extension point="xbmc.addon.repository" name="XBMC Adult Addons">
+		<info compressed="false">http://raw.github.com/xbmc-adult/xbmc-adult/ghmaster/addons.xml</info>
+		<checksum>http://raw.github.com/xbmc-adult/xbmc-adult/ghmaster/addons.xml.md5</checksum>
+		<datadir zip="true">http://raw.github.com/xbmc-adult/xbmc-adult/ghmaster</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>XBMC Addons for Adults Only</summary>
+		<description>This repository contains addons that are for adults only. You may only view the contents of this repository if you are at least 18 years of age, or at least the age of majority in the jurisdiction where you reside or from which you access this content.</description>
+		<disclaimer>The owners and submitters to this repository do not host or distribute any of the content displayed by these addons nor do they have any affiliation with the content providers.</disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.xxxadultxbmc" name="AdultXBMC.com Add-on Repository" version="1.0.0" provider-name="adultxbmc.com">
+	<extension point="xbmc.addon.repository" name="AdultXBMC.com Add-on Repository">
+		<info compressed="false">https://offshoregit.com/adultxbmc/raw/master/addons.xml</info>
+		<checksum>https://offshoregit.com/adultxbmc/raw/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://offshoregit.com/adultxbmc/raw/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Adult Content for Kodi from High Quality Sources Only</summary>
+		<description>Collection of Adult Addons for Kodi by Various Developers</description>
+		<platform>all</platform>
+                <forum>http://www.adultxbmc.com</forum>
+                <website>http://www.adultxbmc.com</website>
+	</extension>
 </addon>
 
 <addon id="script.ivueguide" name="Ivue TV Guide" version="0.0.6" provider-name="iVue Tv Guide">

@@ -26,6 +26,7 @@
 		<setting id="enable_thongbao" type="bool" label="Enable Thong Bao Moi" default="true" />
 		<setting id="enable_tvguide" type="bool" label="Enable TV Guide" default="true" />
 		<setting id="enable_vietmedia" type="bool" label="Enable VietMedia - YouTube" default="true" />
+		<setting id="enable_other_sources" type="bool" label="Enable Other Sources" default="true" />
 		<setting id="enable_other_addons" type="bool" label="Enable Other Addons" default="true" />
 		<setting id="enable_public_uploads" type="bool" label="Enable Public Uploads (Win/Mac PC)" default="true" />
 		<setting id="enable_links_to_tutorials" type="bool" label="Enable Links to Tutorials (Win/Mac PC)" default="true" />
