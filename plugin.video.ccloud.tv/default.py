@@ -256,6 +256,7 @@ def main():
 		addDir('[COLOR magenta][B]Adult(18+)[/B][/COLOR]', 'adult', 98, '%s/adult.png'% iconpath, fanart)
 
 def other_sources():
+	#content = read_file(os.path.expanduser(r'~\Desktop\othersources.txt'))
 	content = make_request(othersources)
 	match = re.compile(m3u_regex).findall(content)
 	for thumb, name, url in match:
@@ -943,15 +944,26 @@ def adult():
 		content = make_request(media_link()[4])
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
-			if 'tvg-logo' in thumb:
-				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-				if thumb.startswith('http'):
-					addLink(name, url, 1, thumb, thumb)
+			if 'plugin://plugin' in url:
+				if 'tvg-logo' in thumb:
+					thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+					if thumb.startswith('http'):
+						addDir(name, url, 111, thumb, thumb)
+					else:
+						thumb = '%s/%s' % (iconpath, thumb)
+						addDir(name, url, 111, thumb, thumb)
 				else:
-					thumb = '%s/%s' % (iconpath, thumb)
-					addLink(name, url, 1, thumb, thumb)
+					addDir(name, url, 111, icon, fanart)
 			else:
-				addLink(name, url, 1, icon, fanart)
+				if 'tvg-logo' in thumb:
+					thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+					if thumb.startswith('http'):
+						addLink(name, url, 1, thumb, thumb)
+					else:
+						thumb = '%s/%s' % (iconpath, thumb)
+						addLink(name, url, 1, thumb, thumb)
+				else:
+					addLink(name, url, 1, icon, fanart)
 	except:
 		pass
 

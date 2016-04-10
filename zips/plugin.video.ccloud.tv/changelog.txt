@@ -1,3 +1,5 @@
+[B]1.7.0[/B]
+- Added another source to Adult section.
 [B]1.6.9[/B]
 - Added Other Sources section.
 - Added Adult Addons section.
