@@ -918,29 +918,6 @@ def radio():
 def adult():
 	addDir('[COLOR red][B]Adult Addons[/B][/COLOR]', 'adult_addons', 120, '%s/xxx.png'% iconpath, fanart)
 	try:
-		searchText = ('(Adult)') or ('(Public-Adult)')
-		if len(CCLOUDTV_SRV_URL) > 0:
-			content = select_server()
-			match = re.compile(adult_regex).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):
-				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
-					adult_playlist(name, url, thumb)
-		if len(CCLOUDTV_SRV_URL) > 0:
-			content = select_server()
-			match = re.compile(adult_regex2).findall(content)
-			for thumb, name, url in sorted(match, key = itemgetter(1)):
-				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
-					adult_playlist(name, url, thumb)
-	except:
-		pass
-	try:
-		content = make_request('http://www.giniko.com/watch.php?id=95')
-		match = re.compile('image: "([^"]*)",\s*file: "([^"]+)"').findall(content)
-		for thumb, url in match:
-			addLink('[COLOR magenta][B]Miami TV (Adult 18+)[/B][/COLOR]', url, 1, thumb, thumb)
-	except:
-		pass
-	try:
 		content = make_request(media_link()[4])
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
@@ -964,6 +941,29 @@ def adult():
 						addLink(name, url, 1, thumb, thumb)
 				else:
 					addLink(name, url, 1, icon, fanart)
+	except:
+		pass
+	try:
+		content = make_request('http://www.giniko.com/watch.php?id=95')
+		match = re.compile('image: "([^"]*)",\s*file: "([^"]+)"').findall(content)
+		for thumb, url in match:
+			addLink('[COLOR magenta][B]Miami TV (Adult 18+)[/B][/COLOR]', url, 1, thumb, thumb)
+	except:
+		pass
+	try:
+		searchText = ('(Adult)') or ('(Public-Adult)')
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
+			match = re.compile(adult_regex).findall(content)
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
+					adult_playlist(name, url, thumb)
+		if len(CCLOUDTV_SRV_URL) > 0:
+			content = select_server()
+			match = re.compile(adult_regex2).findall(content)
+			for thumb, name, url in sorted(match, key = itemgetter(1)):
+				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
+					adult_playlist(name, url, thumb)
 	except:
 		pass
 

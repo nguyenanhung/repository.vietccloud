@@ -1,3 +1,5 @@
+[B]1.7.1[/B]
+- Reorganized Adult section.
 [B]1.7.0[/B]
 - Added another source to Adult section.
 [B]1.6.9[/B]
