@@ -49,7 +49,7 @@ viet_mode = mysettings.getSetting('viet_mode')
 local_thongbaomoi = xbmc.translatePath(os.path.join(home, 'thongbaomoi.txt'))
 local_vietradio = xbmc.translatePath(os.path.join(home, 'vietradio.m3u'))
 fanart = xbmc.translatePath(os.path.join(home, 'fanart.jpg'))
-iconpath = xbmc.translatePath(os.path.join(home, 'resources/icons'))
+#iconpath = xbmc.translatePath(os.path.join(home, 'resources/icons'))
 icon = xbmc.translatePath(os.path.join(home, 'icon.png'))
 
 xml_regex = '<title>(.*?)</title>\s*<link>(.*?)</link>\s*<thumbnail>(.*?)</thumbnail>'
@@ -65,6 +65,7 @@ yt = 'https://www.youtube.com/'
 text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
 dic = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
+iconpath = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM1pwWlhScFkyOXVjdz09'.decode('base64').decode('base64')
 SRVlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM05sY25abGNuTXVkSGgw'.decode('base64').decode('base64')
 medialink = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjFsWkdsaGJHbHVheTUwZUhRPQ=='.decode('base64').decode('base64')
 iptvsimple = xbmc.translatePath("special://home/userdata/addon_data/pvr.iptvsimple/iptv.m3u.cache")
@@ -337,7 +338,7 @@ def tutorial_links():
 				addLink(name, url, 1, icon, fanart)
 
 def vietmedia_list():
-	addDir('[COLOR magenta][B]Playlists[/B][/COLOR]', (yt + 'channel/UCcuszmClmU_j7vc9NbYA6Tw/playlists'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
+	addDir('[COLOR magenta][B]Playlists[/B][/COLOR]', (yt + 'channel/UCcuszmClmU_j7vc9NbYA6Tw/playlists?sort=dd&view=1'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
 	link = make_request(yt + 'channel/UCcuszmClmU_j7vc9NbYA6Tw/videos')
 	link = ''.join(link.splitlines()).replace('\t','')
 	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(link)
