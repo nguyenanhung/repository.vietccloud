@@ -29,7 +29,7 @@ getSetting = xbmcaddon.Addon().getSetting
 enable_adult_section = mysettings.getSetting('enable_adult_section')
 enable_tvguide = mysettings.getSetting('enable_tvguide')
 enable_thongbao = mysettings.getSetting('enable_thongbao')
-enable_vietmedia = mysettings.getSetting('enable_vietmedia')
+enable_youtube_channels = mysettings.getSetting('enable_youtube_channels')
 enable_channel_tester = mysettings.getSetting('enable_channel_tester')
 enable_local_tester = mysettings.getSetting('enable_local_tester')
 server_notification = mysettings.getSetting('enable_server_notification')
@@ -68,6 +68,8 @@ dic = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '
 iconpath = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM1pwWlhScFkyOXVjdz09'.decode('base64').decode('base64')
 SRVlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM05sY25abGNuTXVkSGgw'.decode('base64').decode('base64')
 medialink = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjFsWkdsaGJHbHVheTUwZUhRPQ=='.decode('base64').decode('base64')
+tubemenu = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM2x2ZFhSMVltVXZjR3hoZVd4cGMzUnpMM1IxWW1WdFpXNTFMbmh0YkE9PQ=='.decode('base64').decode('base64')
+ytsearchicon = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM2x2ZFhSMVltVXZhV052Ym5NdldWUlRaV0Z5WTJndWNHNW4='.decode('base64').decode('base64')
 iptvsimple = xbmc.translatePath("special://home/userdata/addon_data/pvr.iptvsimple/iptv.m3u.cache")
 public_uploads = 'plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3a%2f%2fscript.google.com%2fmacros%2fs%2fAKfycbxwkVU0o3lckrB5oCQBnQlZ-n8CMx5CZ_ajq6Y3o7YHSTFbcODk%2fexec'
 otheraddons = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjkwYUdWeVlXUmtiMjV6TG5SNGRBPT0='.decode('base64').decode('base64')
@@ -221,8 +223,8 @@ def main():
 		addDir('[COLOR lime][B]Local M3U Playlist Tester[/B][/COLOR]', 'localtester', 41, '%s/localtester.png'% iconpath, fanart)
 	if enable_online_tester == 'true':
 		addDir('[COLOR lime][B]Online M3U Playlist Tester[/B][/COLOR]', 'onlinetester', 42, '%s/onlinetester.png'% iconpath, fanart)
-	if enable_vietmedia == 'true':
-		addDir('[COLOR orange][B]VietMedia[/B][/COLOR]', 'NoLinkRequired', 20, '%s/vietmedia.png'% iconpath, fanart)
+	if enable_youtube_channels == 'true':
+		addDir('[COLOR orange][B]YouTube Channels[/B][/COLOR]', 'NoLinkRequired', 18, '%s/youtubechannels.png'% iconpath, fanart)
 	if enable_other_sources == 'true':
 		addDir('[COLOR orangered][B]Other Sources[/B][/COLOR]', 'NoLinkRequired', 110, '%s/othersources.png'% iconpath, fanart)
 	if enable_other_addons == 'true':
@@ -337,9 +339,46 @@ def tutorial_links():
 			else:
 				addLink(name, url, 1, icon, fanart)
 
-def vietmedia_list():
-	addDir('[COLOR magenta][B]Playlists[/B][/COLOR]', (yt + 'channel/UCcuszmClmU_j7vc9NbYA6Tw/playlists?sort=dd&view=1'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
-	link = make_request(yt + 'channel/UCcuszmClmU_j7vc9NbYA6Tw/videos')
+def search_youtube(): 
+	try:
+		keyb = xbmc.Keyboard('', 'Enter Channel Name')
+		keyb.doModal()
+		if (keyb.isConfirmed()):
+			searchText = urllib.quote_plus(keyb.getText()) 
+		url = 'https://www.youtube.com/results?search_query=' + searchText
+		youtube_search(url)
+	except:
+		pass
+
+def youtube_search(url):
+	content = make_request(url)
+	match = re.compile('href="/watch\?v=(.+?)" class=".+?" data-sessionlink=".+?" title="(.+?)".+?Duration: (.+?).</span>').findall(content)
+	for url, name, duration in match:
+		name = replace_all(name, dic)
+		thumb = 'https://i.ytimg.com/vi/' + url + '/mqdefault.jpg'
+		url = 'plugin://plugin.video.youtube/play/?video_id=' + url
+		addLink(name + ' (' + duration + ')', url, 1, thumb, fanart)
+	match = re.compile('href="/results\?search_query=(.+?)".+?aria-label="Go to (.+?)"').findall(content)
+	for url, name in match:
+		url = 'https://www.youtube.com/results?search_query=' + url
+		addDir('[COLOR cyan]' + name + '[/COLOR]', url, 26, ytsearchicon, ytsearchicon)
+
+def youtube_menu():
+	addDir('[COLOR yellow][B]YouTube - Search[/B][/COLOR]', 'ytsearch', 25, ytsearchicon, ytsearchicon)
+	content = make_request(tubemenu)
+	match = re.compile(xml_regex+'\s*<mode>(.*?)</mode>').findall(content)
+	for name, url, thumb, mode in match:
+		addDir(name, url, mode, thumb, thumb) 
+
+def youtube_channels(url):
+	content = make_request(url)
+	match = re.compile(xml_regex).findall(content)
+	for name, url, thumb in match:
+		addDir(name, url, 20, thumb, thumb)
+
+def youtube_list(url):
+	addDir('[COLOR magenta][B]Playlists[/B][/COLOR]', (url + '/playlists?sort=dd&view=1'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
+	link = make_request(url + '/videos')
 	link = ''.join(link.splitlines()).replace('\t','')
 	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(link)
 	for thumb, duration, url, name in match:
@@ -352,16 +391,19 @@ def vietmedia_list():
 	except:
 		pass
 
-def vietmedia_playlist(url):
+def youtube_playlist(url):
 	link = make_request(url)
 	link = ''.join(link.splitlines()).replace('\t','')
-	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?href="/playlist(.+?)">(.+?)<').findall(link)
+	match = re.compile('[src|data-thumb]="//i.ytimg.com/vi/(.+?)".+?href="/playlist(.+?)">(.+?)<').findall(link)    # Either src or data-thumb [src|data-thumb]
 	for thumb, url, name in match:
 		name = replace_all(name, dic)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
-		addDir(name, url, 22, thumb, thumb)
+		if 'Liked videos' in name or 'Favorites' in name:
+			pass
+		else:
+			addDir(name, url, 22, thumb, thumb)
 
-def vietmedia_playlist_index(url):
+def youtube_playlist_index(url):
 	link = make_request('https://www.youtube.com/playlist' + url)
 	link = ''.join(link.splitlines()).replace('\t','')
 	newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(link)
@@ -413,7 +455,7 @@ def next_page_playlist(url):
 		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 24, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
-        
+
 def vietmedia_tutorials():
 	thumb = 'https://yt3.ggpht.com/-Y4hzMs0ItTw/AAAAAAAAAAI/AAAAAAAAAAA/OquSyoI-Y2s/s100-c-k-no/photo.jpg'
 	addLink('[COLOR orange][B]VietMedia - YouTube - Hướng Dẫn[/B][/COLOR]', 'NoLinkRequired', 1, thumb, thumb)
@@ -1492,20 +1534,32 @@ elif mode == 3:
 elif mode == 4:
 	thongbao()
 
+elif mode == 18:
+	youtube_menu()
+
+elif mode == 19:
+	youtube_channels(url)
+
 elif mode == 20:
-	vietmedia_list()
+	youtube_list(url)
 
 elif mode == 21:
-	vietmedia_playlist(url)
+	youtube_playlist(url)
 
 elif mode == 22:
-	vietmedia_playlist_index(url)
+	youtube_playlist_index(url)
 
 elif mode == 23:
 	next_page(url)
 
 elif mode == 24:
 	next_page_playlist(url)
+
+elif mode == 25:
+	search_youtube()
+
+elif mode == 26:
+	youtube_search(url)
 
 elif mode == 27:
 	tutorial_links()

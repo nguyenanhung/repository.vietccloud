@@ -1,3 +1,5 @@
+[B]1.7.3[/B]
+- Replaced VietMedia with YouTube Channels.
 [B]1.7.2[/B]
 - Reduced addon size.
 [B]1.7.1[/B]
