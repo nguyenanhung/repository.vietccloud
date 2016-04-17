@@ -1478,7 +1478,7 @@ def addDir(name, url, mode, iconimage, fanart):
 	liz = xbmcgui.ListItem(name, iconImage = "DefaultFolder.png", thumbnailImage = iconimage)
 	liz.setInfo( type = "Video", infoLabels = { "Title": name } )
 	liz.setProperty('fanart_image', fanart)
-	if 'plugin://plugin' in url:
+	if 'plugin://plugin' in url or 'script://script' in url:
 		u = url
 	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = True)
 	return ok
